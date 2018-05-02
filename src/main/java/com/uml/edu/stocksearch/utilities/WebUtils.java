@@ -1,0 +1,191 @@
+package com.uml.edu.stocksearch.utilities;
+
+import com.uml.edu.stocksearch.utilities.exceptions.WebUtilsException;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import yahoofinance.Stock;
+import yahoofinance.histquotes.HistoricalQuote;
+
+import javax.servlet.http.HttpServlet;
+import java.io.IOException;
+import java.math.MathContext;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+public class WebUtils extends HttpServlet {
+
+    /**
+     * Utility method to convert a string representation of a date
+     * into a Calendar object.  YahooFinance-API uses Calendar objects
+     * for their as a parameter for their getQuote() methods. This method
+     * bridges the raw user input to that requirement.
+     *
+     * @param rawDate String value to parse into Calendar object.
+     * @return Calendar instance
+     * @throws WebUtilsException Will be thrown when a null value is passed
+     *                           in with LocalDate, or if Date fails to parse
+     *                           the LocalDate arg.
+     */
+    public static Calendar stringToCalendar(String rawDate) throws WebUtilsException {
+        Calendar calendar;
+        try {
+            //Formatters to convert from UI form format
+            DateTimeFormatter rawFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+            DateTimeFormatter parsedFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate localDate = LocalDate.parse(LocalDate.parse(rawDate, rawFormat).toString(), parsedFormat);
+
+            //Parse from String to LocalDate into Date and Date into Calendar.
+            Date date = java.sql.Date.valueOf(localDate);
+            calendar = Calendar.getInstance();
+            calendar.setTime(date);
+        } catch (NullPointerException | DateTimeParseException e) {
+            throw new WebUtilsException("The string arg, " + rawDate + ", could not be parsed into a Calendar instance. Lo siento.", e.getCause());
+        }
+
+        return calendar;
+    }
+
+    /**
+     * Utility method to build an HTML table from queried results.  Method will return
+     * an HTML formatted error, "No results found", string if list is null.
+     *
+     * @param rawQueryResults HistoricalQuote list returned from YahooFinance API
+     * @return A string representation of queried data formatted in HTML.
+     */
+    public static String resultsTableBuilder(Stock rawQueryResults) throws WebUtilsException {
+        final String toPrint; //Return string
+        String toPrintLocal;  //Local variable before returning final string
+        int rowCount = 1; //Counter for appending collapsible child rows
+        MathContext twoPlaces = new MathContext(2); //Round $ values for easy reading.
+
+        //Final string holding html for the results table header.
+        final String HISTORICAL_HEADER =
+                "<h2>" + rawQueryResults.getName() + "</h2>" +
+                        "<table class=\"table table-responsive table-hover\">" +
+                        "<thead>" +
+                        "<tr><th></th><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>\n" +
+                        "</thead>" +
+                        "<tbody>";
+
+        //Reusable html for various user alerts as needed.
+        final String ERROR_TABLE =
+                "<td></td>" +
+                        "<td></td>" +
+                        "<td></td>" +
+                        "<td></td></tr>" +
+                        "<tr><td></td>" +
+                        "<td></td>" +
+                        "<td></td>" +
+                        "<td></td>" +
+                        "<td></td></tr>";
+
+        //Final string holding html for 'no results found'
+        final String NO_RESULTS = "<tr><td>No results were found</td>" + ERROR_TABLE;
+
+        //Final string holding html tags to close table.
+        final String CLOSING_TAGS = "</tbody></table>";
+
+        //Generic error message for user.
+        final String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td>" + ERROR_TABLE;
+
+        //Local list for interacting with returned results from yahoo-api
+        Stock stock = rawQueryResults;
+
+        List<HistoricalQuote> historicalQuote = new ArrayList<>();
+        try {
+                historicalQuote.addAll(stock.getHistory());
+        } catch (IOException e) {
+            toPrintLocal = ERROR_MESSAGE;
+        }
+        if (historicalQuote.size() < 1 || historicalQuote == null) {
+            toPrintLocal = NO_RESULTS;
+        } else {
+
+            //Build the user's results table.
+            SimpleDateFormat usDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            //Using builder since there could be a lot of string concatenation
+            StringBuilder builder = new StringBuilder();
+
+            //Create header for table
+            builder.append(HISTORICAL_HEADER);
+
+            for (HistoricalQuote hq : historicalQuote) {
+
+                //Convert Calendar instance to a formatted date string representation.
+                String formatedDate = usDateFormat.format(java.util.Date.from(hq.getDate().toInstant()));
+                String convertedRowCount = Integer.toString(rowCount);
+                //Setup clickable table
+                builder.append("<tr class=\"clickable results-table\" data-toggle=\"collapse\" id=\"row_" + convertedRowCount +
+                        "\" data-target=\".row_" + convertedRowCount + "\">" +
+                        "<td><i class=\"glyphicon glyphicon-minus\"></i></td>");
+                builder.append("<td>" + formatedDate + "</td>");
+                builder.append("<td>$ " + hq.getOpen().round(twoPlaces) + "</td>");
+                builder.append("<td>$ " + hq.getHigh().round(twoPlaces) + "</td>");
+                builder.append("<td>$ " + hq.getLow().round(twoPlaces) + "</td>");
+                builder.append("<td>$ " + hq.getClose().round(twoPlaces) + "</td>");
+                builder.append("<td>" + hq.getVolume() + "</td></tr></th>");
+
+                builder.append("<tr class=\"collapse row_" + convertedRowCount + "\">" +
+                "<th colspan=\"4\" class=\"panel-body\">"
+
+                        +"</th></tr>");
+
+                rowCount++;
+            }
+            //Append closing tags for table
+            builder.append(CLOSING_TAGS);
+
+            toPrintLocal = builder.toString();
+        }
+        toPrint = toPrintLocal;
+        return toPrint;
+    }
+
+    public static String quickQuoteBuilder(Stock stock) {
+
+        final String quickQuote = stock.getStats().getSymbol();
+        stock.getStats().getBookValuePerShare();
+        stock.getStats().getEarningsAnnouncement();
+        stock.getStats().getEBITDA();
+        stock.getStats().getEps();
+        stock.getStats().getEpsEstimateCurrentYear();
+
+        final String finalQuickQuote = quickQuote;
+        return null;
+    }
+    /**
+     * Override inherited equals method.
+     *
+     * @return boolean
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+
+        return EqualsBuilder.reflectionEquals(this, obj);
+    }
+
+    /**
+     * Override inherited hasChode method
+     *
+     * @return Object hashcode
+     */
+    @Override
+    public int hashCode()
+    {
+
+        return HashCodeBuilder.reflectionHashCode(this);
+    }
+
+    @Override
+    public String toString() {
+        return "WebUtils{}";
+    }
+}
