@@ -51,6 +51,16 @@ public class StockSearchServlet extends HttpServlet {
         final String end = request.getParameter(END_PARAMETER_KEY);
         final String interval = request.getParameter(INTERVAL_PARAMETER_KEY);
         final String quickSymbol = request.getParameter(QUICKSYMBOL_PARAMETER_KEY);
+        final String ERROR_HTML = "<tr><td>An error occurred. Please try again.</td>" +
+                "<td></td>" +
+                "<td></td>" +
+                "<td></td>" +
+                "<td></td></tr>" +
+                "<tr><td></td>" +
+                "<td></td>" +
+                "<td></td>" +
+                "<td></td>" +
+                "<td></td></tr>";
 
         //Get an instance of StockService from its' factory method.
         StockService service = ServiceFactory.getStockServiceInstance();
@@ -60,9 +70,9 @@ public class StockSearchServlet extends HttpServlet {
             FORMATTED_HTML_QUERY = "<h1> " + stock.getStats().getSymbol() + "</h1>";
         }
         else if(symbol != null){
-
             Calendar calendarStart;
             Calendar calendarEnd;
+
             try {
                 calendarStart = WebUtils.stringToCalendar(start);
                 calendarEnd = WebUtils.stringToCalendar(end);
@@ -70,21 +80,19 @@ public class StockSearchServlet extends HttpServlet {
                 throw new ServletException("Failed to parse raw date string", e.getCause());
             }
 
-            Interval finalInterval = Interval.valueOf(interval); //Parse the chosen interval from raw form data.
+            //Parse the chosen interval from raw form data.
+            Interval finalInterval = Interval.valueOf(interval);
 
             Stock results; //List to hold queried results before parsing to HTML format
             try {
                 //Get the goods from Yahoo
                 results = service.getQuote(symbol, calendarStart, calendarEnd, finalInterval);
+                //Finalized HTML formatted String to display in jsp results page.
+                FORMATTED_HTML_QUERY = WebUtils.historicalQuoteTable(results);
             } catch (StockServiceException e) {
-                throw new ServletException("Failed to return quotes from Yahoo", e.getCause());
+                FORMATTED_HTML_QUERY = ERROR_HTML;
             }
-            //Finalized HTML formatted String to display in jsp results page.
-            try {
-                FORMATTED_HTML_QUERY = WebUtils.resultsTableBuilder(results);
-            } catch (WebUtilsException e) {
-                e.printStackTrace();
-            }
+
         }
 
          /*
