@@ -8,9 +8,8 @@ import yahoofinance.histquotes.HistoricalQuote;
 
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
-import java.math.MathContext;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -59,20 +58,10 @@ public class WebUtils extends HttpServlet {
      * @param rawQueryResults HistoricalQuote list returned from YahooFinance API
      * @return A string representation of queried data formatted in HTML.
      */
-    public static String resultsTableBuilder(Stock rawQueryResults) throws WebUtilsException {
-        final String toPrint; //Return string
-        String toPrintLocal;  //Local variable before returning final string
-        int rowCount = 1; //Counter for appending collapsible child rows
-        MathContext twoPlaces = new MathContext(2); //Round $ values for easy reading.
-
-        //Final string holding html for the results table header.
-        final String HISTORICAL_HEADER =
-                "<h2>" + rawQueryResults.getName() + "</h2>" +
-                        "<table class=\"table table-responsive table-hover\">" +
-                        "<thead>" +
-                        "<tr><th></th><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>\n" +
-                        "</thead>" +
-                        "<tbody>";
+    public static String historicalQuoteTable(Stock rawQueryResults) {
+        final String toPrint;  //Final variable to return to calling method.
+        String toPrintLocal = null;  //Local variable before returning final string
+        int flag = 0; //Flag for error
 
         //Reusable html for various user alerts as needed.
         final String ERROR_TABLE =
@@ -88,83 +77,119 @@ public class WebUtils extends HttpServlet {
 
         //Final string holding html for 'no results found'
         final String NO_RESULTS = "<tr><td>No results were found</td>" + ERROR_TABLE;
+        //Generic error message for user.
+        final String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td>" + ERROR_TABLE;
+
+        //Local stock instance for interacting with returned results from yahoo-api
+        Stock stock = rawQueryResults;
+
+        //Local list of HistoricalQuotes
+        List<HistoricalQuote> historicalQuote = new ArrayList<>();
+
+        try {
+            historicalQuote.addAll(stock.getHistory());
+        } catch (IOException e) {
+            flag = 1;
+        }
+        //Tell the user there were no results
+        if (historicalQuote.size() < 1 || historicalQuote == null) {
+            toPrintLocal = NO_RESULTS;
+        } else {
+            /* Switch statement with a flag is to handle a logic error where
+             * toPrintLocal was being over written by the above if statement.
+             */
+            switch(flag) {
+                case (0):{
+                    //Build the results table.
+                    toPrintLocal = buildTable(rawQueryResults, historicalQuote);
+                    break;
+                }
+                    case(1): {
+                        //There was an IOException. Let's handle this with some dignity, eh?
+                        toPrintLocal = ERROR_MESSAGE;
+                        break;
+                    }
+                default:
+                    toPrintLocal = ERROR_MESSAGE;
+            }
+        }
+
+        toPrint = toPrintLocal;
+
+        return toPrint;
+    }
+
+    /**
+     * Method to build the main body for a historical quote query.
+     * The dynamic results are recursively built into the body
+     * of an html table.
+     *
+     * @param rawQueryResults Yahoo-Finance API object, type Stock.
+     * @param historicalQuote Yahoo-Finance API List of objects, type HistoricalQuote.
+     *
+     * @return Returns a string with the fully formed html table.
+     */
+    private static String buildTable(Stock rawQueryResults, List<HistoricalQuote> historicalQuote) {
+        int rowCount = 1; //Counter for appending collapsible child rows
+
+        final String resultsTable;
+        //Final string holding html for the results table header.
+        final String HISTORICAL_HEADER =
+                "<h2>" + rawQueryResults.getName() + "</h2>" +
+                        "<table class=\"table table-responsive table-hover\">" +
+                        "<thead>" +
+                        "<tr><th></th><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>\n" +
+                        "</thead>" +
+                        "<tbody>";
 
         //Final string holding html tags to close table.
         final String CLOSING_TAGS = "</tbody></table>";
 
-        //Generic error message for user.
-        final String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td>" + ERROR_TABLE;
+        //Build the user's results table.
+        SimpleDateFormat usDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        //Using builder since there could be a lot of string concatenation
+        StringBuilder builder = new StringBuilder();
 
-        //Local list for interacting with returned results from yahoo-api
-        Stock stock = rawQueryResults;
+        //Create header for table
+        builder.append(HISTORICAL_HEADER);
 
-        List<HistoricalQuote> historicalQuote = new ArrayList<>();
-        try {
-                historicalQuote.addAll(stock.getHistory());
-        } catch (IOException e) {
-            toPrintLocal = ERROR_MESSAGE;
+        for (HistoricalQuote hq : historicalQuote) {
+
+            //Convert Calendar instance to a formatted date string representation.
+            String formatedDate = usDateFormat.format(Date.from(hq.getDate().toInstant()));
+            //Convert int to string to append to .row_# for css
+            String convertedRowCount = Integer.toString(rowCount);
+            //Setup clickable table
+            builder.append("<tr class=\"clickable results-table\" data-toggle=\"collapse\" id=\"row_" + convertedRowCount +
+                    "\" data-target=\".row_" + convertedRowCount + "\">" +
+                    "<td><i class=\"glyphicon glyphicon-minus\"></i></td>");
+            builder.append("<td>" + formatedDate + "</td>");
+            builder.append("<td>$ " + hq.getOpen().setScale(2, RoundingMode.CEILING) + "</td>");
+            builder.append("<td>$ " + hq.getHigh().setScale(2, RoundingMode.CEILING) + "</td>");
+            builder.append("<td>$ " + hq.getLow().setScale(2, RoundingMode.CEILING) + "</td>");
+            builder.append("<td>$ " + hq.getClose().setScale(2, RoundingMode.CEILING) + "</td>");
+            builder.append("<td>" + hq.getVolume() + "</td></tr></th>");
+
+            builder.append("<tr class=\"collapse row_" + convertedRowCount + "\">" +
+                    "<th colspan=\"4\" class=\"panel-body\">"
+                    +"</th></tr>");
+
+            rowCount++;
         }
-        if (historicalQuote.size() < 1 || historicalQuote == null) {
-            toPrintLocal = NO_RESULTS;
-        } else {
+        //Append closing tags for table
+        builder.append(CLOSING_TAGS);
 
-            //Build the user's results table.
-            SimpleDateFormat usDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            //Using builder since there could be a lot of string concatenation
-            StringBuilder builder = new StringBuilder();
+        resultsTable = builder.toString();
 
-            //Create header for table
-            builder.append(HISTORICAL_HEADER);
-
-            for (HistoricalQuote hq : historicalQuote) {
-
-                //Convert Calendar instance to a formatted date string representation.
-                String formatedDate = usDateFormat.format(java.util.Date.from(hq.getDate().toInstant()));
-                String convertedRowCount = Integer.toString(rowCount);
-                //Setup clickable table
-                builder.append("<tr class=\"clickable results-table\" data-toggle=\"collapse\" id=\"row_" + convertedRowCount +
-                        "\" data-target=\".row_" + convertedRowCount + "\">" +
-                        "<td><i class=\"glyphicon glyphicon-minus\"></i></td>");
-                builder.append("<td>" + formatedDate + "</td>");
-                builder.append("<td>$ " + hq.getOpen().round(twoPlaces) + "</td>");
-                builder.append("<td>$ " + hq.getHigh().round(twoPlaces) + "</td>");
-                builder.append("<td>$ " + hq.getLow().round(twoPlaces) + "</td>");
-                builder.append("<td>$ " + hq.getClose().round(twoPlaces) + "</td>");
-                builder.append("<td>" + hq.getVolume() + "</td></tr></th>");
-
-                builder.append("<tr class=\"collapse row_" + convertedRowCount + "\">" +
-                "<th colspan=\"4\" class=\"panel-body\">"
-
-                        +"</th></tr>");
-
-                rowCount++;
-            }
-            //Append closing tags for table
-            builder.append(CLOSING_TAGS);
-
-            toPrintLocal = builder.toString();
-        }
-        toPrint = toPrintLocal;
-        return toPrint;
+        return resultsTable;
     }
 
-    public static String quickQuoteBuilder(Stock stock) {
-
-        final String quickQuote = stock.getStats().getSymbol();
-        stock.getStats().getBookValuePerShare();
-        stock.getStats().getEarningsAnnouncement();
-        stock.getStats().getEBITDA();
-        stock.getStats().getEps();
-        stock.getStats().getEpsEstimateCurrentYear();
-
-        final String finalQuickQuote = quickQuote;
-        return null;
-    }
     /**
      * Override inherited equals method.
      *
      * @return boolean
      */
+
     @Override
     public boolean equals(Object obj)
     {
