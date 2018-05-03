@@ -137,7 +137,7 @@ public class WebUtils extends HttpServlet {
         final String HISTORICAL_HEADER =
                 "<h2>" + rawQueryResults.getName() + "</h2>" +
                         "<table class=\"table table-responsive table-hover\">" +
-                        "<thead>" +
+                        "<thead id=\"tableHead\">" +
                         "<tr><th></th><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>\n" +
                         "</thead>" +
                         "<tbody>";

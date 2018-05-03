@@ -47,7 +47,7 @@
             </div>
         </a>
         <ul class="nav navbar-nav">
-            <li><p id="brand-name">StockQuote</p>
+            <li><p id="brand-name">Stock Quote</p>
         </ul>
         <ul class="nav navbar-nav">
             <li><a class="navbar-fontcolor navbar-link" href="index.jsp">NEW SEARCH</a></li>

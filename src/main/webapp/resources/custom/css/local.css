@@ -24,8 +24,14 @@
     font-family: KnowYourProduct;
     src: url(/resources/custom/fonts/know_your_product.ttf);
 }
+
+
 .results-table {
     background-color: white;
+}
+
+#tableHead {
+    background-color: #D3D3D3;
 }
 
 .nav-background {
@@ -108,7 +114,7 @@
 
 
 body {
-    background-color: #efefef;
+    background-color: white;
 }
 
 footer {
