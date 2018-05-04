@@ -136,6 +136,8 @@ public class WebUtils extends HttpServlet {
         //Final string holding html for the results table header.
         final String HISTORICAL_HEADER =
                 "<h2>" + rawQueryResults.getName() + "</h2>" +
+                        "<h5>" + rawQueryResults.getStockExchange() + ": " +
+                        rawQueryResults.getSymbol() + "</h5> <br>" +
                         "<table class=\"table table-responsive table-hover\">" +
                         "<thead id=\"tableHead\">" +
                         "<tr><th></th><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>\n" +
