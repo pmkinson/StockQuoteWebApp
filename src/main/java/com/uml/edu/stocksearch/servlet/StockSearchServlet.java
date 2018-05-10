@@ -65,10 +65,12 @@ public class StockSearchServlet extends HttpServlet {
         //Get an instance of StockService from its' factory method.
         StockService service = ServiceFactory.getStockServiceInstance();
 
+        //If condition is true, return a quick quote.
         if(quickSymbol != null) {
             Stock stock = YahooFinance.get(quickSymbol);
-            FORMATTED_HTML_QUERY = "<h1> " + stock.getStats().getSymbol() + "</h1>";
+            FORMATTED_HTML_QUERY = WebUtils.quickQuoteTable(stock);
         }
+        //If condition is true, return a historical quote.
         else if(symbol != null){
             Calendar calendarStart;
             Calendar calendarEnd;

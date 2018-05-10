@@ -51,6 +51,93 @@ public class WebUtils extends HttpServlet {
         return calendar;
     }
 
+    public static  String quickQuoteTable(Stock stock) {
+        int flag = 0; //Flag for error
+
+        String toPrintLocal;
+
+        //Reusable html for various user alerts as needed.
+        final String ERROR_TABLE =
+                "<td></td>" +
+                        "<td></td>" +
+                        "<td></td>" +
+                        "<td></td></tr>" +
+                        "<tr><td></td>" +
+                        "<td></td>" +
+                        "<td></td>" +
+                        "<td></td>" +
+                        "<td></td></tr>";
+
+        //Final string holding html for 'no results found'
+        final String NO_RESULTS = "<tr><td>No results were found</td>" + ERROR_TABLE;
+        //Generic error message for user.
+        final String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td>" + ERROR_TABLE;
+
+        final String toPrint;  //Final variable to return to calling method.
+        final String QUOTE_TABLE_HEADER =
+                //Header
+                "<h2>" + stock.getName() + "</h2>" +
+                        "<h5>" + stock.getStockExchange() + ": " +
+                        stock.getSymbol() + "</h5> <br>" +
+                        //Empty table header, setup columns.
+                        "<table class=\"table\">" +
+                        "<tbody>";
+        //Local stock instance for interacting with returned results from yahoo-api
+        Stock localStock = stock;
+
+        //Local list of HistoricalQuotes
+        List<HistoricalQuote> historicalQuote = new ArrayList<>();
+
+        try {
+            historicalQuote.addAll(stock.getHistory());
+        } catch (IOException e) {
+            flag = 1;
+        }
+        //Tell the user there were no results
+        if (historicalQuote.size() < 1 || historicalQuote == null) {
+            toPrintLocal = NO_RESULTS;
+        } else {
+            /* Switch statement with a flag is to handle a logic error where
+             * toPrintLocal was being over written by the above if statement.
+             */
+            switch(flag) {
+                case (0):{
+                    //Build the results table.
+
+                    break;
+                }
+                case(1): {
+                    //There was an IOException. Let's handle this with some dignity, eh?
+                    toPrintLocal = ERROR_MESSAGE;
+                    break;
+                }
+                default:
+                    toPrintLocal = ERROR_MESSAGE;
+            }
+        }
+
+        final String CONTENT =
+                "<h3>$" + stock.getQuote().getPrice() + "</h3>" +
+                "<tr><td>Open: $" + stock.getQuote().getOpen() + "</td>" +
+                "<td>Previous Close: $" + stock.getQuote().getPreviousClose() + "</td>" +
+                "<td>Volume (Average): " + stock.getQuote().getAvgVolume() + "</td></tr>" +
+
+                "<tr><td>Day's Range: $" + stock.getQuote().getDayLow() + " - $" +
+                stock.getQuote().getDayHigh() + "</td>" +
+                "<td>52 Week Range: $" + stock.getQuote().getYearLow() + " - $" +
+                stock.getQuote().getYearHigh() + "</td>" +
+                "<td>MarketCap: " + stock.getStats().getMarketCap() + "</td></tr>" +
+
+                "<tr><td>Dividend Rate (Yield): " + stock.getDividend().getAnnualYield() + "</td>" +
+                "<td>Shares Outstanding: " + stock.getStats().getSharesOutstanding() + "</td>" +
+                "<td>P/E Ratio(EPS): " + stock.getStats().getEps() + "</td></tr><tr></tr>";
+
+        //Final string holding html tags to close table.
+        final String CLOSING_TAGS = "</tbody></table>";
+
+
+        return QUOTE_TABLE_HEADER + CONTENT + CLOSING_TAGS;
+    }
     /**
      * Utility method to build an HTML table from queried results.  Method will return
      * an HTML formatted error, "No results found", string if list is null.
@@ -130,17 +217,19 @@ public class WebUtils extends HttpServlet {
      * @return Returns a string with the fully formed html table.
      */
     private static String buildTable(Stock rawQueryResults, List<HistoricalQuote> historicalQuote) {
-        int rowCount = 1; //Counter for appending collapsible child rows
 
         final String resultsTable;
         //Final string holding html for the results table header.
-        final String HISTORICAL_HEADER =
+        final String STOCK_NAME_HEADER =
                 "<h2>" + rawQueryResults.getName() + "</h2>" +
-                        "<h5>" + rawQueryResults.getStockExchange() + ": " +
-                        rawQueryResults.getSymbol() + "</h5> <br>" +
-                        "<table class=\"table table-responsive table-hover\">" +
+                "<h5>" + rawQueryResults.getStockExchange() + ": " +
+                rawQueryResults.getSymbol() + "</h5> <br>";
+
+        final String HISTORICAL_TABLE_HEADER =
+                        STOCK_NAME_HEADER +
+                        "<table class=\"table table-hover\">" +
                         "<thead id=\"tableHead\">" +
-                        "<tr><th></th><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>\n" +
+                        "<tr><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>" +
                         "</thead>" +
                         "<tbody>";
 
@@ -153,30 +242,21 @@ public class WebUtils extends HttpServlet {
         StringBuilder builder = new StringBuilder();
 
         //Create header for table
-        builder.append(HISTORICAL_HEADER);
+        builder.append(HISTORICAL_TABLE_HEADER);
 
         for (HistoricalQuote hq : historicalQuote) {
 
             //Convert Calendar instance to a formatted date string representation.
             String formatedDate = usDateFormat.format(Date.from(hq.getDate().toInstant()));
-            //Convert int to string to append to .row_# for css
-            String convertedRowCount = Integer.toString(rowCount);
-            //Setup clickable table
-            builder.append("<tr class=\"clickable results-table\" data-toggle=\"collapse\" id=\"row_" + convertedRowCount +
-                    "\" data-target=\".row_" + convertedRowCount + "\">" +
-                    "<td><i class=\"glyphicon glyphicon-minus\"></i></td>");
+
+            //Build table
+            builder.append("<tr class=\"results-table\" >");
             builder.append("<td>" + formatedDate + "</td>");
             builder.append("<td>$ " + hq.getOpen().setScale(2, RoundingMode.CEILING) + "</td>");
             builder.append("<td>$ " + hq.getHigh().setScale(2, RoundingMode.CEILING) + "</td>");
             builder.append("<td>$ " + hq.getLow().setScale(2, RoundingMode.CEILING) + "</td>");
             builder.append("<td>$ " + hq.getClose().setScale(2, RoundingMode.CEILING) + "</td>");
             builder.append("<td>" + hq.getVolume() + "</td></tr></th>");
-
-            builder.append("<tr class=\"collapse row_" + convertedRowCount + "\">" +
-                    "<th colspan=\"4\" class=\"panel-body\">"
-                    +"</th></tr>");
-
-            rowCount++;
         }
         //Append closing tags for table
         builder.append(CLOSING_TAGS);

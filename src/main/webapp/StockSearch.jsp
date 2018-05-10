@@ -86,12 +86,12 @@
                     </div>
                     <div class="form-group">
                         <label for="startDate">Start Date:</label>
-                        <input type="text" class="form-control" name="startDate" id="startDate" required
+                        <input type="text" class="form-control" name="startDate" id="startDate" autocomplete="off" required
                                onkeydown="return false">
                     </div>
                     <div class="form-group">
                         <label for="endDate">End Date:</label>
-                        <input type="text" class="form-control" name="endDate" id="endDate" required
+                        <input type="text" class="form-control" name="endDate" id="endDate" autocomplete="off" required
                                onkeydown="return false">
                     </div>
                     <div class="form-group">
@@ -121,9 +121,7 @@
     <div class="bar"></div>
     <div class="footer-copyright">
         SomeWebsite.com - ©2018
-        <div class="bar"></div>
     </div>
-    <div class="bar"></div>
 </footer>
 </html>
 
