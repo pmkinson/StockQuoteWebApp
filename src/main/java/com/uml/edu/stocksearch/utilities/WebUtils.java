@@ -8,6 +8,7 @@ import yahoofinance.histquotes.HistoricalQuote;
 
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -51,7 +52,7 @@ public class WebUtils extends HttpServlet {
         return calendar;
     }
 
-    public static  String quickQuoteTable(Stock stock) {
+    public static String quickQuoteTable(Stock stock) {
         int flag = 0; //Flag for error
 
         String toPrintLocal;
@@ -94,19 +95,20 @@ public class WebUtils extends HttpServlet {
             flag = 1;
         }
         //Tell the user there were no results
-        if (historicalQuote.size() < 1 || historicalQuote == null) {
+        if (historicalQuote.size() < 1 || historicalQuote == null
+                || stock == null) {
             toPrintLocal = NO_RESULTS;
         } else {
             /* Switch statement with a flag is to handle a logic error where
              * toPrintLocal was being over written by the above if statement.
              */
-            switch(flag) {
-                case (0):{
+            switch (flag) {
+                case (0): {
                     //Build the results table.
 
                     break;
                 }
-                case(1): {
+                case (1): {
                     //There was an IOException. Let's handle this with some dignity, eh?
                     toPrintLocal = ERROR_MESSAGE;
                     break;
@@ -116,28 +118,41 @@ public class WebUtils extends HttpServlet {
             }
         }
 
+        //Local variables to format for final output
+        BigDecimal currentPrice = stock.getQuote().getPrice();
+        BigDecimal open = stock.getQuote().getOpen();
+        BigDecimal previousClose = stock.getQuote().getPreviousClose();
+        BigDecimal volume = new BigDecimal(stock.getQuote().getAvgVolume());
+        BigDecimal dayLow = stock.getQuote().getDayLow();
+        BigDecimal dayHigh = stock.getQuote().getDayHigh();
+        BigDecimal yearLow = stock.getQuote().getYearLow();
+        BigDecimal yearHigh = stock.getQuote().getYearHigh();
+        BigDecimal marketCap = stock.getStats().getMarketCap();
+        BigDecimal sharesOutstanding = new BigDecimal(stock.getStats().getSharesOutstanding());
+        BigDecimal eps = stock.getStats().getEps();
+
         final String CONTENT =
-                "<h3>$" + stock.getQuote().getPrice() + "</h3>" +
-                "<tr><td>Open: $" + stock.getQuote().getOpen() + "</td>" +
-                "<td>Previous Close: $" + stock.getQuote().getPreviousClose() + "</td>" +
-                "<td>Volume (Average): " + stock.getQuote().getAvgVolume() + "</td></tr>" +
+                "<h3>$" + String.format("%,.2f", currentPrice) + "</h3>" +
+                        "<tr><td>Open: $" + String.format("%,.2f", open) + "</td>" +
+                        "<td>Previous Close: $" + String.format("%,.2f", previousClose) + "</td>" +
+                        "<td>Volume (Average): " + String.format("%,.0f", volume) + "</td></tr>" +
 
-                "<tr><td>Day's Range: $" + stock.getQuote().getDayLow() + " - $" +
-                stock.getQuote().getDayHigh() + "</td>" +
-                "<td>52 Week Range: $" + stock.getQuote().getYearLow() + " - $" +
-                stock.getQuote().getYearHigh() + "</td>" +
-                "<td>MarketCap: " + stock.getStats().getMarketCap() + "</td></tr>" +
+                        "<tr><td>Day's Range: $" + String.format("%,.2f", dayLow) + " - $" +
+                        String.format("%,.2f", dayHigh) + "</td>" +
+                        "<td>52 Week Range: $" + String.format("%,.2f", yearLow) + " - $" +
+                        String.format("%,.2f", yearHigh) + "</td>" +
+                        "<td>MarketCap: " + String.format("%,.0f", marketCap) + "</td></tr>" +
 
-                "<tr><td>Dividend Rate (Yield): " + stock.getDividend().getAnnualYield() + "</td>" +
-                "<td>Shares Outstanding: " + stock.getStats().getSharesOutstanding() + "</td>" +
-                "<td>P/E Ratio(EPS): " + stock.getStats().getEps() + "</td></tr><tr></tr>";
+                        "<tr><td>Dividend Rate (Yield): " + stock.getDividend().getAnnualYield() + "</td>" +
+                        "<td>Shares Outstanding: " + String.format("%,.0f", sharesOutstanding) + "</td>" +
+                        "<td>P/E Ratio(EPS): " + String.format("%.2f", eps) + "</td></tr><tr></tr>";
 
         //Final string holding html tags to close table.
         final String CLOSING_TAGS = "</tbody></table>";
 
-
         return QUOTE_TABLE_HEADER + CONTENT + CLOSING_TAGS;
     }
+
     /**
      * Utility method to build an HTML table from queried results.  Method will return
      * an HTML formatted error, "No results found", string if list is null.
@@ -185,17 +200,17 @@ public class WebUtils extends HttpServlet {
             /* Switch statement with a flag is to handle a logic error where
              * toPrintLocal was being over written by the above if statement.
              */
-            switch(flag) {
-                case (0):{
+            switch (flag) {
+                case (0): {
                     //Build the results table.
                     toPrintLocal = buildTable(rawQueryResults, historicalQuote);
                     break;
                 }
-                    case(1): {
-                        //There was an IOException. Let's handle this with some dignity, eh?
-                        toPrintLocal = ERROR_MESSAGE;
-                        break;
-                    }
+                case (1): {
+                    //There was an IOException. Let's handle this with some dignity, eh?
+                    toPrintLocal = ERROR_MESSAGE;
+                    break;
+                }
                 default:
                     toPrintLocal = ERROR_MESSAGE;
             }
@@ -213,7 +228,6 @@ public class WebUtils extends HttpServlet {
      *
      * @param rawQueryResults Yahoo-Finance API object, type Stock.
      * @param historicalQuote Yahoo-Finance API List of objects, type HistoricalQuote.
-     *
      * @return Returns a string with the fully formed html table.
      */
     private static String buildTable(Stock rawQueryResults, List<HistoricalQuote> historicalQuote) {
@@ -222,11 +236,11 @@ public class WebUtils extends HttpServlet {
         //Final string holding html for the results table header.
         final String STOCK_NAME_HEADER =
                 "<h2>" + rawQueryResults.getName() + "</h2>" +
-                "<h5>" + rawQueryResults.getStockExchange() + ": " +
-                rawQueryResults.getSymbol() + "</h5> <br>";
+                        "<h5>" + rawQueryResults.getStockExchange() + ": " +
+                        rawQueryResults.getSymbol() + "</h5> <br>";
 
         final String HISTORICAL_TABLE_HEADER =
-                        STOCK_NAME_HEADER +
+                STOCK_NAME_HEADER +
                         "<table class=\"table table-hover\">" +
                         "<thead id=\"tableHead\">" +
                         "<tr><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>" +
@@ -249,14 +263,22 @@ public class WebUtils extends HttpServlet {
             //Convert Calendar instance to a formatted date string representation.
             String formatedDate = usDateFormat.format(Date.from(hq.getDate().toInstant()));
 
+            BigDecimal open = hq.getOpen().setScale(2, RoundingMode.CEILING);
+            BigDecimal high = hq.getHigh().setScale(2, RoundingMode.CEILING);
+            BigDecimal low = hq.getLow().setScale(2, RoundingMode.CEILING);
+            BigDecimal close = hq.getClose().setScale(2, RoundingMode.CEILING);
+            BigDecimal volume = new BigDecimal(hq.getVolume());
+
             //Build table
             builder.append("<tr class=\"results-table\" >");
             builder.append("<td>" + formatedDate + "</td>");
-            builder.append("<td>$ " + hq.getOpen().setScale(2, RoundingMode.CEILING) + "</td>");
-            builder.append("<td>$ " + hq.getHigh().setScale(2, RoundingMode.CEILING) + "</td>");
-            builder.append("<td>$ " + hq.getLow().setScale(2, RoundingMode.CEILING) + "</td>");
-            builder.append("<td>$ " + hq.getClose().setScale(2, RoundingMode.CEILING) + "</td>");
-            builder.append("<td>" + hq.getVolume() + "</td></tr></th>");
+
+            builder.append("<td>$ " + String.format("%,.2f", open) + "</td>");
+            builder.append("<td>$ " + String.format("%,.2f", high) + "</td>");
+            builder.append("<td>$ " + String.format("%,.2f", low) + "</td>");
+            builder.append("<td>$ " + String.format("%,.2f", close) + "</td>");
+            builder.append("<td>" + String.format("%,.0f", volume) + "</td></tr></th>");
+
         }
         //Append closing tags for table
         builder.append(CLOSING_TAGS);
@@ -273,8 +295,7 @@ public class WebUtils extends HttpServlet {
      */
 
     @Override
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj) {
 
         return EqualsBuilder.reflectionEquals(this, obj);
     }
@@ -285,8 +306,7 @@ public class WebUtils extends HttpServlet {
      * @return Object hashcode
      */
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
 
         return HashCodeBuilder.reflectionHashCode(this);
     }

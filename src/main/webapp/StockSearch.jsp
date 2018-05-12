@@ -118,9 +118,9 @@
 </div>
 </body>
 <footer>
-    <div class="bar"></div>
     <div class="footer-copyright">
-        SomeWebsite.com - ©2018
+        <span id="footer-logo">SomeWebsite.com - ©2018</span>
+        <div class="copyrightBar bar"></div>
     </div>
 </footer>
 </html>

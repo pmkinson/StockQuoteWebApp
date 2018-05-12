@@ -126,9 +126,10 @@ footer {
 }
 
 .footer-copyright {
-    padding-bottom: 10px;
-    bottom: 0px;
+    position: relative;
+    bottom: -7px;
     margin-left: 40%;
+
     color: #d9edf7;
     font-family: AirAmerica;
     font-size: medium;
@@ -175,4 +176,12 @@ footer {
 
 .row {
     min-height: 500px;
+}
+
+.copyrightBar {
+    width: 160px; !important;
+}
+
+#footer-logo {
+    padding-top: 10px;
 }

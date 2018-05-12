@@ -99,12 +99,10 @@
 </body>
 
 <footer>
-    <div class="bar"></div>
     <div class="footer-copyright">
-        SomeWebsite.com - ©2018
-        <div class="bar"></div>
+        <span id="footer-logo">SomeWebsite.com - ©2018</span>
+        <div class="copyrightBar bar"></div>
     </div>
-    <div class="bar"></div>
 </footer>
 
 <!-- Toggle +/- glyphs for each parent row -->
