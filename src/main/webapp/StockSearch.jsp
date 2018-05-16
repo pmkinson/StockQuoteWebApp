@@ -75,49 +75,46 @@
 </div>
 <div class="container-fluid">
 
-    <div class="row">
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
-            <div class="col-sm-6">
-                <form name="myform" action="StockSearchServlet" method="post">
-                    <div class="form-group">
-                        <label for="symbols">Stock Symbol:</label>
-                        <input type="text" class="form-control" name="stockSymbol" id="symbols" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="startDate">Start Date:</label>
-                        <input type="text" class="form-control" name="startDate" id="startDate" autocomplete="off" required
-                               onkeydown="return false">
-                    </div>
-                    <div class="form-group">
-                        <label for="endDate">End Date:</label>
-                        <input type="text" class="form-control" name="endDate" id="endDate" autocomplete="off" required
-                               onkeydown="return false">
-                    </div>
-                    <div class="form-group">
-                        <label for="intervalName">Quote Interval:</label>
-                        <select name="interval" id="intervalName" class="form-control">
-                            <option value="DAILY">Daily</option>
-                            <option value="WEEKLY">Weekly</option>
-                            <option value="MONTHLY">Monthly</option>
-                        </select><br>
+            <form name="myform" action="StockSearchServlet" method="post">
+                <div class="form-group">
+                    <label for="symbols">Stock Symbol:</label>
+                    <input type="text" class="form-control" name="stockSymbol" id="symbols" required>
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start Date:</label>
+                    <input type="text" class="form-control" name="startDate" id="startDate" autocomplete="off" required
+                           onkeydown="return false">
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date:</label>
+                    <input type="text" class="form-control" name="endDate" id="endDate" autocomplete="off" required
+                           onkeydown="return false">
+                </div>
+                <div class="form-group">
+                    <label for="intervalName">Quote Interval:</label>
+                    <select name="interval" id="intervalName" class="form-control">
+                        <option value="DAILY">Daily</option>
+                        <option value="WEEKLY">Weekly</option>
+                        <option value="MONTHLY">Monthly</option>
+                    </select><br>
 
-                        <button type="submit" class="btn btn-info">
-                            <input type="HIDDEN" name="submit" value="true">
-                            <span class="glyphicon glyphicon-search"></span> Search
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    <button type="submit" class="btn btn-info">
+                        <input type="HIDDEN" name="submit" value="true">
+                        <span class="glyphicon glyphicon-search"></span> Search
+                    </button>
+                </div>
+            </form>
         </div>
         <br>
         <br>
         <br>
         <br>
     </div>
-</div>
 </body>
 <footer>
+    <div class="bar"></div>
     <div class="footer-copyright">
         <span id="footer-logo">SomeWebsite.com - ©2018</span>
         <div class="copyrightBar bar"></div>

@@ -52,6 +52,12 @@ public class WebUtils extends HttpServlet {
         return calendar;
     }
 
+    /**
+     * Method to build an html table for a quick quote.
+     *
+     * @param stock  The Yahoo-Api Stock data type to build a quote from
+     * @return String representation of an html table
+     */
     public static String quickQuoteTable(Stock stock) {
         int flag = 0; //Flag for error
 
@@ -118,7 +124,7 @@ public class WebUtils extends HttpServlet {
             }
         }
 
-        //Local variables to format for final output
+        //Local variables to format for final user output
         BigDecimal currentPrice = stock.getQuote().getPrice();
         BigDecimal open = stock.getQuote().getOpen();
         BigDecimal previousClose = stock.getQuote().getPreviousClose();
@@ -145,7 +151,7 @@ public class WebUtils extends HttpServlet {
 
                         "<tr><td>Dividend Rate (Yield): " + stock.getDividend().getAnnualYield() + "</td>" +
                         "<td>Shares Outstanding: " + String.format("%,.0f", sharesOutstanding) + "</td>" +
-                        "<td>P/E Ratio(EPS): " + String.format("%.2f", eps) + "</td></tr><tr></tr>";
+                        "<td>P/E Ratio (EPS): " + String.format("%.2f", eps) + "</td></tr><tr></tr>";
 
         //Final string holding html tags to close table.
         final String CLOSING_TAGS = "</tbody></table>";
@@ -154,7 +160,7 @@ public class WebUtils extends HttpServlet {
     }
 
     /**
-     * Utility method to build an HTML table from queried results.  Method will return
+     * Utility method to build an HTML table for a historical quote.  Method will return
      * an HTML formatted error, "No results found", string if list is null.
      *
      * @param rawQueryResults HistoricalQuote list returned from YahooFinance API

@@ -81,7 +81,6 @@
     <br>
 </div>
 
-    <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
                     <!-- Print the queried results stored as a string in the session
@@ -89,16 +88,11 @@
                          to the user.  No business logic is performed on user's machine.-->
                     ${formattedQuote}
         </div>
-        <br>
-        <br>
-
-    </div>
-</div>
-</div>
 
 </body>
 
 <footer>
+    <div class="bar"></div>
     <div class="footer-copyright">
         <span id="footer-logo">SomeWebsite.com - ©2018</span>
         <div class="copyrightBar bar"></div>
