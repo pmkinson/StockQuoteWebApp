@@ -21,6 +21,23 @@ import java.util.List;
 
 public class WebUtils extends HttpServlet {
 
+    //Reusable html for various user alerts as needed.
+    final static String ERROR_TABLE = "<td></td>" +
+            "<td></td>" +
+            "<td></td>" +
+            "<td></td></tr>" +
+            "<tr><td></td>" +
+            "<td></td>" +
+            "<td></td>" +
+            "<td></td>" +
+            "<td></td></tr>";
+    //Final string holding html for 'no results found'
+    final static String NO_RESULTS = "<tr><td>No results were found</td>" + ERROR_TABLE;
+    //Generic error message for user.
+    final static String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td>" + ERROR_TABLE;
+    //Final string holding html tags to close table.
+    final static String CLOSING_TAGS = "</tbody></table>";
+
     /**
      * Utility method to convert a string representation of a date
      * into a Calendar object.  YahooFinance-API uses Calendar objects
@@ -53,44 +70,18 @@ public class WebUtils extends HttpServlet {
     }
 
     /**
-     * Method to build an html table for a quick quote.
+     * Controller utility method to build dynamic HTML content.
      *
-     * @param stock  The Yahoo-Api Stock data type to build a quote from
-     * @return String representation of an html table
+     * @param stock   Stock object returned from YahooFinance API.
+     * @param tableID int value corresponding to what table you want built.
+     * @return final String representing the dynamic HTML.
      */
-    public static String quickQuoteTable(Stock stock) {
+    private static String buildTableController(Stock stock, int tableID) {
         int flag = 0; //Flag for error
 
-        String toPrintLocal;
-
-        //Reusable html for various user alerts as needed.
-        final String ERROR_TABLE =
-                "<td></td>" +
-                        "<td></td>" +
-                        "<td></td>" +
-                        "<td></td></tr>" +
-                        "<tr><td></td>" +
-                        "<td></td>" +
-                        "<td></td>" +
-                        "<td></td>" +
-                        "<td></td></tr>";
-
-        //Final string holding html for 'no results found'
-        final String NO_RESULTS = "<tr><td>No results were found</td>" + ERROR_TABLE;
-        //Generic error message for user.
-        final String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td>" + ERROR_TABLE;
+        String toPrintLocal = null;
 
         final String toPrint;  //Final variable to return to calling method.
-        final String QUOTE_TABLE_HEADER =
-                //Header
-                "<h2>" + stock.getName() + "</h2>" +
-                        "<h5>" + stock.getStockExchange() + ": " +
-                        stock.getSymbol() + "</h5> <br>" +
-                        //Empty table header, setup columns.
-                        "<table class=\"table\">" +
-                        "<tbody>";
-        //Local stock instance for interacting with returned results from yahoo-api
-        Stock localStock = stock;
 
         //Local list of HistoricalQuotes
         List<HistoricalQuote> historicalQuote = new ArrayList<>();
@@ -109,9 +100,26 @@ public class WebUtils extends HttpServlet {
              * toPrintLocal was being over written by the above if statement.
              */
             switch (flag) {
+                /* No IOException was caught when getHistory() method was called above.
+                   The next switch statement correlates to the tableID arg to build the
+                   appropriate html table.
+                 */
                 case (0): {
-                    //Build the results table.
+                    //This switch statement is the controller. Add new html content methods here.
+                    switch (tableID) {
 
+                        case (1): {
+                            toPrintLocal = buildQuickQuoteTable(stock);
+                            break;
+                        }
+                        case (2): {
+                            toPrintLocal = buildHistoricalTable(stock, historicalQuote);
+                            break;
+                        }
+                        default: {
+                            toPrintLocal = ERROR_MESSAGE;
+                        }
+                    }
                     break;
                 }
                 case (1): {
@@ -123,6 +131,50 @@ public class WebUtils extends HttpServlet {
                     toPrintLocal = ERROR_MESSAGE;
             }
         }
+
+        toPrint = toPrintLocal;
+        return toPrint;
+
+    }
+    /**
+     * Utility method to build an HTML table for a quick quote.  Method will return
+     * an HTML formatted error, "No results found", string if list is null.
+     *
+     * @param stock  Stock object returned from YahooFinance API
+     * @return String representation of an html table
+     */
+    public static String quickQuoteTable(Stock stock) {
+
+        return buildTableController(stock, 0);
+    }
+
+    /**
+     * Utility method to build an HTML table for a historical quote.  Method will return
+     * an HTML formatted error, "No results found", string if list is null.
+     *
+     * @param stock Stock object returned from YahooFinance API
+     * @return A string representation of queried data formatted in HTML.
+     */
+    public static String historicalQuoteTable(Stock stock) {
+        return buildTableController(stock, 1);
+    }
+
+    /**
+     * Utility method to build an HTML table for a quick quote.  Method will return
+     * an HTML formatted error, "No results found", string if list is null.
+     *
+     * @param stock Stock object returned from YahooFinance API
+     * @return A string representation of queried data formatted in HTML.
+     */
+    private static String buildQuickQuoteTable(Stock stock) {
+        final String QUOTE_TABLE_HEADER =
+                //Header
+                "<h2>" + stock.getName() + "</h2>" +
+                        "<h5>" + stock.getStockExchange() + ": " +
+                        stock.getSymbol() + "</h5> <br>" +
+                        //Empty table header, setup columns.
+                        "<table class=\"table\">" +
+                        "<tbody>";
 
         //Local variables to format for final user output
         BigDecimal currentPrice = stock.getQuote().getPrice();
@@ -153,79 +205,9 @@ public class WebUtils extends HttpServlet {
                         "<td>Shares Outstanding: " + String.format("%,.0f", sharesOutstanding) + "</td>" +
                         "<td>P/E Ratio (EPS): " + String.format("%.2f", eps) + "</td></tr><tr></tr>";
 
-        //Final string holding html tags to close table.
-        final String CLOSING_TAGS = "</tbody></table>";
-
         return QUOTE_TABLE_HEADER + CONTENT + CLOSING_TAGS;
     }
 
-    /**
-     * Utility method to build an HTML table for a historical quote.  Method will return
-     * an HTML formatted error, "No results found", string if list is null.
-     *
-     * @param rawQueryResults HistoricalQuote list returned from YahooFinance API
-     * @return A string representation of queried data formatted in HTML.
-     */
-    public static String historicalQuoteTable(Stock rawQueryResults) {
-        final String toPrint;  //Final variable to return to calling method.
-        String toPrintLocal = null;  //Local variable before returning final string
-        int flag = 0; //Flag for error
-
-        //Reusable html for various user alerts as needed.
-        final String ERROR_TABLE =
-                "<td></td>" +
-                        "<td></td>" +
-                        "<td></td>" +
-                        "<td></td></tr>" +
-                        "<tr><td></td>" +
-                        "<td></td>" +
-                        "<td></td>" +
-                        "<td></td>" +
-                        "<td></td></tr>";
-
-        //Final string holding html for 'no results found'
-        final String NO_RESULTS = "<tr><td>No results were found</td>" + ERROR_TABLE;
-        //Generic error message for user.
-        final String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td>" + ERROR_TABLE;
-
-        //Local stock instance for interacting with returned results from yahoo-api
-        Stock stock = rawQueryResults;
-
-        //Local list of HistoricalQuotes
-        List<HistoricalQuote> historicalQuote = new ArrayList<>();
-
-        try {
-            historicalQuote.addAll(stock.getHistory());
-        } catch (IOException e) {
-            flag = 1;
-        }
-        //Tell the user there were no results
-        if (historicalQuote.size() < 1 || historicalQuote == null) {
-            toPrintLocal = NO_RESULTS;
-        } else {
-            /* Switch statement with a flag is to handle a logic error where
-             * toPrintLocal was being over written by the above if statement.
-             */
-            switch (flag) {
-                case (0): {
-                    //Build the results table.
-                    toPrintLocal = buildTable(rawQueryResults, historicalQuote);
-                    break;
-                }
-                case (1): {
-                    //There was an IOException. Let's handle this with some dignity, eh?
-                    toPrintLocal = ERROR_MESSAGE;
-                    break;
-                }
-                default:
-                    toPrintLocal = ERROR_MESSAGE;
-            }
-        }
-
-        toPrint = toPrintLocal;
-
-        return toPrint;
-    }
 
     /**
      * Method to build the main body for a historical quote query.
@@ -236,7 +218,7 @@ public class WebUtils extends HttpServlet {
      * @param historicalQuote Yahoo-Finance API List of objects, type HistoricalQuote.
      * @return Returns a string with the fully formed html table.
      */
-    private static String buildTable(Stock rawQueryResults, List<HistoricalQuote> historicalQuote) {
+    private static String buildHistoricalTable(Stock rawQueryResults, List<HistoricalQuote> historicalQuote) {
 
         final String resultsTable;
         //Final string holding html for the results table header.
@@ -253,8 +235,6 @@ public class WebUtils extends HttpServlet {
                         "</thead>" +
                         "<tbody>";
 
-        //Final string holding html tags to close table.
-        final String CLOSING_TAGS = "</tbody></table>";
 
         //Build the user's results table.
         SimpleDateFormat usDateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -293,6 +273,7 @@ public class WebUtils extends HttpServlet {
 
         return resultsTable;
     }
+
 
     /**
      * Override inherited equals method.

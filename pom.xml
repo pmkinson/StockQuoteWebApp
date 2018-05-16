@@ -82,6 +82,13 @@
                   <target>1.8</target>
               </configuration>
           </plugin>
+
+          <!-- Heroku maven plugin for deployment -->
+          <plugin>
+              <groupId>com.heroku.sdk</groupId>
+              <artifactId>heroku-maven-plugin</artifactId>
+              <version>2.0.3</version>
+          </plugin>
       </plugins>
   </build>
 </project>
