@@ -10,8 +10,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/utilities/WebUtilsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/utilities/WebUtilsTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,6 +25,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__2_.ic" NAME="All in StockQuoteWebApp (2) Coverage Results" MODIFIED="1526498869191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp.ic" NAME="All in StockQuoteWebApp Coverage Results" MODIFIED="1526475314347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__1_.ic" NAME="All in StockQuoteWebApp (1) Coverage Results" MODIFIED="1526486473184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
@@ -39,17 +43,12 @@
       <file leaf-file-name="StockSearchServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="88" column="33" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FavoriteStocksDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/FavoriteStocksDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            <state relative-caret-position="1241">
+              <caret line="95" column="92" lean-forward="true" selection-start-line="95" selection-start-column="92" selection-end-line="95" selection-end-column="92" />
+              <folding>
+                <element signature="e#5652#5653#0" expanded="true" />
+                <element signature="e#5697#5698#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,12 +56,21 @@
       <file leaf-file-name="WebUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="271" lean-forward="true" selection-start-line="271" selection-end-line="271" />
+            <state relative-caret-position="187">
+              <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
               <folding>
                 <element signature="e#13312#13313#0" expanded="true" />
                 <element signature="e#13347#13348#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebUtilsTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1190">
+              <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -187,13 +195,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/top_nav.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/footer.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/custom/js/datepicker.js" />
-        <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/StockSearch.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" />
       </list>
@@ -379,6 +387,45 @@
               <item name="images" type="462c0819:PsiDirectoryNode" />
               <item name="nav" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -421,11 +468,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in StockQuoteWebApp (1)">
+  <component name="RunManager" selected="JUnit.All in StockQuoteWebApp (2)">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
     <configuration name="All in StockQuoteWebApp (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="All in StockQuoteWebApp (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StockQuoteWebApp" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -450,6 +514,29 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="WebUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uml.edu.stocksearch.utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.utilities" />
+      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.utilities.WebUtilsTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -521,104 +608,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="ReturnedResults.jsp (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/ReturnedResults.jsp" />
-      <deployment>
-        <artifact name="StockQuoteWebApp:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="ReturnedResults_jsp_(1)_StockQuoteWebApp" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="65078" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="StockQuoteWebApp:war exploded" />
-        </option>
-      </method>
-    </configuration>
-    <configuration name="ReturnedResults.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/ReturnedResults.jsp" />
-      <deployment>
-        <artifact name="StockQuoteWebApp:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="ReturnedResults_jsp_StockQuoteWebApp" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="65039" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="StockQuoteWebApp:war exploded" />
-        </option>
-      </method>
-    </configuration>
-    <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Local Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
@@ -691,20 +681,78 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReturnedResults.jsp (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/ReturnedResults.jsp" />
+      <deployment>
+        <artifact name="StockQuoteWebApp:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="ReturnedResults_jsp_(1)_StockQuoteWebApp" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="65078" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="StockQuoteWebApp:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Maven.Heroku Deployment" />
-      <item itemvalue="Tomcat Server.Unnamed" />
-      <item itemvalue="Tomcat Server.ReturnedResults.jsp" />
-      <item itemvalue="Tomcat Server.ReturnedResults.jsp (1)" />
+      <item itemvalue="Tomcat Server.Local Tomcat" />
       <item itemvalue="JUnit.All in StockQuoteWebApp" />
       <item itemvalue="JUnit.All in StockQuoteWebApp (1)" />
+      <item itemvalue="JUnit.WebUtilsTest" />
+      <item itemvalue="Tomcat Server.ReturnedResults.jsp (1)" />
+      <item itemvalue="JUnit.All in StockQuoteWebApp (2)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in StockQuoteWebApp (2)" />
+        <item itemvalue="JUnit.WebUtilsTest" />
         <item itemvalue="JUnit.All in StockQuoteWebApp (1)" />
         <item itemvalue="JUnit.All in StockQuoteWebApp" />
         <item itemvalue="Tomcat Server.ReturnedResults.jsp (1)" />
-        <item itemvalue="Tomcat Server.ReturnedResults.jsp" />
       </list>
     </recent_temporary>
   </component>
@@ -721,7 +769,7 @@
       <workItem from="1524256527530" duration="152547000" />
       <workItem from="1525488460578" duration="1198000" />
       <workItem from="1525980299058" duration="14155000" />
-      <workItem from="1526179959164" duration="16023000" />
+      <workItem from="1526179959164" duration="18690000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Push">
       <created>1525300969704</created>
@@ -793,7 +841,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526482281489</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Cleaned up WebUtils a bit more.">
+      <created>1526486720070</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1526486720070</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -803,13 +858,21 @@
     <history-entry file="All_in_StockQuoteWebApp_(1) - 2018.05.16 at 12h 01m 19s.xml">
       <configuration name="All in StockQuoteWebApp (1)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="WebUtilsTest - 2018.05.16 at 12h 06m 52s.xml">
+      <configuration name="WebUtilsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebUtilsTest - 2018.05.16 at 14h 58m 23s.xml">
+      <configuration name="WebUtilsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_StockQuoteWebApp_(2) - 2018.05.16 at 15h 27m 55s.xml">
+      <configuration name="All in StockQuoteWebApp (2)" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183923000" />
+    <option name="totallyTimeSpent" value="186590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50110865" side_tool="true" weight="0.33166668" />
@@ -832,9 +895,9 @@
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49889135" visible="true" weight="0.3307436" />
-      <window_info active="true" anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.23400854" />
+      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.23400854" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32890365" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49776787" visible="true" weight="0.2228145" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49776787" visible="true" weight="0.2228145" />
       <window_info id="Web" order="4" sideWeight="0.50223213" side_tool="true" weight="0.26846704" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -891,12 +954,13 @@
     <MESSAGE value="Better" />
     <MESSAGE value="QuickQuote table added with content" />
     <MESSAGE value="WebUtils table building methods made more generalized.  Added a controller method to handle generalizations and simplify adding new dynamic content methods later on." />
-    <option name="LAST_COMMIT_MESSAGE" value="WebUtils table building methods made more generalized.  Added a controller method to handle generalizations and simplify adding new dynamic content methods later on." />
+    <MESSAGE value="Cleaned up WebUtils a bit more." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up WebUtils a bit more." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="17" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1106,13 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/yahoofinance-api/YahooFinanceAPI/3.12.3/YahooFinanceAPI-3.12.3.jar!/yahoofinance/YahooFinance.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-340">
@@ -1223,15 +1280,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="88" column="33" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="33" />
+        <state relative-caret-position="1241">
+          <caret line="95" column="92" lean-forward="true" selection-start-line="95" selection-start-column="92" selection-end-line="95" selection-end-column="92" />
+          <folding>
+            <element signature="e#5652#5653#0" expanded="true" />
+            <element signature="e#5697#5698#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="271" lean-forward="true" selection-start-line="271" selection-end-line="271" />
+        <state relative-caret-position="187">
+          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
           <folding>
             <element signature="e#13312#13313#0" expanded="true" />
             <element signature="e#13347#13348#0" expanded="true" />

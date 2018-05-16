@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
@@ -36,16 +37,7 @@ public class StockSearchServlet extends HttpServlet {
     private static final String INTERVAL_PARAMETER_KEY = "interval";
     private static final String QUICKSYMBOL_PARAMETER_KEY = "quickSymbol";
 
-    private static final String ERROR_HTML = "<tr><td>An error occurred. Please try again.</td>" +
-            "<td></td>" +
-            "<td></td>" +
-            "<td></td>" +
-            "<td></td></tr>" +
-            "<tr><td></td>" +
-            "<td></td>" +
-            "<td></td>" +
-            "<td></td>" +
-            "<td></td></tr>";
+    private static final String ERROR_HTML = "<tr><td>An error occurred. Please try again.</td>";
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
@@ -62,14 +54,35 @@ public class StockSearchServlet extends HttpServlet {
         final String end = request.getParameter(END_PARAMETER_KEY);
         final String interval = request.getParameter(INTERVAL_PARAMETER_KEY);
         final String quickSymbol = request.getParameter(QUICKSYMBOL_PARAMETER_KEY);
+        final String INVALID_QUERY = "<tr><td>" + quickSymbol.toUpperCase() + "  is an invalid stock symbol.</td></tr>";
 
         //Get an instance of StockService from its' factory method.
         StockService service = ServiceFactory.getStockServiceInstance();
 
         //If condition is true, return a quick quote.
         if(quickSymbol != null) {
-            Stock stock = YahooFinance.get(quickSymbol);
-            FORMATTED_HTML_QUERY = WebUtils.buildTable(stock, 1);
+            int flag = 0;
+            Stock stock = null;
+
+            try {
+                stock = YahooFinance.get(quickSymbol);
+            } catch (FileNotFoundException e) {
+                flag = 1;
+            }
+            /*
+               Switch statement to let the user know they entered an invalid query,
+               or build the table by default if FileNotFoundException was not caught.
+             */
+            switch (flag) {
+                case (1): {
+                    FORMATTED_HTML_QUERY = INVALID_QUERY;
+                    break;
+                }
+                default: {
+                    FORMATTED_HTML_QUERY = WebUtils.buildTable(stock, 1);
+                    break;
+                }
+            }
         }
         //If condition is true, return a historical quote.
         else if(symbol != null){

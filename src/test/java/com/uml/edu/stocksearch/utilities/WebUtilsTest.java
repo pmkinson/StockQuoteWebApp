@@ -87,7 +87,7 @@ public class WebUtilsTest {
         calendar = WebUtils.stringToCalendar(date);
     }
 
-   // @Test
+    @Test
     public void resultsTableBuilderTest() {
 
         Calendar quoteDate = Calendar.getInstance();

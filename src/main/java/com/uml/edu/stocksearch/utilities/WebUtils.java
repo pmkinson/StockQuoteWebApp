@@ -77,7 +77,7 @@ public class WebUtils extends HttpServlet {
      * tableID:
      * 1 - QuickQuote Table
      * 2 - Historical Table
-     * 3 - Available for development.
+     * 3 - Available for slot development.
      * </p>
      *
      * @param stock   Stock object returned from YahooFinance API.
