@@ -36,6 +36,17 @@ public class StockSearchServlet extends HttpServlet {
     private static final String INTERVAL_PARAMETER_KEY = "interval";
     private static final String QUICKSYMBOL_PARAMETER_KEY = "quickSymbol";
 
+    private static final String ERROR_HTML = "<tr><td>An error occurred. Please try again.</td>" +
+            "<td></td>" +
+            "<td></td>" +
+            "<td></td>" +
+            "<td></td></tr>" +
+            "<tr><td></td>" +
+            "<td></td>" +
+            "<td></td>" +
+            "<td></td>" +
+            "<td></td></tr>";
+
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
@@ -51,16 +62,6 @@ public class StockSearchServlet extends HttpServlet {
         final String end = request.getParameter(END_PARAMETER_KEY);
         final String interval = request.getParameter(INTERVAL_PARAMETER_KEY);
         final String quickSymbol = request.getParameter(QUICKSYMBOL_PARAMETER_KEY);
-        final String ERROR_HTML = "<tr><td>An error occurred. Please try again.</td>" +
-                "<td></td>" +
-                "<td></td>" +
-                "<td></td>" +
-                "<td></td></tr>" +
-                "<tr><td></td>" +
-                "<td></td>" +
-                "<td></td>" +
-                "<td></td>" +
-                "<td></td></tr>";
 
         //Get an instance of StockService from its' factory method.
         StockService service = ServiceFactory.getStockServiceInstance();
@@ -68,7 +69,7 @@ public class StockSearchServlet extends HttpServlet {
         //If condition is true, return a quick quote.
         if(quickSymbol != null) {
             Stock stock = YahooFinance.get(quickSymbol);
-            FORMATTED_HTML_QUERY = WebUtils.quickQuoteTable(stock);
+            FORMATTED_HTML_QUERY = WebUtils.buildTable(stock, 1);
         }
         //If condition is true, return a historical quote.
         else if(symbol != null){
@@ -85,12 +86,12 @@ public class StockSearchServlet extends HttpServlet {
             //Parse the chosen interval from raw form data.
             Interval finalInterval = Interval.valueOf(interval);
 
-            Stock results; //List to hold queried results before parsing to HTML format
+            Stock intervalResults; //List to hold queried results before parsing to HTML format
             try {
                 //Get the goods from Yahoo
-                results = service.getQuote(symbol, calendarStart, calendarEnd, finalInterval);
-                //Finalized HTML formatted String to display in jsp results page.
-                FORMATTED_HTML_QUERY = WebUtils.historicalQuoteTable(results);
+                intervalResults = service.getQuote(symbol, calendarStart, calendarEnd, finalInterval);
+                //Finalized HTML formatted String to hold dynamic HTML.
+                FORMATTED_HTML_QUERY = WebUtils.buildTable(intervalResults, 2);
             } catch (StockServiceException e) {
                 FORMATTED_HTML_QUERY = ERROR_HTML;
             }

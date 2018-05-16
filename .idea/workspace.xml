@@ -8,11 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9d223f99-8a38-4261-8051-710549201443" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/servlet/StockSearchServletTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/servlet/StockSearchServletTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,6 +23,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp.ic" NAME="All in StockQuoteWebApp Coverage Results" MODIFIED="1526475314347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__1_.ic" NAME="All in StockQuoteWebApp (1) Coverage Results" MODIFIED="1526486473184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -39,8 +39,8 @@
       <file leaf-file-name="StockSearchServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="94" column="49" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="49" />
+            <state relative-caret-position="399">
+              <caret line="88" column="33" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -57,14 +57,21 @@
       <file leaf-file-name="WebUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4437">
-              <caret line="278" column="4" selection-start-line="278" selection-start-column="4" selection-end-line="278" selection-end-column="4" />
+            <state relative-caret-position="289">
+              <caret line="271" lean-forward="true" selection-start-line="271" selection-end-line="271" />
               <folding>
-                <element signature="e#6195#6196#0" expanded="true" />
-                <element signature="e#6248#6249#0" expanded="true" />
-                <element signature="e#12376#12377#0" expanded="true" />
-                <element signature="e#12411#12412#0" expanded="true" />
+                <element signature="e#13312#13313#0" expanded="true" />
+                <element signature="e#13347#13348#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/ServiceFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -81,15 +88,6 @@
       <file leaf-file-name="Flat-it License.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/Flat-it License.txt">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="StockSearchServletTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="114" column="40" lean-forward="true" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file leaf-file-name="local.css" pinned="false" current-in-tab="false">
@@ -150,7 +148,9 @@
       <find>bs</find>
       <find>row</find>
       <find>body</find>
+      <find>FORMATTED_HTML_QUERY</find>
       <find>buildHistoricalTable</find>
+      <find>public</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,12 +189,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/custom/js/datepicker.js" />
         <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/StockSearch.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" />
       </list>
     </option>
@@ -421,9 +421,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.Heroku Deployment">
+  <component name="RunManager" selected="JUnit.All in StockQuoteWebApp (1)">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="All in StockQuoteWebApp (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration name="All in StockQuoteWebApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StockQuoteWebApp" />
@@ -680,9 +697,11 @@
       <item itemvalue="Tomcat Server.ReturnedResults.jsp" />
       <item itemvalue="Tomcat Server.ReturnedResults.jsp (1)" />
       <item itemvalue="JUnit.All in StockQuoteWebApp" />
+      <item itemvalue="JUnit.All in StockQuoteWebApp (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in StockQuoteWebApp (1)" />
         <item itemvalue="JUnit.All in StockQuoteWebApp" />
         <item itemvalue="Tomcat Server.ReturnedResults.jsp (1)" />
         <item itemvalue="Tomcat Server.ReturnedResults.jsp" />
@@ -702,7 +721,7 @@
       <workItem from="1524256527530" duration="152547000" />
       <workItem from="1525488460578" duration="1198000" />
       <workItem from="1525980299058" duration="14155000" />
-      <workItem from="1526179959164" duration="11526000" />
+      <workItem from="1526179959164" duration="16023000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Push">
       <created>1525300969704</created>
@@ -767,16 +786,26 @@
       <option name="project" value="LOCAL" />
       <updated>1526473152843</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="WebUtils table building methods made more generalized.  Added a controller method to handle generalizations and simplify adding new dynamic content methods later on.">
+      <created>1526482281489</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1526482281489</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
     <history-entry file="All_in_StockQuoteWebApp - 2018.05.16 at 08h 55m 20s.xml">
       <configuration name="All in StockQuoteWebApp" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_StockQuoteWebApp_(1) - 2018.05.16 at 12h 01m 19s.xml">
+      <configuration name="All in StockQuoteWebApp (1)" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179426000" />
+    <option name="totallyTimeSpent" value="183923000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -802,10 +831,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49889135" weight="0.3307436" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32995737" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49889135" visible="true" weight="0.3307436" />
+      <window_info active="true" anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.23400854" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32890365" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49776787" visible="true" weight="0.2228145" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49776787" visible="true" weight="0.2228145" />
       <window_info id="Web" order="4" sideWeight="0.50223213" side_tool="true" weight="0.26846704" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -861,7 +890,9 @@
     <MESSAGE value="Initial Push" />
     <MESSAGE value="Better" />
     <MESSAGE value="QuickQuote table added with content" />
-    <option name="LAST_COMMIT_MESSAGE" value="QuickQuote table added with content" />
+    <MESSAGE value="WebUtils table building methods made more generalized.  Added a controller method to handle generalizations and simplify adding new dynamic content methods later on." />
+    <option name="LAST_COMMIT_MESSAGE" value="WebUtils table building methods made more generalized.  Added a controller method to handle generalizations and simplify adding new dynamic content methods later on." />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -874,10 +905,8 @@
         <state relative-caret-position="697">
           <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
           <folding>
-            <element signature="e#6195#6196#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#12376#12377#0" expanded="true" />
-            <element signature="e#12411#12412#0" expanded="true" />
+            <element signature="e#13312#13313#0" expanded="true" />
+            <element signature="e#13347#13348#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -908,10 +937,8 @@
         <state relative-caret-position="765">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
-            <element signature="e#6195#6196#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#12376#12377#0" expanded="true" />
-            <element signature="e#12411#12412#0" expanded="true" />
+            <element signature="e#13312#13313#0" expanded="true" />
+            <element signature="e#13347#13348#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -963,10 +990,8 @@
         <state relative-caret-position="765">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
-            <element signature="e#6195#6196#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#12376#12377#0" expanded="true" />
-            <element signature="e#12411#12412#0" expanded="true" />
+            <element signature="e#13312#13313#0" expanded="true" />
+            <element signature="e#13347#13348#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1081,13 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/ServiceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
@@ -1158,13 +1176,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="94" column="49" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1186,6 +1197,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="114" column="40" lean-forward="true" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Flat-it License.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1193,25 +1214,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Flat-it License.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/ServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="114" column="40" lean-forward="true" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+        <state relative-caret-position="136">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="88" column="33" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4437">
-          <caret line="278" column="4" selection-start-line="278" selection-start-column="4" selection-end-line="278" selection-end-column="4" />
+        <state relative-caret-position="289">
+          <caret line="271" lean-forward="true" selection-start-line="271" selection-end-line="271" />
           <folding>
-            <element signature="e#6195#6196#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#12376#12377#0" expanded="true" />
-            <element signature="e#12411#12412#0" expanded="true" />
+            <element signature="e#13312#13313#0" expanded="true" />
+            <element signature="e#13347#13348#0" expanded="true" />
           </folding>
         </state>
       </provider>

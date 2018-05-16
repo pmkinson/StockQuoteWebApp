@@ -32,17 +32,18 @@ public class WebUtils extends HttpServlet {
             "<td></td>" +
             "<td></td></tr>";
     //Final string holding html for 'no results found'
-    final static String NO_RESULTS = "<tr><td>No results were found</td>" + ERROR_TABLE;
+    final static String NO_RESULTS = "<tr><td>No results were found</td></tr>" + ERROR_TABLE;
     //Generic error message for user.
-    final static String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td>" + ERROR_TABLE;
+    final static String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td></tr>" + ERROR_TABLE;
     //Final string holding html tags to close table.
     final static String CLOSING_TAGS = "</tbody></table>";
+    final static String BREAK = "<br>";
 
     /**
      * Utility method to convert a string representation of a date
      * into a Calendar object.  YahooFinance-API uses Calendar objects
-     * for their as a parameter for their getQuote() methods. This method
-     * bridges the raw user input to that requirement.
+     * a parameter type for their getQuote() methods. This method
+     * parses the raw user input to that requirement.
      *
      * @param rawDate String value to parse into Calendar object.
      * @return Calendar instance
@@ -71,92 +72,53 @@ public class WebUtils extends HttpServlet {
 
     /**
      * Controller utility method to build dynamic HTML content.
+     * Returns an HTML formatted error message by default.
+     * <p>
+     * tableID:
+     * 1 - QuickQuote Table
+     * 2 - Historical Table
+     * 3 - Available for development.
+     * </p>
      *
      * @param stock   Stock object returned from YahooFinance API.
      * @param tableID int value corresponding to what table you want built.
      * @return final String representing the dynamic HTML.
      */
-    private static String buildTableController(Stock stock, int tableID) {
-        int flag = 0; //Flag for error
-
+    public static String buildTable(Stock stock, int tableID) {
         String toPrintLocal = null;
 
         final String toPrint;  //Final variable to return to calling method.
 
-        //Local list of HistoricalQuotes
-        List<HistoricalQuote> historicalQuote = new ArrayList<>();
-
-        try {
-            historicalQuote.addAll(stock.getHistory());
-        } catch (IOException e) {
-            flag = 1;
-        }
-        //Tell the user there were no results
-        if (historicalQuote.size() < 1 || historicalQuote == null
-                || stock == null) {
+        //Tell the user there were no results, else, build a table
+        if (stock == null || !stock.isValid()) {
             toPrintLocal = NO_RESULTS;
         } else {
-            /* Switch statement with a flag is to handle a logic error where
-             * toPrintLocal was being over written by the above if statement.
-             */
-            switch (flag) {
-                /* No IOException was caught when getHistory() method was called above.
-                   The next switch statement correlates to the tableID arg to build the
-                   appropriate html table.
-                 */
-                case (0): {
-                    //This switch statement is the controller. Add new html content methods here.
-                    switch (tableID) {
 
-                        case (1): {
-                            toPrintLocal = buildQuickQuoteTable(stock);
-                            break;
-                        }
-                        case (2): {
-                            toPrintLocal = buildHistoricalTable(stock, historicalQuote);
-                            break;
-                        }
-                        default: {
-                            toPrintLocal = ERROR_MESSAGE;
-                        }
-                    }
-                    break;
-                }
+            //This switch statement is the controller. Add new html content methods here.
+            switch (tableID) {
+
                 case (1): {
-                    //There was an IOException. Let's handle this with some dignity, eh?
+                    toPrintLocal = buildQuickQuoteTable(stock);
+                    break;
+                }
+                case (2): {
+                    toPrintLocal = buildHistoricalTable(stock);
+                    break;
+                }
+                case (3): {
                     toPrintLocal = ERROR_MESSAGE;
                     break;
                 }
-                default:
+                //Something fishy happened, make sure the end user gets an error message.
+                default: {
                     toPrintLocal = ERROR_MESSAGE;
+                }
             }
         }
 
         toPrint = toPrintLocal;
         return toPrint;
 
-    }
-    /**
-     * Utility method to build an HTML table for a quick quote.  Method will return
-     * an HTML formatted error, "No results found", string if list is null.
-     *
-     * @param stock  Stock object returned from YahooFinance API
-     * @return String representation of an html table
-     */
-    public static String quickQuoteTable(Stock stock) {
-
-        return buildTableController(stock, 0);
-    }
-
-    /**
-     * Utility method to build an HTML table for a historical quote.  Method will return
-     * an HTML formatted error, "No results found", string if list is null.
-     *
-     * @param stock Stock object returned from YahooFinance API
-     * @return A string representation of queried data formatted in HTML.
-     */
-    public static String historicalQuoteTable(Stock stock) {
-        return buildTableController(stock, 1);
     }
 
     /**
@@ -167,6 +129,7 @@ public class WebUtils extends HttpServlet {
      * @return A string representation of queried data formatted in HTML.
      */
     private static String buildQuickQuoteTable(Stock stock) {
+        final String table;
         final String QUOTE_TABLE_HEADER =
                 //Header
                 "<h2>" + stock.getName() + "</h2>" +
@@ -205,7 +168,9 @@ public class WebUtils extends HttpServlet {
                         "<td>Shares Outstanding: " + String.format("%,.0f", sharesOutstanding) + "</td>" +
                         "<td>P/E Ratio (EPS): " + String.format("%.2f", eps) + "</td></tr><tr></tr>";
 
-        return QUOTE_TABLE_HEADER + CONTENT + CLOSING_TAGS;
+        table = QUOTE_TABLE_HEADER + CONTENT + CLOSING_TAGS;
+
+        return table;
     }
 
 
@@ -214,18 +179,24 @@ public class WebUtils extends HttpServlet {
      * The dynamic results are recursively built into the body
      * of an html table.
      *
-     * @param rawQueryResults Yahoo-Finance API object, type Stock.
-     * @param historicalQuote Yahoo-Finance API List of objects, type HistoricalQuote.
+     * @param stock Yahoo-Finance API object, type Stock.
      * @return Returns a string with the fully formed html table.
      */
-    private static String buildHistoricalTable(Stock rawQueryResults, List<HistoricalQuote> historicalQuote) {
+    private static String buildHistoricalTable(Stock stock) {
 
-        final String resultsTable;
-        //Final string holding html for the results table header.
+        //Final string to return content with
+        final String table;
+        //Local string to handle dynamic content.
+        String toPrintLocal = null;
+        //Local list of HistoricalQuotes
+        List<HistoricalQuote> historicalQuote = new ArrayList<>();
+        //Flag for error
+        int flag = 0;
+
         final String STOCK_NAME_HEADER =
-                "<h2>" + rawQueryResults.getName() + "</h2>" +
-                        "<h5>" + rawQueryResults.getStockExchange() + ": " +
-                        rawQueryResults.getSymbol() + "</h5> <br>";
+                "<h2>" + stock.getName() + "</h2>" +
+                        "<h5>" + stock.getStockExchange() + ": " +
+                        stock.getSymbol() + "</h5> <br>";
 
         final String HISTORICAL_TABLE_HEADER =
                 STOCK_NAME_HEADER +
@@ -244,34 +215,62 @@ public class WebUtils extends HttpServlet {
         //Create header for table
         builder.append(HISTORICAL_TABLE_HEADER);
 
-        for (HistoricalQuote hq : historicalQuote) {
-
-            //Convert Calendar instance to a formatted date string representation.
-            String formatedDate = usDateFormat.format(Date.from(hq.getDate().toInstant()));
-
-            BigDecimal open = hq.getOpen().setScale(2, RoundingMode.CEILING);
-            BigDecimal high = hq.getHigh().setScale(2, RoundingMode.CEILING);
-            BigDecimal low = hq.getLow().setScale(2, RoundingMode.CEILING);
-            BigDecimal close = hq.getClose().setScale(2, RoundingMode.CEILING);
-            BigDecimal volume = new BigDecimal(hq.getVolume());
-
-            //Build table
-            builder.append("<tr class=\"results-table\" >");
-            builder.append("<td>" + formatedDate + "</td>");
-
-            builder.append("<td>$ " + String.format("%,.2f", open) + "</td>");
-            builder.append("<td>$ " + String.format("%,.2f", high) + "</td>");
-            builder.append("<td>$ " + String.format("%,.2f", low) + "</td>");
-            builder.append("<td>$ " + String.format("%,.2f", close) + "</td>");
-            builder.append("<td>" + String.format("%,.0f", volume) + "</td></tr></th>");
-
+        //Retrieve history from stock arg
+        try {
+            historicalQuote.addAll(stock.getHistory());
+        } catch (IOException e) {
+            //Use flag to handle IOException
+            flag = 1;
         }
-        //Append closing tags for table
-        builder.append(CLOSING_TAGS);
+        if (historicalQuote.size() < 1 || historicalQuote == null) {
+            //Check for an IOException being thrown with the next switch
+            switch (flag) {
+                //There was no error, but historicalQuote didn't have any results. Return no results.
+                case (0): {
+                    toPrintLocal = NO_RESULTS;
+                }
+                //There was an IOException, return error message.
+                case (1): {
+                    toPrintLocal = ERROR_MESSAGE;
+                    break;
+                }
+                default: {
+                    toPrintLocal = ERROR_MESSAGE;
+                    break;
+                }
+            }
+            //Cast finalized table String to error message
+            table = toPrintLocal;
+        } else {
+            for (HistoricalQuote hq : historicalQuote) {
 
-        resultsTable = builder.toString();
+                //Convert Calendar instance to a formatted date string representation.
+                String formatedDate = usDateFormat.format(Date.from(hq.getDate().toInstant()));
 
-        return resultsTable;
+                BigDecimal open = hq.getOpen().setScale(2, RoundingMode.CEILING);
+                BigDecimal high = hq.getHigh().setScale(2, RoundingMode.CEILING);
+                BigDecimal low = hq.getLow().setScale(2, RoundingMode.CEILING);
+                BigDecimal close = hq.getClose().setScale(2, RoundingMode.CEILING);
+                BigDecimal volume = new BigDecimal(hq.getVolume());
+
+                //Build table
+                builder.append("<tr class=\"results-table\" >");
+                builder.append("<td>" + formatedDate + "</td>");
+
+                builder.append("<td>$ " + String.format("%,.2f", open) + "</td>");
+                builder.append("<td>$ " + String.format("%,.2f", high) + "</td>");
+                builder.append("<td>$ " + String.format("%,.2f", low) + "</td>");
+                builder.append("<td>$ " + String.format("%,.2f", close) + "</td>");
+                builder.append("<td>" + String.format("%,.0f", volume) + "</td></tr></th>");
+
+            }
+            //Append closing tags for table
+            builder.append(CLOSING_TAGS + BREAK);
+            //Cast finalized table String to dynamic html
+            table = builder.toString();
+        }
+
+        return table;
     }
 
 
