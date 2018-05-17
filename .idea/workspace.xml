@@ -6,14 +6,25 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d223f99-8a38-4261-8051-710549201443" name="Default" comment="">
+    <list default="true" id="9d223f99-8a38-4261-8051-710549201443" name="Default" comment="Fixed bug where quickquote was returning a blank page with no error message for user when the user searched for an invalid stock symbol.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceExceptionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/FormDataServiceFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/ServiceFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/StockService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/resources/custom/css/local.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/resources/custom/css/local.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/StockService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/service/FormDataServiceFactoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/servlet/StockSearchServletTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/servlet/StockSearchServletTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/utilities/WebUtilsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/uml/edu/stocksearch/utilities/WebUtilsTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,17 +36,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__2_.ic" NAME="All in StockQuoteWebApp (2) Coverage Results" MODIFIED="1526498869191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$StockSearchServletTest.ic" NAME="StockSearchServletTest Coverage Results" MODIFIED="1526599688571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uml.edu.stocksearch.servlet.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseServiceExceptionTest.ic" NAME="DatabaseServiceExceptionTest Coverage Results" MODIFIED="1526600118042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uml.edu.stocksearch.service.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$ServiceFactoryTest_getDatabaseServiceInstanceTest.ic" NAME="ServiceFactoryTest.getDatabaseServiceInstanceTest Coverage Results" MODIFIED="1526600040182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uml.edu.stocksearch.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$WebUtilsTest_buildTableTest.ic" NAME="WebUtilsTest.buildTableTest Coverage Results" MODIFIED="1526594346216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uml.edu.stocksearch.utilities.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__2_.ic" NAME="All in StockQuoteWebApp (2) Coverage Results" MODIFIED="1526598889223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$StockSearchServletTest_StockSearchServletQuickQuote.ic" NAME="StockSearchServletTest.StockSearchServletQuickQuote Coverage Results" MODIFIED="1526599788934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uml.edu.stocksearch.servlet.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$StockSearchServletTest_StockSearchServletQuickQuoteError.ic" NAME="StockSearchServletTest.StockSearchServletQuickQuoteError Coverage Results" MODIFIED="1526599840783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uml.edu.stocksearch.servlet.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp.ic" NAME="All in StockQuoteWebApp Coverage Results" MODIFIED="1526475314347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__1_.ic" NAME="All in StockQuoteWebApp (1) Coverage Results" MODIFIED="1526486473184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__1_.ic" NAME="All in StockQuoteWebApp (1) Coverage Results" MODIFIED="1526594379928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StockService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java">
+      <file leaf-file-name="WebUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="2839">
+              <caret line="184" column="46" selection-start-line="184" selection-start-column="26" selection-end-line="184" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -43,34 +72,8 @@
       <file leaf-file-name="StockSearchServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="95" column="92" lean-forward="true" selection-start-line="95" selection-start-column="92" selection-end-line="95" selection-end-column="92" />
-              <folding>
-                <element signature="e#5652#5653#0" expanded="true" />
-                <element signature="e#5697#5698#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebUtils.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
-              <folding>
-                <element signature="e#13312#13313#0" expanded="true" />
-                <element signature="e#13347#13348#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebUtilsTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+            <state relative-caret-position="595">
+              <caret line="87" selection-start-line="87" selection-end-line="87" />
             </state>
           </provider>
         </entry>
@@ -84,43 +87,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="ServiceFactoryTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/ServiceFactoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+            <state relative-caret-position="306">
+              <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Flat-it License.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/Flat-it License.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="DatabaseServiceExceptionTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceExceptionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="local.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css">
+      <file leaf-file-name="StockService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
+              <caret line="29" column="117" selection-start-line="29" selection-start-column="117" selection-end-line="29" selection-end-column="117" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockSearch.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/StockSearch.jsp">
+      <file leaf-file-name="StockSearchServletTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="116" column="27" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
+            <state relative-caret-position="156">
+              <caret line="124" column="65" selection-start-line="124" selection-start-column="65" selection-end-line="124" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReturnedResults.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp">
+      <file leaf-file-name="Stock.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/yahoofinance-api/YahooFinanceAPI/3.12.3/YahooFinanceAPI-3.12.3.jar!/yahoofinance/Stock.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
+            <state relative-caret-position="2839">
+              <caret line="213" column="25" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -159,6 +166,11 @@
       <find>FORMATTED_HTML_QUERY</find>
       <find>buildHistoricalTable</find>
       <find>public</find>
+      <find>market</find>
+      <find>div</find>
+      <find>14pt</find>
+      <find>name</find>
+      <find>share</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -195,15 +207,17 @@
         <option value="$PROJECT_DIR$/src/main/webapp/top_nav.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/footer.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/custom/js/datepicker.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/StockSearch.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css" />
+        <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/ServiceFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceExceptionTest.java" />
       </list>
     </option>
   </component>
@@ -230,9 +244,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="55" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="81" />
+    <option name="y" value="53" />
     <option name="width" value="1814" />
     <option name="height" value="1034" />
   </component>
@@ -242,9 +256,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,6 +307,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
@@ -415,6 +437,25 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
               <item name="servlet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -426,10 +467,34 @@
               <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.yahoofinance-api:YahooFinanceAPI:3.12.3" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.yahoofinance-api:YahooFinanceAPI:3.12.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="YahooFinanceAPI-3.12.3.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.yahoofinance-api:YahooFinanceAPI:3.12.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="YahooFinanceAPI-3.12.3.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="yahoofinance" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -468,75 +533,116 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in StockQuoteWebApp (2)">
+  <component name="RunManager" selected="JUnit.DatabaseServiceExceptionTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="All in StockQuoteWebApp (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StockQuoteWebApp" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="All in StockQuoteWebApp (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StockQuoteWebApp" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="All in StockQuoteWebApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StockQuoteWebApp" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="WebUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DatabaseServiceExceptionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StockQuoteWebApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.uml.edu.stocksearch.utilities.*" />
+          <option name="PATTERN" value="com.uml.edu.stocksearch.service.exceptions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.utilities" />
-      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.utilities.WebUtilsTest" />
+      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.service.exceptions" />
+      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.service.exceptions.DatabaseServiceExceptionTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ServiceFactoryTest.getDatabaseServiceInstanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uml.edu.stocksearch.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.service" />
+      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.service.ServiceFactoryTest" />
+      <option name="METHOD_NAME" value="getDatabaseServiceInstanceTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="StockSearchServletTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uml.edu.stocksearch.servlet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.servlet" />
+      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.servlet.StockSearchServletTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="StockSearchServletTest.StockSearchServletQuickQuote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uml.edu.stocksearch.servlet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.servlet" />
+      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.servlet.StockSearchServletTest" />
+      <option name="METHOD_NAME" value="StockSearchServletQuickQuote" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="StockSearchServletTest.StockSearchServletQuickQuoteError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uml.edu.stocksearch.servlet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.servlet" />
+      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.servlet.StockSearchServletTest" />
+      <option name="METHOD_NAME" value="StockSearchServletQuickQuoteError" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -681,78 +787,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReturnedResults.jsp (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/ReturnedResults.jsp" />
-      <deployment>
-        <artifact name="StockQuoteWebApp:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="ReturnedResults_jsp_(1)_StockQuoteWebApp" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="65078" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="StockQuoteWebApp:war exploded" />
-        </option>
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Maven.Heroku Deployment" />
       <item itemvalue="Tomcat Server.Local Tomcat" />
-      <item itemvalue="JUnit.All in StockQuoteWebApp" />
-      <item itemvalue="JUnit.All in StockQuoteWebApp (1)" />
-      <item itemvalue="JUnit.WebUtilsTest" />
-      <item itemvalue="Tomcat Server.ReturnedResults.jsp (1)" />
-      <item itemvalue="JUnit.All in StockQuoteWebApp (2)" />
+      <item itemvalue="JUnit.StockSearchServletTest" />
+      <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuickQuote" />
+      <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuickQuoteError" />
+      <item itemvalue="JUnit.ServiceFactoryTest.getDatabaseServiceInstanceTest" />
+      <item itemvalue="JUnit.DatabaseServiceExceptionTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in StockQuoteWebApp (2)" />
-        <item itemvalue="JUnit.WebUtilsTest" />
-        <item itemvalue="JUnit.All in StockQuoteWebApp (1)" />
-        <item itemvalue="JUnit.All in StockQuoteWebApp" />
-        <item itemvalue="Tomcat Server.ReturnedResults.jsp (1)" />
+        <item itemvalue="JUnit.DatabaseServiceExceptionTest" />
+        <item itemvalue="JUnit.ServiceFactoryTest.getDatabaseServiceInstanceTest" />
+        <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuickQuoteError" />
+        <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuickQuote" />
+        <item itemvalue="JUnit.StockSearchServletTest" />
       </list>
     </recent_temporary>
   </component>
@@ -769,7 +819,8 @@
       <workItem from="1524256527530" duration="152547000" />
       <workItem from="1525488460578" duration="1198000" />
       <workItem from="1525980299058" duration="14155000" />
-      <workItem from="1526179959164" duration="18690000" />
+      <workItem from="1526179959164" duration="27284000" />
+      <workItem from="1526596338736" duration="1865000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Push">
       <created>1525300969704</created>
@@ -848,35 +899,58 @@
       <option name="project" value="LOCAL" />
       <updated>1526486720070</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixed bug where quickquote was returning a blank page with no error message for user when the user searched for an invalid stock symbol.">
+      <created>1526499082264</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1526499082264</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_StockQuoteWebApp - 2018.05.16 at 08h 55m 20s.xml">
-      <configuration name="All in StockQuoteWebApp" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTestError - 2018.05.17 at 19h 21m 22s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTestError" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_StockQuoteWebApp_(1) - 2018.05.16 at 12h 01m 19s.xml">
-      <configuration name="All in StockQuoteWebApp (1)" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTestError2 - 2018.05.17 at 19h 21m 33s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTestError2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebUtilsTest - 2018.05.16 at 12h 06m 52s.xml">
-      <configuration name="WebUtilsTest" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest - 2018.05.17 at 19h 21m 52s.xml">
+      <configuration name="StockSearchServletTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebUtilsTest - 2018.05.16 at 14h 58m 23s.xml">
-      <configuration name="WebUtilsTest" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTestError2 - 2018.05.17 at 19h 25m 52s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTestError2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_StockQuoteWebApp_(2) - 2018.05.16 at 15h 27m 55s.xml">
-      <configuration name="All in StockQuoteWebApp (2)" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTestError2 - 2018.05.17 at 19h 28m 01s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTestError2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockSearchServletTest - 2018.05.17 at 19h 28m 13s.xml">
+      <configuration name="StockSearchServletTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockSearchServletTest_StockSearchServletQuickQuote - 2018.05.17 at 19h 29m 51s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletQuickQuote" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockSearchServletTest_StockSearchServletQuickQuoteError - 2018.05.17 at 19h 30m 43s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletQuickQuoteError" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ServiceFactoryTest_getDatabaseServiceInstanceTest - 2018.05.17 at 19h 34m 00s.xml">
+      <configuration name="ServiceFactoryTest.getDatabaseServiceInstanceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DatabaseServiceExceptionTest - 2018.05.17 at 19h 35m 18s.xml">
+      <configuration name="DatabaseServiceExceptionTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186590000" />
+    <option name="totallyTimeSpent" value="197049000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <frame x="81" y="53" width="1814" height="1034" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50110865" side_tool="true" weight="0.33166668" />
-      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32890365" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32852387" />
       <window_info anchor="right" id="Maven Projects" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
@@ -886,18 +960,18 @@
       <window_info anchor="right" id="JSF" order="2" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.49960285" weight="0.3873474" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.49960285" weight="0.38680318" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32833335" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32764506" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="1" />
-      <window_info anchor="bottom" id="Java Enterprise" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32963374" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49889135" visible="true" weight="0.3307436" />
-      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.23400854" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32890365" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49776787" visible="true" weight="0.2228145" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32963374" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49889135" visible="true" weight="0.33902162" />
+      <window_info active="true" anchor="right" id="Coverage" order="9" side_tool="true" visible="true" weight="0.25028506" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32852387" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49776787" visible="true" weight="0.24116306" />
       <window_info id="Web" order="4" sideWeight="0.50223213" side_tool="true" weight="0.26846704" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -955,40 +1029,30 @@
     <MESSAGE value="QuickQuote table added with content" />
     <MESSAGE value="WebUtils table building methods made more generalized.  Added a controller method to handle generalizations and simplify adding new dynamic content methods later on." />
     <MESSAGE value="Cleaned up WebUtils a bit more." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up WebUtils a bit more." />
+    <MESSAGE value="Fixed bug where quickquote was returning a blank page with no error message for user when the user searched for an invalid stock symbol." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where quickquote was returning a blank page with no error message for user when the user searched for an invalid stock symbol." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java</url>
+          <line>160</line>
+          <properties />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java</url>
+          <line>99</line>
+          <properties />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="28" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
-          <folding>
-            <element signature="e#13312#13313#0" expanded="true" />
-            <element signature="e#13347#13348#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="70" column="35" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/FavoriteStocksDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1000,10 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#13312#13313#0" expanded="true" />
-            <element signature="e#13347#13348#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1053,10 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#13312#13313#0" expanded="true" />
-            <element signature="e#13347#13348#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1205,13 +1261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/yahoofinance-api/YahooFinanceAPI/3.12.3/YahooFinanceAPI-3.12.3.jar!/yahoofinance/Stock.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2907">
-          <caret line="249" selection-start-line="249" selection-end-line="249" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/yahoofinance-api/YahooFinanceAPI/3.12.3/YahooFinanceAPI-3.12.3.jar!/yahoofinance/quotes/csv/FxQuotesRequest.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1223,20 +1272,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1254,20 +1289,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="114" column="40" lean-forward="true" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Flat-it License.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/custom/css/local.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="163" column="22" lean-forward="true" selection-start-line="163" selection-start-column="22" selection-end-line="163" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/yahoofinance-api/YahooFinanceAPI/3.12.3/YahooFinanceAPI-3.12.3.jar!/yahoofinance/Stock.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2839">
+          <caret line="213" column="25" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2839">
+          <caret line="184" column="46" selection-start-line="184" selection-start-column="26" selection-end-line="184" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/servlet/StockSearchServletTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="124" column="65" selection-start-line="124" selection-start-column="65" selection-end-line="124" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/StockServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1278,32 +1359,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/servlet/StockSearchServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/StockService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="95" column="92" lean-forward="true" selection-start-line="95" selection-start-column="92" selection-end-line="95" selection-end-column="92" />
-          <folding>
-            <element signature="e#5652#5653#0" expanded="true" />
-            <element signature="e#5697#5698#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="29" column="117" selection-start-line="29" selection-start-column="117" selection-end-line="29" selection-end-column="117" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/ServiceFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+        <state relative-caret-position="306">
+          <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceExceptionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
-          <folding>
-            <element signature="e#13312#13313#0" expanded="true" />
-            <element signature="e#13347#13348#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
         </state>
       </provider>
     </entry>

@@ -22,7 +22,7 @@ import java.util.List;
 public class WebUtils extends HttpServlet {
 
     //Reusable html for various user alerts as needed.
-    final static String ERROR_TABLE = "<td></td>" +
+    private final static String ERROR_TABLE = "<td></td>" +
             "<td></td>" +
             "<td></td>" +
             "<td></td></tr>" +
@@ -32,12 +32,12 @@ public class WebUtils extends HttpServlet {
             "<td></td>" +
             "<td></td></tr>";
     //Final string holding html for 'no results found'
-    final static String NO_RESULTS = "<tr><td>No results were found</td></tr>" + ERROR_TABLE;
+    private final static String NO_RESULTS = "<tr><td>No results were found</td></tr>" + ERROR_TABLE;
     //Generic error message for user.
-    final static String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td></tr>" + ERROR_TABLE;
+    private final static String ERROR_MESSAGE = "<tr><td>An error occurred. Please try again.</td></tr>" + ERROR_TABLE;
     //Final string holding html tags to close table.
-    final static String CLOSING_TAGS = "</tbody></table>";
-    final static String BREAK = "<br>";
+    private final static String CLOSING_TAGS = "</tbody></table>";
+    private final static String BREAK = "<br>";
 
     /**
      * Utility method to convert a string representation of a date
@@ -205,7 +205,6 @@ public class WebUtils extends HttpServlet {
                         "<tr><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr>" +
                         "</thead>" +
                         "<tbody>";
-
 
         //Build the user's results table.
         SimpleDateFormat usDateFormat = new SimpleDateFormat("MM/dd/yyyy");

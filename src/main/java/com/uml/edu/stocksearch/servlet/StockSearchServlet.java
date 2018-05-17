@@ -54,7 +54,6 @@ public class StockSearchServlet extends HttpServlet {
         final String end = request.getParameter(END_PARAMETER_KEY);
         final String interval = request.getParameter(INTERVAL_PARAMETER_KEY);
         final String quickSymbol = request.getParameter(QUICKSYMBOL_PARAMETER_KEY);
-        final String INVALID_QUERY = "<tr><td>" + quickSymbol.toUpperCase() + "  is an invalid stock symbol.</td></tr>";
 
         //Get an instance of StockService from its' factory method.
         StockService service = ServiceFactory.getStockServiceInstance();
@@ -63,6 +62,7 @@ public class StockSearchServlet extends HttpServlet {
         if(quickSymbol != null) {
             int flag = 0;
             Stock stock = null;
+            final String INVALID_QUERY = "<tr><td>" + quickSymbol.toUpperCase() + "  is an invalid stock symbol.</td></tr>";
 
             try {
                 stock = YahooFinance.get(quickSymbol);
