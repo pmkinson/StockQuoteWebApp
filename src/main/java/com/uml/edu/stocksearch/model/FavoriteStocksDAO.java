@@ -1,4 +1,4 @@
 package com.uml.edu.stocksearch.model;
 
-public class FavoriteStocksDAO {
+public class FavoriteStocksDAO implements DAO {
 }

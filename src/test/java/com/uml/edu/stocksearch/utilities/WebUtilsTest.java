@@ -12,16 +12,10 @@ import yahoofinance.quotes.stock.StockStats;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
