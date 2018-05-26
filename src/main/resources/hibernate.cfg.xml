@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+
+        <property name="hibernate.connection.url"></property>
+        <property name="hibernate.connection.username"></property>
+        <property name="hibernate.connection.password"></property>
+
+        <mapping class="com.uml.edu.stocksearch.model.RecentStocksDAO"/>
+        <mapping class="com.uml.edu.stocksearch.model.PersonDAO"/>
+        <mapping class="com.uml.edu.stocksearch.model.FavoriteStocksDAO"/>
+
+        <!--    Show SQL for debugging purposes
+
+                <property name="hibernate.show_sql">true</property>
+                <property name="format_sql">true</property>
+                <property name="use_sql_comments">true</property>       -->
+
+    </session-factory>
+</hibernate-configuration>
