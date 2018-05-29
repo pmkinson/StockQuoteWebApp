@@ -1,6 +1,6 @@
 package com.uml.edu.stocksearch.utilities.database;
 
-import com.uml.edu.stocksearch.model.DAO;
+import com.uml.edu.stocksearch.model.DAOObject;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
@@ -41,7 +41,7 @@ public class DatabaseUtils {
     public static Connection getConnection() throws DatabaseConnectionException, DatabaseConfigurationException {
 
         Connection connection = null;
-        Configuration configuration = getConfiguration();
+        Configuration configuration = getConfiguration(HIBERNATE_PATH);
         try {
 
             Class.forName(DRIVER);
@@ -102,10 +102,10 @@ public class DatabaseUtils {
     }
 
     /**
-     * Method commits a DAO object to the database or updates
+     * Method commits a DAOObject object to the database or updates
      * an entry already stored in the database.
      *
-     * @param DAOObject DAO object to commit
+     * @param DAOObject DAOObject object to commit
      *
      * @throws DatabaseInitializationException Thrown when there is an issue
      *                                         communicating with database.
@@ -115,12 +115,12 @@ public class DatabaseUtils {
      *                                         be added to the database.
      */
 
-    synchronized public static void commitDAOObject(DAO DAOObject) throws DatabaseConnectionException, DatabaseInitializationException {
+    synchronized public static void commitDAOObject(DAOObject DAOObject) throws DatabaseConnectionException, DatabaseInitializationException {
         Session session = getSessionFactory().openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            //Commit DAO object to DB.
+            //Commit DAOObject object to DB.
             session.saveOrUpdate(DAOObject);
             transaction.commit();
 
@@ -150,13 +150,12 @@ public class DatabaseUtils {
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .configure("hibernate.cfg.xml").build();
 
-            configuration = getDBCredentials(configuration);
             // Create a metadata sources using the specified service registry.
             Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
 
             return metadata.getSessionFactoryBuilder().build();
 
-        } catch (ExceptionInInitializerError | DatabaseConfigurationException e) {
+        } catch (ExceptionInInitializerError e) {
             throw new ExceptionInInitializerError("SessionFactory creation failed. " + e.getMessage());
         }
     }
@@ -168,9 +167,9 @@ public class DatabaseUtils {
      * @return A hibernate configuration file
      * @throws DatabaseConfigurationException
      */
-    private static Configuration getConfiguration() throws DatabaseConfigurationException {
+    private static Configuration getConfiguration(String filePath) throws DatabaseConfigurationException {
 
-        File file = new File(HIBERNATE_PATH);
+        File file = new File(filePath);
         try {
             if (configuration == null) {
                 configuration = new Configuration();

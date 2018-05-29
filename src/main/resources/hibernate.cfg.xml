@@ -12,9 +12,7 @@
         <property name="hibernate.connection.username"></property>
         <property name="hibernate.connection.password"></property>
 
-        <mapping class="com.uml.edu.stocksearch.model.RecentStocksDAO"/>
-        <mapping class="com.uml.edu.stocksearch.model.PersonDAO"/>
-        <mapping class="com.uml.edu.stocksearch.model.FavoriteStocksDAO"/>
+        <mapping class="com.uml.edu.stocksearch.model.SearchDAO"/>
 
         <!--    Show SQL for debugging purposes
 

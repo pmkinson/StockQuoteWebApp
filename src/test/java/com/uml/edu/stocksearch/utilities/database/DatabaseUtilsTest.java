@@ -3,6 +3,7 @@ package com.uml.edu.stocksearch.utilities.database;
 import com.uml.edu.stocksearch.utilities.WebUtils;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
+import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
 import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Rule;
@@ -36,6 +37,7 @@ public class DatabaseUtilsTest {
     public void clearEnvironmentVariable() {
         if (environmentVariables != null) {
             environmentVariables.clear("DATABASE_URL");
+        } else {
         }
     }
 
@@ -77,10 +79,12 @@ public class DatabaseUtilsTest {
         clearEnvironmentVariable();
         setEnvironmentVariable(url);
 
-        DatabaseUtils.getConnection();
+        Connection connectionn = DatabaseUtils.getConnection();
+
+        assertNotNull(connectionn);
     }
 
-    @Test
+    @Test(expected = DatabaseConfigurationException.class)
     public void getConnectionError() throws DatabaseConnectionException, DatabaseConfigurationException {
         clearEnvironmentVariable();
         setEnvironmentVariable(badURL);
@@ -88,7 +92,12 @@ public class DatabaseUtilsTest {
         DatabaseUtils.getConnection();
     }
     @Test
-    public void getSessionFactory() {
+    public void getSessionFactory() throws DatabaseInitializationException, DatabaseConfigurationException {
+        clearEnvironmentVariable();
+        setEnvironmentVariable(url);
+
+        configuration = DatabaseUtils.getDBCredentials(configuration);
+        DatabaseUtils.getSessionFactory();
     }
 
     @Test

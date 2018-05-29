@@ -1,5 +1,7 @@
 package com.uml.edu.stocksearch.servlet;
 
+import com.uml.edu.stocksearch.model.SearchDAO;
+import com.uml.edu.stocksearch.service.DatabaseService;
 import com.uml.edu.stocksearch.service.StockService;
 import com.uml.edu.stocksearch.service.ServiceFactory;
 import com.uml.edu.stocksearch.service.exceptions.StockServiceException;
@@ -8,7 +10,6 @@ import com.uml.edu.stocksearch.utilities.exceptions.WebUtilsException;
 
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
-import yahoofinance.histquotes.HistoricalQuote;
 import yahoofinance.histquotes.Interval;
 import org.apache.commons.lang3.builder.*;
 import javax.servlet.RequestDispatcher;
@@ -22,7 +23,8 @@ import javax.servlet.http.HttpSession;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.List;
+import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * Simple servlet to return historical stock quote data using
@@ -57,6 +59,7 @@ public class StockSearchServlet extends HttpServlet {
 
         //Get an instance of StockService from its' factory method.
         StockService service = ServiceFactory.getStockServiceInstance();
+        DatabaseService databaseService = ServiceFactory.getDatabaseServiceInstance();
 
         //If condition is true, return a quick quote.
         if(quickSymbol != null) {
@@ -124,6 +127,21 @@ public class StockSearchServlet extends HttpServlet {
         RequestDispatcher dispatcher =
                 servletContext.getRequestDispatcher("/ReturnedResults.jsp");
         dispatcher.forward(request, response);
+
+        //Commit MetaData to DB
+        Calendar calendar = Calendar.getInstance();
+        Timestamp currentTimestamp = new Timestamp(calendar.getTime().getTime());
+
+        SearchDAO searchDAO = new SearchDAO();
+        searchDAO.setDate(currentTimestamp);
+        searchDAO.setStock_id(1);
+        searchDAO.setSystem_id(2);
+        searchDAO.setBrowser_id(4);
+        searchDAO.setUser_id(10001);
+        searchDAO.setType_of_search(0);
+
+        databaseService.addStockQueryMetaData(searchDAO);
+
     }
 
 
