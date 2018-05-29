@@ -1,5 +1,7 @@
 package com.uml.edu.stocksearch.servlet;
 
+import com.uml.edu.stocksearch.model.SearchDAO;
+import com.uml.edu.stocksearch.service.DatabaseService;
 import com.uml.edu.stocksearch.service.StockService;
 import com.uml.edu.stocksearch.service.ServiceFactory;
 import com.uml.edu.stocksearch.service.exceptions.StockServiceException;
@@ -8,7 +10,6 @@ import com.uml.edu.stocksearch.utilities.exceptions.WebUtilsException;
 
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
-import yahoofinance.histquotes.HistoricalQuote;
 import yahoofinance.histquotes.Interval;
 import org.apache.commons.lang3.builder.*;
 import javax.servlet.RequestDispatcher;
@@ -19,9 +20,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.List;
+import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * Simple servlet to return historical stock quote data using
@@ -35,6 +38,8 @@ public class StockSearchServlet extends HttpServlet {
     private static final String END_PARAMETER_KEY = "endDate";
     private static final String INTERVAL_PARAMETER_KEY = "interval";
     private static final String QUICKSYMBOL_PARAMETER_KEY = "quickSymbol";
+
+    private static final String ERROR_HTML = "<tr><td>An error occurred. Please try again.</td>";
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
@@ -54,15 +59,39 @@ public class StockSearchServlet extends HttpServlet {
 
         //Get an instance of StockService from its' factory method.
         StockService service = ServiceFactory.getStockServiceInstance();
+        DatabaseService databaseService = ServiceFactory.getDatabaseServiceInstance();
 
+        //If condition is true, return a quick quote.
         if(quickSymbol != null) {
-            Stock stock = YahooFinance.get(quickSymbol);
-            FORMATTED_HTML_QUERY = "<h1> " + stock.getStats().getSymbol() + "</h1>";
-        }
-        else if(symbol != null){
+            int flag = 0;
+            Stock stock = null;
+            final String INVALID_QUERY = "<tr><td>" + quickSymbol.toUpperCase() + "  is an invalid stock symbol.</td></tr>";
 
+            try {
+                stock = YahooFinance.get(quickSymbol);
+            } catch (FileNotFoundException e) {
+                flag = 1;
+            }
+            /*
+               Switch statement to let the user know they entered an invalid query,
+               or build the table by default if FileNotFoundException was not caught.
+             */
+            switch (flag) {
+                case (1): {
+                    FORMATTED_HTML_QUERY = INVALID_QUERY;
+                    break;
+                }
+                default: {
+                    FORMATTED_HTML_QUERY = WebUtils.buildTable(stock, 1);
+                    break;
+                }
+            }
+        }
+        //If condition is true, return a historical quote.
+        else if(symbol != null){
             Calendar calendarStart;
             Calendar calendarEnd;
+
             try {
                 calendarStart = WebUtils.stringToCalendar(start);
                 calendarEnd = WebUtils.stringToCalendar(end);
@@ -70,21 +99,19 @@ public class StockSearchServlet extends HttpServlet {
                 throw new ServletException("Failed to parse raw date string", e.getCause());
             }
 
-            Interval finalInterval = Interval.valueOf(interval); //Parse the chosen interval from raw form data.
+            //Parse the chosen interval from raw form data.
+            Interval finalInterval = Interval.valueOf(interval);
 
-            Stock results; //List to hold queried results before parsing to HTML format
+            Stock intervalResults; //List to hold queried results before parsing to HTML format
             try {
                 //Get the goods from Yahoo
-                results = service.getQuote(symbol, calendarStart, calendarEnd, finalInterval);
+                intervalResults = service.getQuote(symbol, calendarStart, calendarEnd, finalInterval);
+                //Finalized HTML formatted String to hold dynamic HTML.
+                FORMATTED_HTML_QUERY = WebUtils.buildTable(intervalResults, 2);
             } catch (StockServiceException e) {
-                throw new ServletException("Failed to return quotes from Yahoo", e.getCause());
+                FORMATTED_HTML_QUERY = ERROR_HTML;
             }
-            //Finalized HTML formatted String to display in jsp results page.
-            try {
-                FORMATTED_HTML_QUERY = WebUtils.resultsTableBuilder(results);
-            } catch (WebUtilsException e) {
-                e.printStackTrace();
-            }
+
         }
 
          /*
@@ -100,6 +127,21 @@ public class StockSearchServlet extends HttpServlet {
         RequestDispatcher dispatcher =
                 servletContext.getRequestDispatcher("/ReturnedResults.jsp");
         dispatcher.forward(request, response);
+
+        //Commit MetaData to DB
+        Calendar calendar = Calendar.getInstance();
+        Timestamp currentTimestamp = new Timestamp(calendar.getTime().getTime());
+
+        SearchDAO searchDAO = new SearchDAO();
+        searchDAO.setDate(currentTimestamp);
+        searchDAO.setStock_id(1);
+        searchDAO.setSystem_id(2);
+        searchDAO.setBrowser_id(4);
+        searchDAO.setUser_id(10001);
+        searchDAO.setType_of_search(0);
+
+        databaseService.addStockQueryMetaData(searchDAO);
+
     }
 
 

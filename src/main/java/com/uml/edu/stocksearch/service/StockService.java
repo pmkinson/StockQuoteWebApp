@@ -27,9 +27,7 @@ public class StockService {
      * @param until        End date
      * @param intervalEnum The interval to return quotes by
      * @return ​a list of HistoricalQuotes One for each day in the range specified.
-     * @throws ParseException
-     * @throws IllegalArgumentException
-     * @throws StockServiceException
+     * @throws StockServiceException  Thrown when there is a failure to retrieve data from YahooFinance.get() method.
      */
     public Stock getQuote(String symbol, Calendar from, Calendar until, Interval intervalEnum) throws StockServiceException {
 

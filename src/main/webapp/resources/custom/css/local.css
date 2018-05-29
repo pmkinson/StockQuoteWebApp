@@ -1,15 +1,4 @@
-@font-face {
-    font-family: BostonTraffic;
-    src: url(/resources/custom/fonts/boston_traffic.ttf);
-}
-@font-face {
-    font-family: Boycott;
-    src: url(/resources/custom/fonts/BOYCOTT_.ttf);
-}
-@font-face {
-    font-family: CaptureIt;
-    src: url(/resources/custom/fonts/Capture_it.ttf);
-}
+
 @font-face {
     font-family: TopSecret;
     src: url(/resources/custom/fonts/Top_Secret.ttf);
@@ -20,12 +9,13 @@
     src: url(/resources/custom/fonts/AirAmerica-Regular.otf);
 }
 
-@font-face {
-    font-family: KnowYourProduct;
-    src: url(/resources/custom/fonts/know_your_product.ttf);
-}
 .results-table {
     background-color: white;
+    width: 80%;
+}
+
+#tableHead {
+    background-color: #D3D3D3;
 }
 
 .nav-background {
@@ -106,24 +96,29 @@
     border-bottom: 1px solid #000000;
     padding-bottom:2px;}
 
+html {
+    position: relative;
+}
 
 body {
-    background-color: #efefef;
+    background-color: white;
+    min-height: 100%;
 }
 
 footer {
+    position: fixed;
     height: 50px;
     width: 100%;
-    position: fixed;
-    bottom: 3px;
+    bottom: 0px;
     background-color: #4e75b9;
+
 }
 
 .footer-copyright {
-    position: absolute;
-    padding-bottom: 10px;
-    bottom: 0px;
-    margin-left: 40%;
+    position: relative;
+    bottom: -7px;
+    margin-left: 45%;
+
     color: #d9edf7;
     font-family: AirAmerica;
     font-size: medium;
@@ -167,3 +162,13 @@ footer {
     margin-top: 12px;
 
 }
+
+.copyrightBar {
+    width: 160px; !important;
+}
+
+#footer-logo {
+    padding-top: 10px;
+}
+
+

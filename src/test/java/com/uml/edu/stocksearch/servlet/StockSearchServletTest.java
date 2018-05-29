@@ -94,10 +94,10 @@ public class StockSearchServletTest {
 
     }
 
-    @Test(expected = ServletException.class)
-    public void StockSearchServletTestError2() throws Exception {
+    @Test
+    public void StockSearchServletQuickQuote() throws Exception {
 
-        when(request.getParameter("stockSymbol")).thenReturn("*F");
+        when(request.getParameter("quickSymbol")).thenReturn("PDS");
         when(request.getParameter("startDate")).thenReturn("01/01/2018");
         when(request.getParameter("endDate")).thenReturn("02/01/2018");
         when(request.getParameter("interval")).thenReturn("DAILY");
@@ -110,7 +110,6 @@ public class StockSearchServletTest {
 
         when(response.getWriter()).thenReturn(pw);
 
-
         StockSearchServlet servlet = new StockSearchServlet();
         servlet.init(servletConfigMock);
         servlet.doPost(request, response);
@@ -120,6 +119,30 @@ public class StockSearchServletTest {
 
     }
 
+    @Test
+    public void StockSearchServletQuickQuoteError() throws Exception {
+
+        when(request.getParameter("quickSymbol")).thenReturn("F**");
+        when(request.getParameter("startDate")).thenReturn("01/01/2018");
+        when(request.getParameter("endDate")).thenReturn("02/01/2018");
+        when(request.getParameter("interval")).thenReturn("DAILY");
+        when(request.getSession()).thenReturn(session);
+        when(session.getServletContext()).thenReturn(servletContextMock);
+        when(servletContextMock.getRequestDispatcher(ArgumentMatchers.contains("/ReturnedResults.jsp"))).thenReturn(requestDispatcherMock);
+
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        when(response.getWriter()).thenReturn(pw);
+
+        StockSearchServlet servlet = new StockSearchServlet();
+        servlet.init(servletConfigMock);
+        servlet.doPost(request, response);
+
+        verify(session).getServletContext();
+        verify(requestDispatcherMock).forward(request, response);
+
+    }
 
     @Test
     public void checkOverrides() {
