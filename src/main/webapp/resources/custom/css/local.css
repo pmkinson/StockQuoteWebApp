@@ -1,15 +1,4 @@
-@font-face {
-    font-family: BostonTraffic;
-    src: url(/resources/custom/fonts/boston_traffic.ttf);
-}
-@font-face {
-    font-family: Boycott;
-    src: url(/resources/custom/fonts/BOYCOTT_.ttf);
-}
-@font-face {
-    font-family: CaptureIt;
-    src: url(/resources/custom/fonts/Capture_it.ttf);
-}
+
 @font-face {
     font-family: TopSecret;
     src: url(/resources/custom/fonts/Top_Secret.ttf);
@@ -19,12 +8,6 @@
     font-family: AirAmerica;
     src: url(/resources/custom/fonts/AirAmerica-Regular.otf);
 }
-
-@font-face {
-    font-family: KnowYourProduct;
-    src: url(/resources/custom/fonts/know_your_product.ttf);
-}
-
 
 .results-table {
     background-color: white;
