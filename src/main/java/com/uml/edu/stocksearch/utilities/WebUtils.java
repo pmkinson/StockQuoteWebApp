@@ -293,7 +293,6 @@ public class WebUtils extends HttpServlet {
         return table;
     }
 
-
     /**
      * Override inherited equals method.
      *

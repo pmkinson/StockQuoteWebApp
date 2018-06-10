@@ -40,4 +40,10 @@ public class DatabaseConnectionException extends Throwable {
 
         super(message, cause);
     }
+
+    public DatabaseConnectionException(String message) {
+
+        super(message);
+    }
 }
+

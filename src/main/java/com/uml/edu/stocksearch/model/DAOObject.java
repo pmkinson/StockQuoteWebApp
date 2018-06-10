@@ -15,8 +15,6 @@
  * <p>
  * package com.uml.edu.stocksearch.model;
  * <p>
- * /**
- * Empty wrapper for all DAOObject objects.
  */
 
 package com.uml.edu.stocksearch.model;

@@ -1,16 +1,21 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD//EN"
-        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE hibernate-configuration PUBLIC "
+-//Hibernate/Hibernate Configuration DTD//EN" "
+http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
 
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 
-        <property name="hibernate.connection.url"></property>
-        <property name="hibernate.connection.username"></property>
-        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.url">
+            jdbc:postgresql://ec2-174-129-206-173.compute-1.amazonaws.com:5432/dee5uoi05ai36v?sslmode=require
+        </property>
+        <property name="hibernate.connection.username">yyntvlsruodewk</property>
+        <property name="hibernate.connection.password">
+            824bc9538b51522e5fe41537b41b611998efc8e7da23422dd5b0edf86370a69a
+        </property>
+
+        <property name="backend">1</property>
 
         <mapping class="com.uml.edu.stocksearch.model.SearchDAO"/>
 

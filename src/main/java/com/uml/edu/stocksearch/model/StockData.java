@@ -15,7 +15,9 @@
  * <p>
  * package com.uml.edu.stocksearch.model;
  * <p>
- * /**
+ /*
+
+ /**
  * Empty wrapper for all DAOObject objects.
  */
 
@@ -27,7 +29,7 @@ import java.time.format.DateTimeFormatter;
  * Abstract class to wrap all implementations of various StockQuotes with.
  * Contains commonalities that will be shared by all data models.
  * <p>
- * Ie, The stock symbol and a date format will be standardized for all StockQuoteDAO daoobjects.
+ * Ie, The stock symbol and a date format will be standardized for all StockQuoteDAO dao objects.
  *
  * @author Peter Kinson
  */

@@ -35,11 +35,20 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
-import java.io.File;
+import java.util.ArrayList;
 
 /**
  * A class that contains database related utility methods.
@@ -51,6 +60,7 @@ public class DatabaseUtils {
     private static SessionFactory sessionFactory;
     private static final String HIBERNATE_PATH = "./src/main/resources/hibernate.cfg.xml";
     private static final String DRIVER = "org.postgresql.Driver";
+    private static final String HIBERNATE = "hibernate.cfg.xml";
 
     /**
      * Utility method to return a connection to the database
@@ -66,9 +76,6 @@ public class DatabaseUtils {
         try {
 
             Class.forName(DRIVER);
-
-            //Make sure config file has latest credentials as well as url.
-            configuration = getDBCredentials(configuration);
 
             String databaseUrl = configuration.getProperty("hibernate.connection.url");
             String username = configuration.getProperty("hibernate.connection.username");
@@ -110,6 +117,7 @@ public class DatabaseUtils {
         synchronized (DatabaseUtils.class) {
             try {
                 if (sessionFactory == null) {
+                    updateHibernateConfig();
                     sessionFactory = buildSessionFactory();
                 } else {
                     return sessionFactory;
@@ -167,9 +175,10 @@ public class DatabaseUtils {
     private static SessionFactory buildSessionFactory() {
 
         try {
+
             // Create the ServiceRegistry from hibernate.cfg.xml
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .configure("hibernate.cfg.xml").build();
+                    .configure(HIBERNATE).build();
 
             // Create a metadata sources using the specified service registry.
             Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
@@ -185,7 +194,7 @@ public class DatabaseUtils {
     /**
      * Create a new or return an existing database configuration object.
      *
-     * @return A hibernate configuration file
+     * @return A hibernate configuration
      * @throws DatabaseConfigurationException
      */
     private static Configuration getConfiguration(String filePath) throws DatabaseConfigurationException {
@@ -212,32 +221,79 @@ public class DatabaseUtils {
      * called DATABASE_URL.  The database url, as well as the login / password are periodically rotated
      * by Heroku.  This method ensures the webapp will always have correct configuration variables.
      *
-     * @param hibernateConfig The Hibernate Configuration object to update credentials
      *
      * @throws DatabaseConfigurationException  Thrown when the URI cannot be parsed or
      *                                         if the environmental variable is null.
      */
 
-    public static Configuration getDBCredentials(Configuration hibernateConfig) throws DatabaseConfigurationException {
+    public static void updateHibernateConfig() throws DatabaseConfigurationException {
 
         try {
+
+            File inputFile = new File(HIBERNATE_PATH);
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(inputFile);
+
+            Node sessionFactoryTag = doc.getElementsByTagName("session-factory").item(0);
+            NodeList list = sessionFactoryTag.getChildNodes();
+
             //Get Heroku credentials from local environmental variable
             URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
-            //Parse local Environmental Variable from Heroku server for current username/password and database URL.
-            final String username = dbUri.getUserInfo().split(":")[0];
-            final String password = dbUri.getUserInfo().split(":")[1];
-            final String database = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+            //Get credentials
+            ArrayList<String> credentials = getHerokuCredentials();
 
-            //Update configuration loaded into memory
-            hibernateConfig.setProperty("hibernate.connection.username", username);
-            hibernateConfig.setProperty("hibernate.connection.password", password);
-            hibernateConfig.setProperty("hibernate.connection.url", database);
+            //Update config file in memory
+            list.item(5).setTextContent(credentials.get(0));
+            list.item(7).setTextContent(credentials.get(1));
+            list.item(9).setTextContent(credentials.get(2));
 
-        } catch (URISyntaxException | NullPointerException e) {
-            throw new DatabaseConfigurationException("Failed to update database credentials before opening a connection.", e.getCause());
+            //Save updated config file
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(inputFile);
+            DOMImplementation domImpl = doc.getImplementation();
+
+            DocumentType doctype = domImpl.createDocumentType("doctype",
+                    "\n-//Hibernate/Hibernate Configuration DTD//EN",
+                    "\nhttp://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd");
+
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, doctype.getPublicId());
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, doctype.getSystemId());
+
+            transformer.transform(source, result);
+
+        } catch (URISyntaxException | NullPointerException | IOException |
+                ParserConfigurationException | SAXException | TransformerException e) {
+            throw new DatabaseConfigurationException("Failed to update 'hibernate.cfg.xml' database credentials before opening a connection.", e.getCause());
         }
-        return hibernateConfig;
+    }
+
+    /**
+     * Retrieve updated credentials from Heroku and parse them into a ArrayList of strings.
+     *
+     * @return ArrayList of updated credentials
+     * @throws URISyntaxException Thrown if DATABASE_URL does not exist. This is Heroku hosting specific environmental variable.
+     *                            This will be thrown if webapp is hosted by a different server.
+     */
+    private static ArrayList<String> getHerokuCredentials() throws URISyntaxException {
+        ArrayList<String> credentials = new ArrayList<>();
+
+        //Get Heroku credentials from local environmental variable
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+        //Parse local Environmental Variable from Heroku server for current username/password and database URL.
+        final String username = dbUri.getUserInfo().split(":")[0];
+        final String password = dbUri.getUserInfo().split(":")[1];
+        final String database = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+
+        credentials.add(database);
+        credentials.add(username);
+        credentials.add(password);
+
+        return credentials;
     }
 
 
