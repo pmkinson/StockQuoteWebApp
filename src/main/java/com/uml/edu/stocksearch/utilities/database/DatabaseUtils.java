@@ -229,7 +229,6 @@ public class DatabaseUtils {
     public static void updateHibernateConfig() throws DatabaseConfigurationException {
 
         try {
-
             File inputFile = new File(HIBERNATE_PATH);
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -238,10 +237,7 @@ public class DatabaseUtils {
             Node sessionFactoryTag = doc.getElementsByTagName("session-factory").item(0);
             NodeList list = sessionFactoryTag.getChildNodes();
 
-            //Get Heroku credentials from local environmental variable
-            URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-            //Get credentials
+            //Get Heroku credentials
             ArrayList<String> credentials = getHerokuCredentials();
 
             //Update config file in memory
