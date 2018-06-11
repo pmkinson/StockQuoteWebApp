@@ -15,8 +15,6 @@
  * <p>
  * package com.uml.edu.stocksearch.model;
  * <p>
- * /**
- * Empty wrapper for all DAOObject objects.
  */
 
 package com.uml.edu.stocksearch.utilities.database;
@@ -58,9 +56,14 @@ public class DatabaseUtils {
 
     private static Configuration configuration;
     private static SessionFactory sessionFactory;
+
+    //All these constants are related to the hibernate config file
     private static final String HIBERNATE_PATH = "./src/main/resources/hibernate.cfg.xml";
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String HIBERNATE = "hibernate.cfg.xml";
+    private static final String PARENT_NODE = "session-factory";
+    private static final String PUBLIC_ID = "\n-//Hibernate/Hibernate Configuration DTD//EN";
+    private static final String SYSTEM_ID = "\nhttp://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd";
 
     /**
      * Utility method to return a connection to the database
@@ -117,7 +120,7 @@ public class DatabaseUtils {
         synchronized (DatabaseUtils.class) {
             try {
                 if (sessionFactory == null) {
-                    updateHibernateConfig();
+                    verifyHibernateConfig();
                     sessionFactory = buildSessionFactory();
                 } else {
                     return sessionFactory;
@@ -216,55 +219,94 @@ public class DatabaseUtils {
     }
 
     /**
-     * This method gathers the updated database url as well as the default login / password from Heroku.
-     * Each time a dyno is started for a web app instance at Heroku, an environment variable is created
-     * called DATABASE_URL.  The database url, as well as the login / password are periodically rotated
-     * by Heroku.  This method ensures the webapp will always have correct configuration variables.
+     * This method will read in the Hibernate config file located in the resources folder.
+     * The purpose of this method is act as a controller for automatically updating the
+     * config file based on the needs of wherever the app is being hosted.
+     *
+     * To configure what case is run, open the hibernate.cfg.xml file and change the content for;
+     * < property name="backend">##</property>
+     *
+     * Heroku app hosting services have rotating authentication credentials for their
+     * free database. This ensures that the most recent credentials are retrieved at app
+     * instantiation.
      *
      *
-     * @throws DatabaseConfigurationException  Thrown when the URI cannot be parsed or
-     *                                         if the environmental variable is null.
+     * @throws DatabaseConfigurationException  Wrapper exception for any error that occurs
+     *                                         while updating the hibernate.cfg.xml file
      */
 
-    public static void updateHibernateConfig() throws DatabaseConfigurationException {
+    public static void verifyHibernateConfig() throws DatabaseConfigurationException {
 
         try {
-            File inputFile = new File(HIBERNATE_PATH);
-            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(inputFile);
+            Document document = xmlDocument(HIBERNATE_PATH);
+            NodeList nodeList = getHibernateNodeList(document, PARENT_NODE);
 
-            Node sessionFactoryTag = doc.getElementsByTagName("session-factory").item(0);
-            NodeList list = sessionFactoryTag.getChildNodes();
+            String backEndVariable = nodeList.item(11).getTextContent();
 
-            //Get Heroku credentials
-            ArrayList<String> credentials = getHerokuCredentials();
-
-            //Update config file in memory
-            list.item(5).setTextContent(credentials.get(0));
-            list.item(7).setTextContent(credentials.get(1));
-            list.item(9).setTextContent(credentials.get(2));
+            switch (backEndVariable) {
+                case "1": {
+                    updateHerokuCredentials(nodeList);
+                }
+                case "2": {
+                    //Add next scenario with which to change hibernate config file.
+                }
+                default: {
+                    //Do nothing.
+                }
+            }
 
             //Save updated config file
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(inputFile);
-            DOMImplementation domImpl = doc.getImplementation();
-
-            DocumentType doctype = domImpl.createDocumentType("doctype",
-                    "\n-//Hibernate/Hibernate Configuration DTD//EN",
-                    "\nhttp://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd");
-
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, doctype.getPublicId());
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, doctype.getSystemId());
-
-            transformer.transform(source, result);
+            saveHibernateConfig(document);
 
         } catch (URISyntaxException | NullPointerException | IOException |
                 ParserConfigurationException | SAXException | TransformerException e) {
             throw new DatabaseConfigurationException("Failed to update 'hibernate.cfg.xml' database credentials before opening a connection.", e.getCause());
         }
+    }
+
+    /**
+     * Build a NodeList from an XML document
+     *
+     * @param document The document to read.
+     * @param element  The parent element to build a nodelist from.
+     * @return A NodeList
+     */
+    private static NodeList getHibernateNodeList(Document document, String element) {
+
+        Node sessionFactoryTag = document.getElementsByTagName(element).item(0);
+        NodeList list = sessionFactoryTag.getChildNodes();
+
+        return list;
+    }
+
+    /**
+     * Method to create a file object. Reducing repetative code.
+     *
+     * @param filePath String for the filepath
+     * @return A File object.
+     */
+    private static File getFile(String filePath) {
+        File file = new File(filePath);
+
+        return file;
+    }
+
+    /**
+     * Method to retrieve and parse the Hibernate Config file into XML format for editing.
+     *
+     * @return A Document object
+     * @throws ParserConfigurationException Thrown when file contains invalid XML and cannot be parsed
+     * @throws IOException                  Thrown when there's an error locating hibernate.cfg.xml
+     * @throws SAXException                 Thrown for general exception for any SAX errors that may occur.
+     */
+    private static Document xmlDocument(String filePath) throws ParserConfigurationException, IOException, SAXException {
+
+        File inputFile = getFile(HIBERNATE_PATH);
+        DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = documentFactory.newDocumentBuilder();
+        Document document = docBuilder.parse(inputFile);
+
+        return document;
     }
 
     /**
@@ -274,7 +316,7 @@ public class DatabaseUtils {
      * @throws URISyntaxException Thrown if DATABASE_URL does not exist. This is Heroku hosting specific environmental variable.
      *                            This will be thrown if webapp is hosted by a different server.
      */
-    private static ArrayList<String> getHerokuCredentials() throws URISyntaxException {
+    private static ArrayList<String> updateHerokuCredentials(NodeList nodeList) throws URISyntaxException {
         ArrayList<String> credentials = new ArrayList<>();
 
         //Get Heroku credentials from local environmental variable
@@ -289,9 +331,37 @@ public class DatabaseUtils {
         credentials.add(username);
         credentials.add(password);
 
+        //Update config file in memory
+        nodeList.item(5).setTextContent(credentials.get(0));
+        nodeList.item(7).setTextContent(credentials.get(1));
+        nodeList.item(9).setTextContent(credentials.get(2));
+
         return credentials;
     }
 
+    /**
+     * Save changes to the hibernate config file.
+     *
+     * @param document Hiberrnate config file
+     * @throws TransformerException Generalized exception thrown if there's an error saving the file.
+     */
+    private static void saveHibernateConfig(Document document) throws TransformerException {
+
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(document);
+        File file = getFile(HIBERNATE_PATH);
+        StreamResult result = new StreamResult(file);
+        DOMImplementation domImplementation = document.getImplementation();
+
+        DocumentType documentType = domImplementation.createDocumentType("doctype", PUBLIC_ID, SYSTEM_ID);
+
+        transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, documentType.getPublicId());
+        transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, documentType.getSystemId());
+
+        transformer.transform(source, result);
+
+    }
 
 }
 
