@@ -74,6 +74,7 @@ public class DatabaseUtils {
      */
     public static Connection getConnection() throws DatabaseConnectionException, DatabaseConfigurationException {
 
+        verifyHibernateConfig();
         Connection connection = null;
         Configuration configuration = getConfiguration(HIBERNATE_PATH);
         try {
@@ -226,6 +227,11 @@ public class DatabaseUtils {
      * To configure what case is run, open the hibernate.cfg.xml file and change the content for;
      * < property name="backend">##</property>
      *
+     * Current Assignments:
+     *       0 - Does nothing.  Will not update the config file.
+     *       1 - Update config for Heroku hosting.
+     *       2 - Ready for development.
+     *
      * Heroku app hosting services have rotating authentication credentials for their
      * free database. This ensures that the most recent credentials are retrieved at app
      * instantiation.
@@ -244,11 +250,14 @@ public class DatabaseUtils {
             String backEndVariable = nodeList.item(11).getTextContent();
 
             switch (backEndVariable) {
+                case "0": {
+                    //Do not update the config file.
+                }
                 case "1": {
                     updateHerokuCredentials(nodeList);
                 }
                 case "2": {
-                    //Add next scenario with which to change hibernate config file.
+                    //Add next scenario with which to change hibernate config file
                 }
                 default: {
                     //Do nothing.

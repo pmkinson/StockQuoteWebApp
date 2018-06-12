@@ -6,41 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d223f99-8a38-4261-8051-710549201443" name="Default" comment="Cleaning">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/storage_v2/_src_/database/dee5uoi05ai36v.6C1_Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/storage_v2/_src_/database/dee5uoi05ai36v.6C1_Bg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/storage_v2/_src_/database/dee5uoi05ai36v.6C1_Bg/schema/stockquote.JkWxKA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/exceptions/DatabaseConnectionExceptionTest.java" afterDir="false" />
+    <list default="true" id="9d223f99-8a38-4261-8051-710549201443" name="Default" comment="Added a controller in DatabaseUtils for the new property, 'backend', in the hibernate config file. The controller reads the hibernate file and checks for what the backend property is set to. This was added to dynamically update db connection settings at runtime if needed.  Simplified programming into smaller, more reusable methods.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/DAOObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/DAOObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/SearchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/SearchDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/StockData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/StockData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/exceptions/DatabaseConnectionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/exceptions/DatabaseConnectionException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/DatabaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/DatabaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/ServiceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/ServiceFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/StockService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/exceptions/StockServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/service/exceptions/StockServiceException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/exceptions/WebUtilsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/classes/com/uml/edu/stocksearch/utilities/exceptions/WebUtilsException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/resources/custom/css/local.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/resources/custom/css/local.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/DatabaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/DatabaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/ServiceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/ServiceFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/StockService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/exceptions/StockServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/service/exceptions/StockServiceException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/servlet/StockSearchServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/WebUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/exceptions/WebUtilsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uml/edu/stocksearch/utilities/exceptions/WebUtilsException.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +30,7 @@
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest_getHibernateConfigTest.ic" NAME="DatabaseUtilsTest.getHibernateConfigTest Coverage Results" MODIFIED="1527299013267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uml.edu.stocksearch.utilities.database.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest_getSessionFactory.ic" NAME="DatabaseUtilsTest.getSessionFactory Coverage Results" MODIFIED="1528246327280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest_getSessionFactory.ic" NAME="DatabaseUtilsTest.getSessionFactory Coverage Results" MODIFIED="1528743134753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uml.edu.stocksearch.utilities.database.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseConnectionExceptionTest.ic" NAME="DatabaseConnectionExceptionTest Coverage Results" MODIFIED="1528026828080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -77,6 +47,9 @@
       <FILTER>com.uml.edu.stocksearch.utilities.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__2_.ic" NAME="All in StockQuoteWebApp (2) Coverage Results" MODIFIED="1528146967582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest.ic" NAME="DatabaseUtilsTest Coverage Results" MODIFIED="1528834103485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uml.edu.stocksearch.utilities.database.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$StockSearchServletTest_StockSearchServletQuickQuote.ic" NAME="StockSearchServletTest.StockSearchServletQuickQuote Coverage Results" MODIFIED="1526599788934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uml.edu.stocksearch.servlet.*</FILTER>
     </SUITE>
@@ -89,7 +62,7 @@
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest_getConnection.ic" NAME="DatabaseUtilsTest.getConnection Coverage Results" MODIFIED="1527367891479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uml.edu.stocksearch.utilities.database.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp.ic" NAME="All in StockQuoteWebApp Coverage Results" MODIFIED="1528026403683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp.ic" NAME="All in StockQuoteWebApp Coverage Results" MODIFIED="1528764554204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -115,36 +88,23 @@
       <file leaf-file-name="DatabaseUtilsTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="68">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1491#1492#0" expanded="true" />
+                <element signature="e#1552#1553#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/SearchDAO.java">
+      <file leaf-file-name="WebUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="520">
+              <caret line="294" selection-start-line="294" selection-end-line="294" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="249" column="24" selection-start-line="249" selection-start-column="24" selection-end-line="249" selection-end-column="24" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,28 +113,65 @@
       <file leaf-file-name="ReflectiveCallable.class" pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="238">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hibernate.cfg.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hibernate.cfg.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebUtilsException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/exceptions/WebUtilsException.java">
+      <file leaf-file-name="EnvironmentVariables.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/github/stefanbirkner/system-rules/1.17.2/system-rules-1.17.2.jar!/org/junit/contrib/java/lang/system/EnvironmentVariables.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="154">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParentRunner.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="203" selection-start-line="203" selection-end-line="203" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockJUnit4ClassRunner.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseUtils.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-102">
+              <caret line="233" column="12" lean-forward="true" selection-start-line="233" selection-start-column="12" selection-end-line="233" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/DatabaseService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-38">
+              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -196,10 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>center</find>
-      <find>stock</find>
-      <find>results</find>
-      <find>pan</find>
       <find>rad</find>
       <find>-15</find>
       <find>bs</find>
@@ -226,6 +219,10 @@
       <find>buildsess</find>
       <find>configuration</find>
       <find>boop</find>
+      <find>DOMSource</find>
+      <find>getconn</find>
+      <find>updateHerokuCredentials</find>
+      <find>setEnvironmentVariable</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -288,9 +285,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/SearchDAO.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/exceptions/DatabaseConnectionExceptionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/exceptions/DatabaseConnectionException.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
       </list>
     </option>
   </component>
@@ -317,10 +314,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
-    <option name="y" value="93" />
-    <option name="width" value="1814" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="41" />
+    <option name="width" value="1726" />
     <option name="height" value="1034" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -329,7 +326,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -574,8 +571,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -597,24 +594,24 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.uml.edu.stocksearch.utilities.database" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\StockQuoteWebApp\src\main\java\com\uml\edu\stocksearch\utilities" />
-      <recent name="D:\StockQuoteWebApp\src\main\resources" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.uml.edu.stocksearch.utilities.database.exceptions" />
-      <recent name="com.uml.edu.stocksearch.model" />
-      <recent name="com.uml.edu.stocksearch.service.exceptions" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\custom\css" />
       <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\custom\js" />
       <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\jquery\js" />
       <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\bootstrap\js" />
       <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\bootstrap\css" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.uml.edu.stocksearch.utilities.database.exceptions" />
+      <recent name="com.uml.edu.stocksearch.model" />
+      <recent name="com.uml.edu.stocksearch.service.exceptions" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\StockQuoteWebApp\src\main\java\com\uml\edu\stocksearch\utilities" />
+      <recent name="D:\StockQuoteWebApp\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -629,11 +626,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DatabaseUtilsTest.getSessionFactory">
+  <component name="RunManager" selected="JUnit.DatabaseUtilsTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="All in StockQuoteWebApp (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in StockQuoteWebApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StockQuoteWebApp" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -641,6 +638,52 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="DatabaseUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uml.edu.stocksearch.utilities.database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.utilities.database" />
+      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.utilities.database.DatabaseUtilsTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="DatabaseUtilsTest.getConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uml.edu.stocksearch.utilities.database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.utilities.database" />
+      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.utilities.database.DatabaseUtilsTest" />
+      <option name="METHOD_NAME" value="getConnection" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -663,52 +706,6 @@
       <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.utilities.database" />
       <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.utilities.database.DatabaseUtilsTest" />
       <option name="METHOD_NAME" value="getConnectionError" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="DatabaseUtilsTest.getHibernateConfigError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StockQuoteWebApp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.uml.edu.stocksearch.utilities.database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.utilities.database" />
-      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.utilities.database.DatabaseUtilsTest" />
-      <option name="METHOD_NAME" value="getHibernateConfigError" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="DatabaseUtilsTest.getHibernateConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StockQuoteWebApp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.uml.edu.stocksearch.utilities.database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.uml.edu.stocksearch.utilities.database" />
-      <option name="MAIN_CLASS_NAME" value="com.uml.edu.stocksearch.utilities.database.DatabaseUtilsTest" />
-      <option name="METHOD_NAME" value="getHibernateConfigTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -881,18 +878,18 @@
       <item itemvalue="Maven.Heroku Deployment" />
       <item itemvalue="Tomcat Server.Local Tomcat" />
       <item itemvalue="JUnit.DatabaseUtilsTest.getSessionFactory" />
-      <item itemvalue="JUnit.DatabaseUtilsTest.getHibernateConfigError" />
-      <item itemvalue="JUnit.All in StockQuoteWebApp (2)" />
       <item itemvalue="JUnit.DatabaseUtilsTest.getConnectionError" />
-      <item itemvalue="JUnit.DatabaseUtilsTest.getHibernateConfigTest" />
+      <item itemvalue="JUnit.DatabaseUtilsTest" />
+      <item itemvalue="JUnit.All in StockQuoteWebApp" />
+      <item itemvalue="JUnit.DatabaseUtilsTest.getConnection" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DatabaseUtilsTest" />
+        <item itemvalue="JUnit.DatabaseUtilsTest.getConnection" />
         <item itemvalue="JUnit.DatabaseUtilsTest.getSessionFactory" />
         <item itemvalue="JUnit.DatabaseUtilsTest.getConnectionError" />
-        <item itemvalue="JUnit.DatabaseUtilsTest.getHibernateConfigTest" />
-        <item itemvalue="JUnit.All in StockQuoteWebApp (2)" />
-        <item itemvalue="JUnit.DatabaseUtilsTest.getHibernateConfigError" />
+        <item itemvalue="JUnit.All in StockQuoteWebApp" />
       </list>
     </recent_temporary>
   </component>
@@ -925,7 +922,8 @@
       <workItem from="1528026356617" duration="918000" />
       <workItem from="1528055605844" duration="3976000" />
       <workItem from="1528139015872" duration="14703000" />
-      <workItem from="1528668636339" duration="2174000" />
+      <workItem from="1528668636339" duration="11324000" />
+      <workItem from="1528763241265" duration="6225000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Push">
       <created>1525300969704</created>
@@ -1060,46 +1058,67 @@
       <option name="project" value="LOCAL" />
       <updated>1527624870056</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Hibernate update config correctly updates with DOCTYPE.  Added a new property to hibernate config called 'backend'.  This will be used to run updates to config file based on backend setting.">
+      <created>1528671142285</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1528671142285</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Hibernate update config correctly updates with DOCTYPE.  Added a new property to hibernate config called 'backend'.  This will be used to run updates to config file based on backend setting.">
+      <created>1528679977752</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1528679977752</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Hibernate config file now set up with a controller to update based on the backend property in the config file">
+      <created>1528759890655</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1528759890655</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 24m 07s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 03m 29s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 31m 02s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 03m 44s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 33m 16s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 03m 53s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 33m 22s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 03m 58s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 33m 35s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 07m 06s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 33m 47s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 07m 24s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 34m 24s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 09m 32s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 40m 55s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 14m 00s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 41m 26s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest_getConnection - 2018.06.12 at 15h 22m 43s.xml">
+      <configuration name="DatabaseUtilsTest.getConnection" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseUtilsTest_getSessionFactory - 2018.06.10 at 18h 46m 06s.xml">
-      <configuration name="DatabaseUtilsTest.getSessionFactory" configurationId="JUnit" />
+    <history-entry file="DatabaseUtilsTest - 2018.06.12 at 16h 08m 38s.xml">
+      <configuration name="DatabaseUtilsTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284892000" />
+    <option name="totallyTimeSpent" value="300267000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <frame x="4" y="41" width="1726" height="1034" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="6" />
@@ -1109,12 +1128,12 @@
       <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.49389568" visible="true" weight="0.1748401" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.49278578" weight="0.1748401" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="JSF" order="2" weight="0.32942432" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.49960285" weight="0.3862375" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.49960285" weight="0.38566554" />
       <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.32741398" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
@@ -1122,17 +1141,17 @@
       <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32963374" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.3207547" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49889135" visible="true" weight="0.33851278" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49889135" visible="true" weight="0.33788395" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.5072142" side_tool="true" weight="0.23589435" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32852387" />
       <window_info id="Persistence" order="8" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49673203" visible="true" weight="0.22921109" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49673203" visible="true" weight="0.26110443" />
       <window_info id="Web" order="4" sideWeight="0.503268" side_tool="true" weight="0.22921109" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="right" id="Commander" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32963374" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.50610435" side_tool="true" visible="true" weight="0.1748401" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
@@ -1217,7 +1236,9 @@
     <MESSAGE value="Cleaned up unused fonts and updated local.css to reflect." />
     <MESSAGE value="Cleaning" />
     <MESSAGE value="Updated Licensing Header" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Licensing Header" />
+    <MESSAGE value="Hibernate update config correctly updates with DOCTYPE.  Added a new property to hibernate config called 'backend'.  This will be used to run updates to config file based on backend setting." />
+    <MESSAGE value="Hibernate config file now set up with a controller to update based on the backend property in the config file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hibernate config file now set up with a controller to update based on the backend property in the config file" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1242,37 +1263,36 @@
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtils.java</url>
-          <line>237</line>
+          <url>file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java</url>
+          <line>79</line>
           <properties />
-          <option name="timeStamp" value="82" />
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java</url>
+          <line>56</line>
+          <properties class="com.uml.edu.stocksearch.utilities.database.DatabaseUtilsTest" method="getConnection">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="86" />
+      <option name="time" value="101" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/StockServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/exceptions/DatabaseServiceExceptionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/service/ServiceFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/EnumHTML.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/Interval.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/FavoriteStocksDAO.java" />
@@ -1354,23 +1374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="203" selection-start-line="203" selection-end-line="203" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/xml/XMLWrapper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/xml/HibernateConfigXML.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/org/xml/sax/InputSource.java">
@@ -1381,24 +1384,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/xml/XMLUtils.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="20" column="56" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/stefanbirkner/system-rules/1.17.2/system-rules-1.17.2.jar!/org/junit/contrib/java/lang/system/EnvironmentVariables.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>
@@ -1449,6 +1438,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1459,31 +1452,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/DatabaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/DAOObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/exceptions/DatabaseConfigurationException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1528,16 +1500,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="294" selection-start-line="294" selection-end-line="294" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/exceptions/WebUtilsException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="68">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1545,9 +1510,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/exceptions/WebUtilsExceptionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/model/SearchDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="425">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1556,27 +1528,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="170">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/WebUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        <state relative-caret-position="-89">
+          <caret line="154" selection-start-line="154" selection-end-line="154" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtils.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/ExpectException.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="249" column="24" selection-start-line="249" selection-start-column="24" selection-end-line="249" selection-end-column="24" />
+        <state relative-caret-position="408">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/exceptions/DatabaseConfigurationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/stefanbirkner/system-rules/1.17.2/system-rules-1.17.2.jar!/org/junit/contrib/java/lang/system/EnvironmentVariables.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="203" selection-start-line="203" selection-end-line="203" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/service/DatabaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -1587,7 +1597,42 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1552#1553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/WebUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="294" selection-start-line="294" selection-end-line="294" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uml/edu/stocksearch/utilities/database/DatabaseUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="233" column="12" lean-forward="true" selection-start-line="233" selection-start-column="12" selection-end-line="233" selection-end-column="12" />
         </state>
       </provider>
     </entry>

@@ -1,14 +1,19 @@
 package com.uml.edu.stocksearch.utilities.database;
 
+import com.uml.edu.stocksearch.utilities.WebUtils;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
 import org.junit.runner.RunWith;
@@ -19,21 +24,10 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Properties;
+import java.sql.SQLException;
 
-@RunWith(MockitoJUnitRunner.class)
 public class DatabaseUtilsTest {
 
-    @Mock
-    DataSource mockDataSource;
-    @Mock
-    Connection mockConn;
-    @Mock
-    PreparedStatement mockPreparedStmnt;
-    @Mock
-    ResultSet mockResultSet;
-
-    private Configuration configuration = new Configuration();
     final private String url = "postgres://yyntvlsruodewk:824bc9538b51522e5fe41537b41b611998efc8e7da23422dd5b0edf86370a69a@ec2-174-129-206-173.compute-1.amazonaws.com:5432/dee5uoi05ai36v";
     final private String badURL = "postgres//yyntvls2dd5b0edf86370a69a@ec2-174-129-206-173.compute-1.amazonaws.com:5432/dee5uoi05ai36v";
 
@@ -55,7 +49,7 @@ public class DatabaseUtilsTest {
     public void getHibernateConfigError() throws DatabaseConfigurationException {
         clearEnvironmentVariable();
         setEnvironmentVariable(badURL);
-        DatabaseUtils.updateHibernateConfig();
+        DatabaseUtils.verifyHibernateConfig();
 
     }
 
@@ -69,10 +63,11 @@ public class DatabaseUtilsTest {
         assertNotNull(connectionn);
     }
 
-    //@Test(expected = DatabaseConfigurationException.class)
+    @Test(expected = DatabaseConfigurationException.class)
     public void getConnectionError() throws DatabaseConnectionException, DatabaseConfigurationException {
         clearEnvironmentVariable();
         setEnvironmentVariable(badURL);
+
 
         DatabaseUtils.getConnection();
     }
