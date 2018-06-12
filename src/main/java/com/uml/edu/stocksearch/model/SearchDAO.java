@@ -37,6 +37,7 @@ public class SearchDAO extends StockData implements DAOObject {
     private int browser_id;
     private int user_id;
     private int type_of_search;
+    private String stock_symbol;
 
 
     /**
@@ -182,4 +183,25 @@ public class SearchDAO extends StockData implements DAOObject {
     public void setType_of_search(int type_of_search) {
         this.type_of_search = type_of_search;
     }
+
+    /**
+     * Getter for type_of_search
+     *
+     * @return type_of_search
+     */
+    @Basic
+    @Column(name = "stock_symbol", nullable = false, insertable = true, updatable = true)
+    public String getStock_symbol() {
+        return stock_symbol;
+    }
+
+    /**
+     * Setter for type_of_search
+     *
+     * @param stock_symbol
+     */
+    public void setStock_symbol(String stock_symbol) {
+        this.stock_symbol = stock_symbol;
+    }
+
 }
