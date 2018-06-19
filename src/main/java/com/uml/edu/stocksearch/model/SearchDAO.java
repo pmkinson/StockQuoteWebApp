@@ -17,191 +17,122 @@
 
 package com.uml.edu.stocksearch.model;
 
+import org.hibernate.type.BlobType;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
-
+import java.util.Objects;
 
 @Entity
-@Table(name = "stocks", schema = "stockquote")
-public class SearchDAO extends StockData implements DAOObject {
-
-    public SearchDAO() {
-        //Empty constructor per hibernate
-    }
-
-    //Declare variable to correspond to database columns
+@Table(name = "stocks", schema = "stockquote", catalog = "dee5uoi05ai36v")
+public class SearchDAO implements DAOObject {
     private int id;
     private Timestamp date;
-    private int stock_id;
-    private int system_id;
-    private int browser_id;
-    private int user_id;
-    private int type_of_search;
-    private String stock_symbol;
+    private int stockId;
+    private int systemId;
+    private int browserId;
+    private int userId;
+    private int typeOfSearch;
+    private String stockSymbol;
 
-
-    /**
-     * Primary Key - Unique ID for a particular row in the hobby table.
-     *
-     * @return an <CODE>int</CODE> value
-     **/
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
-
         return id;
     }
 
-    /**
-     * Primary Key - Sets unique ID for a particular row in the table.
-     * This method should not be called by client code. The value is managed in internally.
-     *
-     * @param id a unique <CODE>int</CODE> value.
-     **/
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * Get the stock symbol
-     *
-     * @return - <CODE>String</CODE> The stocks symbol associated with the StockQuoteDAO object.
-     */
     @Basic
-    @Column(name = "date", nullable = false, insertable = true, updatable = true)
+    @Column(name = "date", nullable = false)
     public Timestamp getDate() {
-
         return date;
     }
 
-    /**
-     * Setter for date.
-     *
-     * @param timestamp
-     */
-    public void setDate(Timestamp timestamp) {
-        this.date = timestamp;
+    public void setDate(Timestamp date) {
+        this.date = date;
     }
 
-    /**
-     * Getter for stock_id
-     *
-     * @return stock_id
-     */
     @Basic
-    @Column(name = "stock_id", nullable = false, insertable = true, updatable = true)
-    public int getStock_id() {
-        return stock_id;
+    @Column(name = "stock_id", nullable = false)
+    public int getStockId() {
+        return stockId;
     }
 
-    /**
-     * Setter for stock_id
-     *
-     * @param stock_id
-     */
-    public void setStock_id(int stock_id) {
-        this.stock_id = stock_id;
+    public void setStockId(int stockId) {
+        this.stockId = stockId;
     }
 
-    /**
-     * Getter for system_id
-     *
-     * @return system_id
-     */
     @Basic
-    @Column(name = "system_id", nullable = false, insertable = true, updatable = true)
-    public int getSystem_id() {
-        return system_id;
+    @Column(name = "system_id", nullable = false)
+    public int getSystemId() {
+        return systemId;
     }
 
-    /**
-     * Setter for system_id
-     *
-     * @param system_id
-     */
-    public void setSystem_id(int system_id) {
-        this.system_id = system_id;
+    public void setSystemId(int systemId) {
+        this.systemId = systemId;
     }
 
-    /**
-     * Getter for browser_id
-     *
-     * @return browser_id
-     */
     @Basic
-    @Column(name = "getBrowser_id", nullable = false, insertable = true, updatable = true)
-    public int getBrowser_id() {
-        return browser_id;
+    @Column(name = "browser_id", nullable = false)
+    public int getBrowserId() {
+        return browserId;
     }
 
-    /**
-     * Setter for browser_id
-     *
-     * @param browser_id
-     */
-    public void setBrowser_id(int browser_id) {
-        this.browser_id = browser_id;
+    public void setBrowserId(int browserId) {
+        this.browserId = browserId;
     }
 
-    /**
-     * Getter for user_id
-     *
-     * @return user_id
-     */
     @Basic
-    @Column(name = "user_id", nullable = false, insertable = true, updatable = true)
-    public int getUser_id() {
-        return user_id;
+    @Column(name = "user_id", nullable = false)
+    public int getUserId() {
+        return userId;
     }
 
-    /**
-     * Setter for user_id
-     *
-     * @param user_id
-     */
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    /**
-     * Getter for type_of_search
-     *
-     * @return type_of_search
-     */
     @Basic
-    @Column(name = "type_of_search", nullable = false, insertable = true, updatable = true)
-    public int getType_of_search() {
-        return type_of_search;
+    @Column(name = "type_of_search", nullable = false)
+    public int getTypeOfSearch() {
+        return typeOfSearch;
     }
 
-    /**
-     * Setter for type_of_search
-     *
-     * @param type_of_search
-     */
-    public void setType_of_search(int type_of_search) {
-        this.type_of_search = type_of_search;
+    public void setTypeOfSearch(int typeOfSearch) {
+        this.typeOfSearch = typeOfSearch;
     }
 
-    /**
-     * Getter for type_of_search
-     *
-     * @return type_of_search
-     */
     @Basic
-    @Column(name = "stock_symbol", nullable = false, insertable = true, updatable = true)
-    public String getStock_symbol() {
-        return stock_symbol;
+    @Column(name = "stock_symbol", nullable = true, length = -1)
+    public String getStockSymbol() {
+        return stockSymbol;
     }
 
-    /**
-     * Setter for type_of_search
-     *
-     * @param stock_symbol
-     */
-    public void setStock_symbol(String stock_symbol) {
-        this.stock_symbol = stock_symbol;
+    public void setStockSymbol(String stockSymbol) {
+        this.stockSymbol = stockSymbol;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SearchDAO that = (SearchDAO) o;
+        return id == that.id &&
+                stockId == that.stockId &&
+                systemId == that.systemId &&
+                browserId == that.browserId &&
+                userId == that.userId &&
+                typeOfSearch == that.typeOfSearch &&
+                Objects.equals(date, that.date) &&
+                Objects.equals(stockSymbol, that.stockSymbol);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, date, stockId, systemId, browserId, userId, typeOfSearch, stockSymbol);
+    }
 }

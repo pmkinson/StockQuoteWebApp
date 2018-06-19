@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * package com.uml.edu.stocksearch.model;
- * <p>
- * /**
- * Empty wrapper for all DAOObject objects.
  */
 
 package com.uml.edu.stocksearch.service;
@@ -37,14 +33,13 @@ public class DatabaseService {
 
     }
 
-    public void addStockQueryMetaData(SearchDAO searchDAO) {
+    synchronized public void addStockQueryMetaData(SearchDAO searchDAO) {
 
         //Query client system for os / browser
 
         Session session;
         Transaction transaction = null;
 
-        synchronized (SearchDAO.class) {
 
             try {
                 session = DatabaseUtils.getSessionFactory().openSession();
@@ -56,8 +51,8 @@ public class DatabaseService {
             } catch (HibernateException e) {
                 if (transaction != null && transaction.isActive()) {
                     transaction.rollback();  // close transaction, don't forget
+                    new DatabaseServiceException("Could not add SearchDAO data. " + e.getMessage(), e);
                 }
-                new DatabaseServiceException("Could not add SearchDAO data. " + e.getMessage(), e);
             } catch (DatabaseInitializationException e) {
                 new DatabaseServiceException("Could not retrieve an active Session from the session-factory. ", e.getCause());
             } finally {
@@ -65,6 +60,5 @@ public class DatabaseService {
                     transaction.commit();
                 }
             }
-        }
     }
 }

@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * package com.uml.edu.stocksearch.model;
- * <p>
  */
 
 package com.uml.edu.stocksearch.utilities.database;
@@ -58,7 +56,6 @@ public class DatabaseUtils {
     private static SessionFactory sessionFactory;
 
     //All these constants are related to the hibernate config file
-    private static final String HIBERNATE_PATH = "./src/main/resources/hibernate.cfg.xml";
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String HIBERNATE = "hibernate.cfg.xml";
     private static final String PARENT_NODE = "session-factory";
@@ -76,7 +73,7 @@ public class DatabaseUtils {
 
         verifyHibernateConfig();
         Connection connection = null;
-        Configuration configuration = getConfiguration(HIBERNATE_PATH);
+        Configuration configuration = getConfiguration(HIBERNATE);
         try {
 
             Class.forName(DRIVER);
@@ -115,21 +112,19 @@ public class DatabaseUtils {
      * @return SessionFactory for use with database transactions
      * @throws DatabaseInitializationException Thrown when there is an issue returning a concrete session
      */
-    public static SessionFactory getSessionFactory() throws DatabaseInitializationException {
+    synchronized public static SessionFactory getSessionFactory() throws DatabaseInitializationException {
 
         // singleton pattern
-        synchronized (DatabaseUtils.class) {
-            try {
-                if (sessionFactory == null) {
-                    verifyHibernateConfig();
-                    sessionFactory = buildSessionFactory();
-                } else {
-                    return sessionFactory;
-                }
-            } catch (Throwable e) {
-                throw new DatabaseInitializationException("Could not return a concrete session factory because of: "
-                        + e.getMessage(), e);
+        try {
+            if (sessionFactory == null) {
+                verifyHibernateConfig();
+                sessionFactory = buildSessionFactory();
+            } else {
+                return sessionFactory;
             }
+        } catch (Throwable e) {
+            throw new DatabaseInitializationException("Could not return a concrete session factory because of: "
+                    + e.getMessage(), e);
         }
         return sessionFactory;
     }
@@ -139,7 +134,6 @@ public class DatabaseUtils {
      * an entry already stored in the database.
      *
      * @param DAOObject DAOObject object to commit
-     *
      * @throws DatabaseInitializationException Thrown when there is an issue
      *                                         communicating with database.
      * @throws DatabaseConnectionException     Error will be thrown when the
@@ -203,14 +197,18 @@ public class DatabaseUtils {
      */
     private static Configuration getConfiguration(String filePath) throws DatabaseConfigurationException {
 
-        File file = new File(filePath);
         try {
+            File file = getFile(filePath);
+
             if (configuration == null) {
                 configuration = new Configuration();
                 configuration.configure(file);
                 configuration.getProperties();
             }
 
+        } catch (URISyntaxException e) {
+            throw new DatabaseConfigurationException("Failed to load the URI for " + filePath
+                    + " configuration file from the classpath.", e);
         } catch (Throwable e) {
             throw new DatabaseConfigurationException("Couldn't load hibernate.cfg.cml configuration file because of: "
                     + e.getMessage(), e);
@@ -223,28 +221,27 @@ public class DatabaseUtils {
      * This method will read in the Hibernate config file located in the resources folder.
      * The purpose of this method is act as a controller for automatically updating the
      * config file based on the needs of wherever the app is being hosted.
-     *
+     * <p>
      * To configure what case is run, open the hibernate.cfg.xml file and change the content for;
      * < property name="backend">##</property>
-     *
+     * <p>
      * Current Assignments:
-     *       0 - Does nothing.  Will not update the config file.
-     *       1 - Update config for Heroku hosting.
-     *       2 - Ready for development.
-     *
+     * 0 - Does nothing.  Will not update the config file.
+     * 1 - Update config for Heroku hosting.
+     * 2 - Ready for development.
+     * <p>
      * Heroku app hosting services have rotating authentication credentials for their
      * free database. This ensures that the most recent credentials are retrieved at app
      * instantiation.
      *
-     *
-     * @throws DatabaseConfigurationException  Wrapper exception for any error that occurs
-     *                                         while updating the hibernate.cfg.xml file
+     * @throws DatabaseConfigurationException Wrapper exception for any error that occurs
+     *                                        while updating the hibernate.cfg.xml file
      */
 
     public static void verifyHibernateConfig() throws DatabaseConfigurationException {
 
         try {
-            Document document = xmlDocument(HIBERNATE_PATH);
+            Document document = xmlDocument(HIBERNATE);
             NodeList nodeList = getHibernateNodeList(document, PARENT_NODE);
 
             String backEndVariable = nodeList.item(11).getTextContent();
@@ -252,20 +249,23 @@ public class DatabaseUtils {
             switch (backEndVariable) {
                 case "0": {
                     //Do not update the config file.
+                    break;
                 }
                 case "1": {
                     updateHerokuCredentials(nodeList);
+                    //Save updated config file
+                    saveHibernateConfig(document);
+                    break;
                 }
                 case "2": {
                     //Add next scenario with which to change hibernate config file
+                    break;
                 }
                 default: {
                     //Do nothing.
+                    break;
                 }
             }
-
-            //Save updated config file
-            saveHibernateConfig(document);
 
         } catch (URISyntaxException | NullPointerException | IOException |
                 ParserConfigurationException | SAXException | TransformerException e) {
@@ -291,13 +291,19 @@ public class DatabaseUtils {
     /**
      * Method to create a file object. Reducing repetative code.
      *
-     * @param filePath String for the filepath
+     * @param file String for the filepath
      * @return A File object.
      */
-    private static File getFile(String filePath) {
-        File file = new File(filePath);
+    private static File getFile(String file) throws URISyntaxException {
+        URI uri = getResourceUri(file);
 
-        return file;
+        File returnFile = new File(uri);
+        return returnFile;
+    }
+
+    private static URI getResourceUri(String file) throws URISyntaxException {
+        URI uri = DatabaseUtils.class.getClassLoader().getResource(file).toURI();
+        return uri;
     }
 
     /**
@@ -308,9 +314,9 @@ public class DatabaseUtils {
      * @throws IOException                  Thrown when there's an error locating hibernate.cfg.xml
      * @throws SAXException                 Thrown for general exception for any SAX errors that may occur.
      */
-    private static Document xmlDocument(String filePath) throws ParserConfigurationException, IOException, SAXException {
+    private static Document xmlDocument(String filePath) throws ParserConfigurationException, IOException, SAXException, URISyntaxException {
 
-        File inputFile = getFile(HIBERNATE_PATH);
+        File inputFile = getFile(HIBERNATE);
         DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = documentFactory.newDocumentBuilder();
         Document document = docBuilder.parse(inputFile);
@@ -354,12 +360,12 @@ public class DatabaseUtils {
      * @param document Hiberrnate config file
      * @throws TransformerException Generalized exception thrown if there's an error saving the file.
      */
-    private static void saveHibernateConfig(Document document) throws TransformerException {
+    private static void saveHibernateConfig(Document document) throws TransformerException, URISyntaxException {
 
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(document);
-        File file = getFile(HIBERNATE_PATH);
+        File file = getFile(HIBERNATE);
         StreamResult result = new StreamResult(file);
         DOMImplementation domImplementation = document.getImplementation();
 

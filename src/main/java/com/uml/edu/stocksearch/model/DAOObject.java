@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * package com.uml.edu.stocksearch.model;
- * <p>
  */
 
 package com.uml.edu.stocksearch.model;
 
 /**
- * Empty wrapper for all DAOObject objects.
+ * Interface to contain all DAO objects with.
+ * Used to keep type safety with when passing to the method to save object to db.
+ * Otherwise would have to go to parent type of Object.
  */
 public interface DAOObject {
 }

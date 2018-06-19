@@ -15,7 +15,9 @@ http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
             824bc9538b51522e5fe41537b41b611998efc8e7da23422dd5b0edf86370a69a
         </property>
 
-        <property name="backend">1</property>
+        <property name="backend">0</property>
+
+        <property name="connection.autocommit">false</property>
 
         <mapping class="com.uml.edu.stocksearch.model.SearchDAO"/>
 

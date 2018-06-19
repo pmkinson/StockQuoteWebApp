@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * package com.uml.edu.stocksearch.model;
- * <p>
- * /**
- * Empty wrapper for all DAOObject objects.
  */
 
 package com.uml.edu.stocksearch.service;

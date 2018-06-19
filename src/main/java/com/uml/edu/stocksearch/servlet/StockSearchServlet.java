@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * package com.uml.edu.stocksearch.model;
- * <p>
- * /**
- * Empty wrapper for all DAOObject objects.
  */
 
 package com.uml.edu.stocksearch.servlet;
@@ -149,17 +145,25 @@ public class StockSearchServlet extends HttpServlet {
                 servletContext.getRequestDispatcher("/ReturnedResults.jsp");
         dispatcher.forward(request, response);
 
-        //Commit MetaData to DB
+        //Commit search data to DB
         Calendar calendar = Calendar.getInstance();
         Timestamp currentTimestamp = new Timestamp(calendar.getTime().getTime());
 
         SearchDAO searchDAO = new SearchDAO();
+
+        if (symbol != null) {
+            searchDAO.setStockSymbol(symbol.toUpperCase());
+            searchDAO.setTypeOfSearch(0);
+        } else if (quickSymbol != null) {
+            searchDAO.setStockSymbol(quickSymbol.toUpperCase());
+            searchDAO.setTypeOfSearch(1);
+        }
+
         searchDAO.setDate(currentTimestamp);
-        searchDAO.setStock_id(1);
-        searchDAO.setSystem_id(2);
-        searchDAO.setBrowser_id(4);
-        searchDAO.setUser_id(10001);
-        searchDAO.setType_of_search(0);
+        searchDAO.setStockId(1);
+        searchDAO.setSystemId(2);
+        searchDAO.setBrowserId(4);
+        searchDAO.setUserId(10001);
 
         databaseService.addStockQueryMetaData(searchDAO);
 
