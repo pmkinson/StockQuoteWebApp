@@ -1,40 +1,45 @@
-
-<div class="container-fluid">
-    <h3>Simple StockQuote WebApp</h3>
-    <p>A simple web application built using BootStrap, JQuery UI, YahooFinance API, and serverside Java</p>
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<div class="navbar">
+    <div class="bar" id="header-bar"></div>
+    <div class="container-fluid nav-background">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <a class="navbar-brand navbar-brand-icon" href="#">
+            <div class="circle">
+                <img id="navbar-img" src="./resources/images/nav/ticker_brand_64.png">
             </div>
-            <a class="navbar-brand" href="#">Brand</a>
-            <ul class="nav navbar-nav">
-                <li class="search-nav active"><a href="index.jsp">New Search</a></li>
-                <li class="results-nav inactive"><a href="#">Results</a></li>
-            </ul>
+        </a>
+        <ul class="nav navbar-nav">
+            <li><p id="brand-name">Stock Quote</p>
+        </ul>
+        <ul class="nav navbar-nav collapse">
+            <li><a class="navbar-fontcolor navbar-link collapse" href="index.jsp">NEW SEARCH</a></li>
+        </ul>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse panel-collapse" id="bs-example-navbar-collapse-1">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse panel-collapse" id="navbar-panel">
 
-                <form name="quickquote" class="navbar-form navbar-right" action="StockSearchServlet" method="post">
-                    <div class="form-group">
-                        <input type="text" name="quickSymbol" class="form-control search-box" placeholder="Quick Quote" required>
-                        <button type="submit" class="btn-link glyphicon glyphicon-search search-icon">
-                            <input type="HIDDEN" name="submit" value="true">
-                        </button>
-                    </div>
-                </form>
+            <form name="quickquote" class="navbar-form navbar-right" action="StockSearchServlet" method="post">
+                <div class="form-group">
+                    <input type="text" name="quickSymbol" class="form-control search-box" placeholder="Quick Quote"
+                           required>
+                    <button type="submit" id="search-button" class="btn-link glyphicon glyphicon-search search-icon">
+                        <input type="HIDDEN" name="submit" value="true">
+                    </button>
+                </div>
+            </form>
 
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    <div class="container navbar-panel">
+        <div class="navbar-login"><a>Login</a> or <a>Sign-Up</a></div>
+    </div>
     <br>
-    <br>
+</div>
