@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'AirAmerica-Regular';
+    src: url('/resources/custom/fonts/AirAmerica-Regular.otf');
+}
+
+@media (max-width: 769px) {
+
+    .jumbo-phrase {
+        visibility: hidden;
+    }
+
+    .jumbo-brand {
+        position: relative !important;
+        margin-left: 80px;
+        margin-top: 12px;
+        top: 0px !important;
+    }
+
+    .header {
+        max-height: 100px;
+        margin-bottom: 0px;
+    }
+
+    #header-col {
+        height: 0;
+    }
+}
+
+.row-spacer {
+    margin-top: 8%;
+}
+
+#header-col {
+    margin-bottom: 10px;
+}
+
+.jumbo-brand {
+    font-family: fontawesome;
+    text-decoration: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 37px;
+    color: #555555;
+    display: inline-block;
+    position: relative;
+    top: 17px;
+}
+
+.jumbo-phrase {
+    font-family: fontawesome;
+    text-decoration: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 17px;
+    color: #555555;
+    display: inline-block;
+    position: relative;
+    top: 17px;
+}
+
+.btn-text-white {
+    color: white;
+    font-weight: bold;
+    letter-spacing: .75px;
+}
+
+.line {
+    width: 100%;
+    height: 1.25px;
+    background-color: #b1b3b5;
+}
+
+.bg-light {
+    color: #f7f7f7;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 40px
+}
+
+.copyright {
+    font-family: fontawesome;
+    text-decoration: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 17px;
+    color: #555555;
+    display: inline-block;
+    font-weight: bold;
+
+    padding-left: 40%;
+    padding-top: 10px;
+}

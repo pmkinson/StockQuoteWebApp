@@ -17,7 +17,7 @@
 
 package com.uml.edu.stocksearch.service;
 
-import com.uml.edu.stocksearch.model.SearchDAO;
+import com.uml.edu.stocksearch.model.DAOObject;
 import com.uml.edu.stocksearch.service.exceptions.DatabaseServiceException;
 import com.uml.edu.stocksearch.utilities.database.DatabaseUtils;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
@@ -25,27 +25,27 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.sql.Timestamp;
-
 public class DatabaseService {
 
     protected DatabaseService() {
 
     }
 
-    synchronized public void addStockQueryMetaData(SearchDAO searchDAO) {
-
-        //Query client system for os / browser
+    /**
+     * Method to add or update object on the database.
+     *
+     * @param dao
+     */
+    synchronized public void commitObject(DAOObject dao) {
 
         Session session;
         Transaction transaction = null;
-
 
             try {
                 session = DatabaseUtils.getSessionFactory().openSession();
                 transaction = session.beginTransaction();
 
-                session.saveOrUpdate(searchDAO);
+                session.saveOrUpdate(dao);
                 transaction.commit();
 
             } catch (HibernateException e) {

@@ -1,45 +1,32 @@
-<div class="navbar">
-    <div class="bar" id="header-bar"></div>
-    <div class="container-fluid nav-background">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+<div class="header bg-light"> <!-- Wrapper for nav -->
+    <div class="container-fluid header">
+        <div class="row">
+            <div class="col" id="header-col">
+                <a class="navbar-brand" href="/index.jsp"><h3 class="jumbo-brand">StockQuote</h3></a>
+                <h6 class="jumbo-phrase">A J2EE web application built to showcase numerous frameworks</h6>
         </div>
-        <a class="navbar-brand navbar-brand-icon" href="#">
-            <div class="circle">
-                <img id="navbar-img" src="./resources/images/nav/ticker_brand_64.png">
-            </div>
-        </a>
-        <ul class="nav navbar-nav">
-            <li><p id="brand-name">Stock Quote</p>
-        </ul>
-        <ul class="nav navbar-nav collapse">
-            <li><a class="navbar-fontcolor navbar-link collapse" href="index.jsp">NEW SEARCH</a></li>
-        </ul>
+        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse panel-collapse" id="navbar-panel">
-
-            <form name="quickquote" class="navbar-form navbar-right" action="StockSearchServlet" method="post">
-                <div class="form-group">
-                    <input type="text" name="quickSymbol" class="form-control search-box" placeholder="Quick Quote"
-                           required>
-                    <button type="submit" id="search-button" class="btn-link glyphicon glyphicon-search search-icon">
-                        <input type="HIDDEN" name="submit" value="true">
-                    </button>
-                </div>
-            </form>
-
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-    <div class="container navbar-panel">
-        <div class="navbar-login"><a>Login</a> or <a>Sign-Up</a></div>
     </div>
-    <br>
-</div>
+    <nav class="navbar navbar-expand-lg navbar-dark header-spacer">
+        <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbar-element"
+                aria-controls="navbar-element" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> <!-- NavBar Collapse Hamburger -->
+
+        <div class="collapse navbar-collapse" id="navbar-element">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="btn btn-rounded btn-info btn-text-white" href="./StockSearch.jsp">New Search</a>
+                </li>
+        </ul>
+            <form name="quickquote" class="form-inline my-2 my-lg-0" action="StockSearchServlet" method="post">
+                <input type="text" name="quickSymbol" class="form-control mr-sm-2" aria-label="Quick Quote"
+                       placeholder="Quick Quote" required>
+                <button class="btn btn-warning btn-rounded btn-text-white" type="submit">Search</button>
+            </form>
+        </div> <!-- End NavBar Collapse -->
+    </nav> <!-- End NavBar -->
+</div> <!-- End of Wrapper -->
+<div class="line"></div> <!-- Dividing Line -->
+

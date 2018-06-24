@@ -17,8 +17,6 @@
 
 package com.uml.edu.stocksearch.model;
 
-import org.hibernate.type.BlobType;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -106,7 +104,7 @@ public class SearchDAO implements DAOObject {
     }
 
     @Basic
-    @Column(name = "stock_symbol", nullable = true, length = -1)
+    @Column(name = "stock_symbol", nullable = true)
     public String getStockSymbol() {
         return stockSymbol;
     }

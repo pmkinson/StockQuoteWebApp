@@ -13,14 +13,14 @@
     <script language="JavaScript" type="text/javascript" src="./resources/jquery/js/jquery-3.3.1.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="./resources/jquery/js/jquery-ui.min.js"></script>
     <!-- BootStrap JS-->
-    <script language="JavaScript" type="text/javascript" src="./resources/bootstrap/js/bootstrap.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./resources/bootstrap4/js/bootstrap.min.js"></script>
     <!-- BootStrap CSS-->
-    <link rel="stylesheet" href="./resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./resources/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./resources/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./resources/bootstrap4/css/bootstrap-grid.min.css">
     <!--  JQuery UI CSS -->
     <link rel="stylesheet" href="./resources/jquery/css/jquery-ui.css">
     <!-- Load CSS overrides -->
-    <link rel="stylesheet" href="./resources/custom/css/local.css">
+    <link rel="stylesheet" href="./resources/custom/css/bs-override.css">
     <!-- Favicon --->
     <link rel="icon" href="./resources/images/nav/ticker_brand_24.png">
 
@@ -42,7 +42,11 @@
 <div class="nav-element"></div>
 
 <div class="container-fluid">
-    <div class="col-sm-4"></div>
+    <div class="row row-spacer">
+        <div class="col-sm"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm"></div>
     <div class="col-sm-4">
             <form name="myform" action="StockSearchServlet" method="post">
                 <div class="form-group">
@@ -67,20 +71,18 @@
                         <option value="MONTHLY">Monthly</option>
                     </select><br>
 
-                    <button type="submit" class="btn btn-info">
+                    <button type="submit" class="btn btn-warning btn-text-white">
                         <input type="HIDDEN" name="submit" value="true">
-                        <span class="glyphicon glyphicon-search"></span> Search
+                        <span class="">Historical Quote</span>
                     </button>
                 </div>
             </form>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
+        <div class="col-sm"></div>
     </div>
+</div>
 </body>
-<footer></footer>
+<footer class="bg-light"></footer>
 </html>
 
 

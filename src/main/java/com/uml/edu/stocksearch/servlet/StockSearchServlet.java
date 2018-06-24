@@ -40,7 +40,6 @@ import javax.servlet.http.HttpSession;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.Date;
 import java.sql.Timestamp;
 
 /**
@@ -165,7 +164,7 @@ public class StockSearchServlet extends HttpServlet {
         searchDAO.setBrowserId(4);
         searchDAO.setUserId(10001);
 
-        databaseService.addStockQueryMetaData(searchDAO);
+        databaseService.commitObject(searchDAO);
 
     }
 
