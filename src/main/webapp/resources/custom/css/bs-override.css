@@ -3,7 +3,7 @@
     src: url('/resources/custom/fonts/AirAmerica-Regular.otf');
 }
 
-@media (max-width: 769px) {
+@media screen and (max-width: 769px) {
 
     .jumbo-phrase {
         visibility: hidden;
