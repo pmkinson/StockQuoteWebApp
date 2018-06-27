@@ -10,7 +10,6 @@
 <jsp:setProperty name="formData" property="*"/>
 
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -53,10 +52,10 @@
         <div class="col-sm">
             <table>
                 <tr>
-                    <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='page' />
-                <c:forEach items="${topFive}" var="stock">
-                <td><a href="/StockSearchServlet?quickSymbol=${stock}">${stock}</a></td>
-            </c:forEach>
+                    <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='page'/>
+                    <c:forEach items="${topFive}" var="stock">
+                        <td><a href="${pageContext.request.contextPath}/StockSearchServlet?quickSymbol=${stock}">${stock}</a></td>
+                    </c:forEach>
                 </tr>
             </table>
         </div>

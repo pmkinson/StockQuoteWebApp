@@ -54,7 +54,9 @@
                 <tr>
                     <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='page'/>
                     <c:forEach items="${topFive}" var="stock">
-                        <td><a href="/StockSearchServlet?quickSymbol=${stock}">${stock}</a></td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/StockSearchServlet?quickSymbol=${stock}">${stock}</a>
+                        </td>
                     </c:forEach>
                 </tr>
             </table>

@@ -9,6 +9,6 @@
 
 </head>
 <body>
-<c:redirect url="StockSearch.jsp"/>
+<c:redirect url="${pageContext.request.contextPath}/StockSearch.jsp"/>
 </body>
 </html>

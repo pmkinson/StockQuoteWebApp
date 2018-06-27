@@ -52,7 +52,7 @@
 <div class="container-fluid">
     <div class="row row-spacer hide">
         <div class="col-3">
-<!--  Banner stuff here -->
+            <!--  Banner stuff here -->
         </div>
     </div>
     <div class="row">
