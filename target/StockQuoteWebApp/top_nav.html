@@ -1,32 +1,32 @@
-
 <div class="header bg-light"> <!-- Wrapper for nav -->
-<div class="container-fluid header">
-    <div class="row">
-        <div class="col" id="header-col">
-            <a class="navbar-brand" href="/index.jsp"><h3 class="jumbo-brand">StockQuote</h3></a>
-            <h6 class="jumbo-phrase">A J2EE web application built to showcase numerous frameworks</h6>
+    <div class="container-fluid header">
+        <div class="row">
+            <div class="col" id="header-col">
+                <a class="navbar-brand" href="/index.jsp"><h3 class="jumbo-brand">StockQuote</h3></a>
+                <h6 class="jumbo-phrase">A J2EE web application built to showcase numerous frameworks</h6>
         </div>
+        </div>
+
     </div>
+    <nav class="navbar navbar-expand-lg navbar-dark header-spacer">
+        <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbar-element"
+                aria-controls="navbar-element" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> <!-- NavBar Collapse Hamburger -->
 
-</div>
-<nav class="navbar navbar-expand-lg navbar-dark header-spacer">
-    <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbar-element" aria-controls="navbar-element" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button> <!-- NavBar Collapse Hamburger -->
-
-    <div class="collapse navbar-collapse" id="navbar-element">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="btn btn-rounded btn-info btn-text-white" href="./StockSearch.jsp">New Search</a>
-            </li>
+        <div class="collapse navbar-collapse" id="navbar-element">
+            <ul class="nav nav-tabs mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="btn btn-rounded btn-info btn-text-white" href="./StockSearch.jsp">New Search</a>
+                </li>
         </ul>
-        <form name="quickquote" class="form-inline my-2 my-lg-0" action="StockSearchServlet" method="post">
-            <input type="text" name="quickSymbol" class="form-control mr-sm-2" aria-label="Quick Quote"
-                   placeholder="Quick Quote" required>
-            <button class="btn btn-warning btn-rounded btn-text-white" type="submit">Search</button>
-        </form>
-    </div> <!-- End NavBar Collapse -->
-</nav> <!-- End NavBar -->
+            <form name="quickquote" class="form-inline my-2 my-lg-0" action="StockSearchServlet" method="post">
+                <input type="text" name="quickSymbol" class="form-control mr-sm-2" aria-label="Quick Quote"
+                       placeholder="Quick Quote" required>
+                <button class="btn btn-warning btn-rounded btn-text-white" type="submit" formmethod="get">Search</button>
+            </form>
+        </div> <!-- End NavBar Collapse -->
+    </nav> <!-- End NavBar -->
 </div> <!-- End of Wrapper -->
 <div class="line"></div> <!-- Dividing Line -->
 

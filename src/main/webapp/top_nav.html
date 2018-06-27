@@ -15,7 +15,7 @@
         </button> <!-- NavBar Collapse Hamburger -->
 
         <div class="collapse navbar-collapse" id="navbar-element">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <ul class="nav nav-tabs mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
                     <a class="btn btn-rounded btn-info btn-text-white" href="./StockSearch.jsp">New Search</a>
                 </li>
@@ -23,7 +23,8 @@
             <form name="quickquote" class="form-inline my-2 my-lg-0" action="StockSearchServlet" method="post">
                 <input type="text" name="quickSymbol" class="form-control mr-sm-2" aria-label="Quick Quote"
                        placeholder="Quick Quote" required>
-                <button class="btn btn-warning btn-rounded btn-text-white" type="submit">Search</button>
+                <button class="btn btn-warning btn-rounded btn-text-white" type="submit" formmethod="get">Search
+                </button>
             </form>
         </div> <!-- End NavBar Collapse -->
     </nav> <!-- End NavBar -->

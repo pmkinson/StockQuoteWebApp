@@ -17,6 +17,7 @@
 
 package com.uml.edu.stocksearch.utilities;
 
+import com.sun.deploy.net.HttpRequest;
 import com.uml.edu.stocksearch.utilities.exceptions.WebUtilsException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -24,6 +25,9 @@ import yahoofinance.Stock;
 import yahoofinance.histquotes.HistoricalQuote;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -95,19 +99,20 @@ public class WebUtils extends HttpServlet {
      * 1 - QuickQuote Table
      * 2 - Historical Table
      * 3 - Available for slot development.
+     * 5 - Available for slot development.
      * </p>
      *
-     * @param stock   Stock object returned from YahooFinance API.
+     * @param data   Data object to build into HTML table.
      * @param tableID int value corresponding to what table you want built.
      * @return final String representing the dynamic HTML.
      */
-    public static String buildTable(Stock stock, int tableID) {
+    public static String buildTable(Object data, int tableID) {
         String toPrintLocal = null;
 
         final String toPrint;  //Final variable to return to calling method.
 
         //Tell the user there were no results, else, build a table
-        if (stock == null || !stock.isValid()) {
+        if (data == null) {
             toPrintLocal = NO_RESULTS;
         } else {
 
@@ -115,14 +120,18 @@ public class WebUtils extends HttpServlet {
             switch (tableID) {
 
                 case (1): {
-                    toPrintLocal = buildQuickQuoteTable(stock);
+                    toPrintLocal = buildQuickQuoteTable((Stock) data);
                     break;
                 }
                 case (2): {
-                    toPrintLocal = buildHistoricalTable(stock);
+                    toPrintLocal = buildHistoricalTable((Stock) data);
                     break;
                 }
                 case (3): {
+                    toPrintLocal = ERROR_MESSAGE;
+                    break;
+                }
+                case (4): {
                     toPrintLocal = ERROR_MESSAGE;
                     break;
                 }

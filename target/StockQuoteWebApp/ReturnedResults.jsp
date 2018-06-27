@@ -19,7 +19,7 @@
 <html>
 <head>
 
-    <title>StockQuote: <%= titleSymbol %></title>
+    <title>StockQuote: ${titleSymbol}</title>
 
     <!-- JQuery load-->
     <script language="JavaScript" type="text/javascript" src="./resources/jquery/js/jquery-3.3.1.min.js"></script>
@@ -50,18 +50,20 @@
 <div class="nav-element"></div>
 
 <div class="container-fluid">
-    <div class="row row-spacer">
-        <div class="row">
-    </div>
+    <div class="row row-spacer hide">
+        <div class="col-3">
+<!--  Banner stuff here -->
+        </div>
     </div>
     <div class="row">
-        <div class="col-sm"></div>
+        <div class="col-sm-1 hide"></div>
         <div class="col-sm-10">
-                    <!-- Print the queried results stored as a string in the session
-                         by the StockSearchServlet.  Finalized data only, is available
-                         to the user.  No business logic is performed on user's machine.-->
-                    ${formattedQuote}
+
+            <!--Results-->
+            ${formattedQuote}
+
         </div>
+        <div class="col-sm-1 hide"></div>
     </div>
 </div>
 

@@ -61,7 +61,7 @@ public class StockSearchServletTest {
 
         StockSearchServlet servlet = new StockSearchServlet();
         servlet.init(servletConfigMock);
-        servlet.doPost(request, response);
+        servlet.doGet(request, response);
 
         verify(session).getServletContext();
         verify(requestDispatcherMock).forward(request, response);
@@ -87,7 +87,7 @@ public class StockSearchServletTest {
 
         StockSearchServlet servlet = new StockSearchServlet();
         servlet.init(servletConfigMock);
-        servlet.doPost(request, response);
+        servlet.doGet(request, response);
 
         verify(session).getServletContext();
         verify(requestDispatcherMock).forward(request, response);
@@ -112,7 +112,7 @@ public class StockSearchServletTest {
 
         StockSearchServlet servlet = new StockSearchServlet();
         servlet.init(servletConfigMock);
-        servlet.doPost(request, response);
+        servlet.doGet(request, response);
 
         verify(session).getServletContext();
         verify(requestDispatcherMock).forward(request, response);
@@ -137,7 +137,7 @@ public class StockSearchServletTest {
 
         StockSearchServlet servlet = new StockSearchServlet();
         servlet.init(servletConfigMock);
-        servlet.doPost(request, response);
+        servlet.doGet(request, response);
 
         verify(session).getServletContext();
         verify(requestDispatcherMock).forward(request, response);

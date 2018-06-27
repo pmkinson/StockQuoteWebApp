@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" session="true" %>
+
+<%@page import='com.uml.edu.stocksearch.utilities.database.DatabaseUtils' %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <jsp:useBean id="formData" class="com.uml.edu.stocksearch.servlet.StockSearchServlet" scope="request"/>
 <jsp:setProperty name="formData" property="*"/>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -43,11 +49,20 @@
 
 <div class="container-fluid">
     <div class="row row-spacer">
-        <div class="col-sm"></div>
+        <div class="col-sm">
+            <table>
+                <tr>
+                    <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='page'/>
+                    <c:forEach items="${topFive}" var="stock">
+                        <td><a href="/StockSearchServlet?quickSymbol=${stock}">${stock}</a></td>
+                    </c:forEach>
+                </tr>
+            </table>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm"></div>
-    <div class="col-sm-4">
+        <div class="col-sm-4">
             <form name="myform" action="StockSearchServlet" method="post">
                 <div class="form-group">
                     <label for="symbols">Stock Symbol:</label>
@@ -71,7 +86,7 @@
                         <option value="MONTHLY">Monthly</option>
                     </select><br>
 
-                    <button type="submit" class="btn btn-warning btn-text-white">
+                    <button type="submit" class="btn btn-warning btn-text-white" formmethod="get">
                         <input type="HIDDEN" name="submit" value="true">
                         <span class="">Historical Quote</span>
                     </button>

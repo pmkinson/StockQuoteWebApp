@@ -12,7 +12,7 @@
 
     <servlet-mapping>
         <servlet-name>StockSearchServlet</servlet-name>
-        <url-pattern>/servlets/StockSearchServlet</url-pattern>
+        <url-pattern>/StockSearchServlet</url-pattern>
     </servlet-mapping>
 
     <error-page>

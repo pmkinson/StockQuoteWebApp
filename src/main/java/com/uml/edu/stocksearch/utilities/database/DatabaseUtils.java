@@ -18,6 +18,8 @@
 package com.uml.edu.stocksearch.utilities.database;
 
 import com.uml.edu.stocksearch.model.DAOObject;
+import com.uml.edu.stocksearch.service.exceptions.DatabaseServiceException;
+import com.uml.edu.stocksearch.utilities.WebUtils;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
 import com.uml.edu.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
@@ -34,6 +36,8 @@ import org.hibernate.boot.MetadataSources;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -377,6 +381,45 @@ public class DatabaseUtils {
         transformer.transform(source, result);
 
     }
+
+    /**
+     * Method to retrieve the top searches from the database.
+     *
+     * @return String with top 5 searches formatted in HTML
+     * @throws DatabaseServiceException
+     */
+    public static ArrayList<String> queryDBForTopSearches() throws DatabaseServiceException {
+        ArrayList<String> resultArray = new ArrayList<>();
+
+        ResultSet results = null;
+        Connection connection = null;
+        try {
+            connection = DatabaseUtils.getConnection();
+            PreparedStatement statement;
+            //Returns top 5 searches
+            final String query =
+                    "SELECT stock_symbol FROM stockquote.stocks\n" +
+                            "GROUP BY 1\n" +
+                            "ORDER BY count(*) DESC\n" +
+                            "LIMIT 5";
+            statement = connection.prepareStatement(query);
+            results = statement.executeQuery();
+
+            while (results.next()) {
+                resultArray.add(results.getString("stock_symbol"));
+            }
+
+            connection.close();
+
+        } catch (DatabaseConfigurationException | DatabaseConnectionException e) {
+            throw new DatabaseServiceException("An error occurred while connecting to the database", e.getCause());
+        } catch (SQLException e) {
+            throw new DatabaseServiceException("An error occurred related to the SQL", e.getCause());
+        }
+
+        return resultArray;
+    }
+
 
 }
 

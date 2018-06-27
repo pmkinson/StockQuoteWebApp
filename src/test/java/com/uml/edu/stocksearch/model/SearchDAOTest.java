@@ -59,7 +59,7 @@ public class SearchDAOTest {
     public void tearDown() {
     }
 
-    @Test
+    //  @Test
     public void testCreateWithNoExceptions() throws SQLException {
 
         SearchDAO instance = new SearchDAO();
@@ -75,7 +75,7 @@ public class SearchDAOTest {
         */
     }
 
-    @Test(expected = SQLException.class)
+    // @Test(expected = SQLException.class)
     public void testCreateWithPreparedStmntException() throws SQLException {
 
         //mock

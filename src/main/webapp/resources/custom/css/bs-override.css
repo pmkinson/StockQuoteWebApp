@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'AirAmerica-Regular';
-    src: url('/resources/custom/fonts/AirAmerica-Regular.otf');
-}
-
-@media screen and (max-width: 769px) {
+@media screen and  (max-width: 769px) {
 
     .jumbo-phrase {
         visibility: hidden;
@@ -96,4 +91,8 @@ footer {
 
     padding-left: 40%;
     padding-top: 10px;
+}
+
+.hide {
+    visibility: hidden;
 }

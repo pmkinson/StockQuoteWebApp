@@ -46,7 +46,7 @@ import java.sql.Timestamp;
  * Simple servlet to return historical stock quote data using
  * the YahooFinance-API.
  */
-@WebServlet("/StockSearchServlet")
+@WebServlet("/StockSearch")
 public class StockSearchServlet extends HttpServlet {
 
     private static final String SYMBOL_PARAMETER_KEY = "stockSymbol";
@@ -57,7 +57,7 @@ public class StockSearchServlet extends HttpServlet {
 
     private static final String ERROR_HTML = "<tr><td>An error occurred. Please try again.</td>";
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
         //String to return formatted results to ReturnedResults.jsp
