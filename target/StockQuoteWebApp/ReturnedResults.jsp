@@ -47,7 +47,7 @@
 </head>
 
 <body>
-<div class="nav-element"></div>
+<div class="nav-element bg-light"></div>
 
 <div class="container-fluid">
     <div class="row row-spacer hide">
@@ -58,7 +58,6 @@
     <div class="row">
         <div class="col-sm-1 hide"></div>
         <div class="col-sm-10">
-
             <!--Results-->
             ${formattedQuote}
 

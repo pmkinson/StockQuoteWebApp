@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" session="true" %>
 
-<%@page import='com.uml.edu.stocksearch.utilities.database.DatabaseUtils' %>
+<%@page import='com.pkin.stocksearch.utilities.database.DatabaseUtils' %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:useBean id="formData" class="com.uml.edu.stocksearch.servlet.StockSearchServlet" scope="request"/>
+<jsp:useBean id="formData" class="com.pkin.stocksearch.servlet.StockSearchServlet" scope="request"/>
 <jsp:setProperty name="formData" property="*"/>
 
 
@@ -45,24 +45,26 @@
 </head>
 
 <body>
-<div class="nav-element"></div>
+<div class="nav-element bg-light"></div>
 
 <div class="container-fluid">
-    <div class="row row-spacer">
+    <div class="row">
         <div class="col-sm">
-            <table>
-                <tr>
-                    <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='page'/>
-                    <c:forEach items="${topFive}" var="stock">
-                        <td>
-                            <a href="${pageContext.request.contextPath}/StockSearchServlet?quickSymbol=${stock}">${stock}</a>
-                        </td>
-                    </c:forEach>
-                </tr>
-            </table>
+            <div class="row h-auto justify-content-center ">
+                <div class="film-strip-title">Popular Searches:</div>
+
+                <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='session'/>
+                <c:forEach items="${topFive}" var="stock">
+                    <div class="film-strip-item symbol">
+                        <a href="${pageContext.request.contextPath}/StockSearchServlet?quickSymbol=${stock}">${stock}</a>
+                    </div>
+                </c:forEach>
+            </div><!-- End film-strip-container-->
+            <div class="line" id="line-underscore"></div>
+
         </div>
     </div>
-    <div class="row">
+    <div class="row row-spacer">
         <div class="col-sm"></div>
         <div class="col-sm-4">
             <form name="myform" action="StockSearchServlet" method="post">
