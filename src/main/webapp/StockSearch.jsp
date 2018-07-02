@@ -50,7 +50,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm">
-            <div class="row h-auto justify-content-center ">
+            <div class="film-strip-container row h-auto justify-content-center ">
                 <div class="film-strip-title">Popular Searches:</div>
 
                 <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='session'/>

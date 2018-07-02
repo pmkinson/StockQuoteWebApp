@@ -1,20 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" session="true" %>
-
-<!-- Retrieve Stock Symbol from stored the form session data -->
-<% String titleSymbol = "";
-
-        if (request.getParameter("stockSymbol") != null) {
-            titleSymbol = request.getParameter("stockSymbol").toUpperCase();
-        }
-        else if (request.getParameter("quickSymbol") != null) {
-            titleSymbol = request.getParameter("quickSymbol");
-        }
-%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- Retrieve quick quote and historical quote query symbol.
+Set the title of the page to whichever one is not null. -->
+<c:set var="quick" value="${paramValues['quickSymbol']}" scope="page"/>
+<c:set var="historical" value="${paramValues['stockSymbol']}" scope="page"/>
+
+<c:choose>
+    <c:when test="${quick != null}">
+        <c:set var="titleSymbol" value="${param['quickSymbol']}" scope="page"/>
+    </c:when>
+    <c:when test="${historical != null}">
+        <c:set var="titleSymbol" value="${param['stockSymbol']}" scope="page"/>
+    </c:when>
+</c:choose>
 
 <html>
 <head>
