@@ -38,18 +38,13 @@ Set the title of the page to whichever one is not null. -->
     <!-- Favicon --->
     <link rel="icon" href="./resources/images/nav/ticker_brand_24.png">
 
-    <script>
-        $(document).ready(function () {
-            //Load static elements
-            $('.nav-element').load('top_nav.html');
-            $('footer').load('footer.html');
-        });
-    </script>
-
 </head>
 
 <body>
-<div class="nav-element bg-light"></div>
+<div class="nav-element bg-light">
+    <c:import var="nav" url="top_nav.html"/>
+    ${nav}
+</div>
 
 <div class="container-fluid">
     <div class="row row-spacer hide">
@@ -69,6 +64,9 @@ Set the title of the page to whichever one is not null. -->
 </div>
 
 </body>
-<footer class="bg-light"></footer>
+<footer class="bg-light">
+    <c:import var="footer" url="footer.html"/>
+    ${footer}
+</footer>
 </html>
 
