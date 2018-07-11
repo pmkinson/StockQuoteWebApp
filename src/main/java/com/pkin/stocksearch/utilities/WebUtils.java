@@ -18,8 +18,6 @@
 package com.pkin.stocksearch.utilities;
 
 import com.pkin.stocksearch.utilities.exceptions.WebUtilsException;
-import com.sun.deploy.net.HttpRequest;
-import com.pkin.stocksearch.utilities.exceptions.WebUtilsException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import yahoofinance.Stock;

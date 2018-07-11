@@ -22,13 +22,8 @@ import com.pkin.stocksearch.service.DatabaseService;
 import com.pkin.stocksearch.service.exceptions.StockServiceException;
 import com.pkin.stocksearch.utilities.WebUtils;
 import com.pkin.stocksearch.utilities.exceptions.WebUtilsException;
-import com.pkin.stocksearch.model.SearchDAO;
-import com.pkin.stocksearch.service.DatabaseService;
 import com.pkin.stocksearch.service.StockService;
 import com.pkin.stocksearch.service.ServiceFactory;
-import com.pkin.stocksearch.service.exceptions.StockServiceException;
-import com.pkin.stocksearch.utilities.WebUtils;
-import com.pkin.stocksearch.utilities.exceptions.WebUtilsException;
 
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;

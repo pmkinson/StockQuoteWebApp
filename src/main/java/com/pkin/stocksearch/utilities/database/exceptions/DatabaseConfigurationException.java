@@ -37,4 +37,8 @@ public class DatabaseConfigurationException extends Throwable {
 
         super(message, cause);
     }
+
+    public DatabaseConfigurationException(String message) {
+        super(message);
+    }
 }

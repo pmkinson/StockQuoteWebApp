@@ -19,11 +19,7 @@ package com.pkin.stocksearch.service;
 
 import com.pkin.stocksearch.service.exceptions.DatabaseServiceException;
 import com.pkin.stocksearch.utilities.database.DatabaseUtils;
-import com.pkin.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
 import com.pkin.stocksearch.model.DAOObject;
-import com.pkin.stocksearch.service.exceptions.DatabaseServiceException;
-import com.pkin.stocksearch.utilities.database.DatabaseUtils;
-import com.pkin.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

@@ -116,7 +116,7 @@ public class SearchDAO implements DAOObject {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (getClass() != o.getClass()) return false;
         SearchDAO that = (SearchDAO) o;
         return id == that.id &&
                 stockId == that.stockId &&

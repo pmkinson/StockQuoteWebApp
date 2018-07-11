@@ -30,27 +30,18 @@
     <!-- Favicon --->
     <link rel="icon" href="./resources/images/nav/ticker_brand_24.png">
 
-    <script>
-        $(document).ready(function () {
-            //Load static elements
-            $('.nav-element').load('top_nav.html');
-            $('footer').load('footer.html');
-
-            //Datepickers for user selected date range on stock interval search page
-            $("#startDate").datepicker();
-            $("#endDate").datepicker();
-        });
-    </script>
-
 </head>
 
 <body>
-<div class="nav-element bg-light"></div>
+<div class="nav-element bg-light">
+    <c:import var="nav" url="top_nav.html"/>
+    ${nav}
+</div>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm">
-            <div class="row h-auto justify-content-center ">
+            <div class="film-strip-container row h-auto justify-content-center ">
                 <div class="film-strip-title">Popular Searches:</div>
 
                 <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='session'/>
@@ -101,7 +92,10 @@
     </div>
 </div>
 </body>
-<footer class="bg-light"></footer>
+<footer class="bg-light">
+    <c:import var="footer" url="footer.html"/>
+    ${footer}
+</footer>
 </html>
 
 

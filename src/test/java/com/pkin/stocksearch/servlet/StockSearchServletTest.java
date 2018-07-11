@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import static org.mockito.internal.verification.VerificationModeFactory.atLeast;
 
 public class StockSearchServletTest {
 
@@ -51,7 +49,7 @@ public class StockSearchServletTest {
         when(request.getParameter("interval")).thenReturn("DAILY");
         when(request.getSession()).thenReturn(session);
         when(session.getServletContext()).thenReturn(servletContextMock);
-        when(servletContextMock.getRequestDispatcher(ArgumentMatchers.contains("/ReturnedResults.jsp"))).thenReturn(requestDispatcherMock);
+        when(servletContextMock.getRequestDispatcher("/ReturnedResults.jsp")).thenReturn(requestDispatcherMock);
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
@@ -77,7 +75,7 @@ public class StockSearchServletTest {
         when(request.getParameter("interval")).thenReturn("DAILY");
         when(request.getSession()).thenReturn(session);
         when(session.getServletContext()).thenReturn(servletContextMock);
-        when(servletContextMock.getRequestDispatcher(ArgumentMatchers.contains("/ReturnedResults.jsp"))).thenReturn(requestDispatcherMock);
+        when(servletContextMock.getRequestDispatcher("/ReturnedResults.jsp")).thenReturn(requestDispatcherMock);
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
@@ -103,7 +101,7 @@ public class StockSearchServletTest {
         when(request.getParameter("interval")).thenReturn("DAILY");
         when(request.getSession()).thenReturn(session);
         when(session.getServletContext()).thenReturn(servletContextMock);
-        when(servletContextMock.getRequestDispatcher(ArgumentMatchers.contains("/ReturnedResults.jsp"))).thenReturn(requestDispatcherMock);
+        when(servletContextMock.getRequestDispatcher("/ReturnedResults.jsp")).thenReturn(requestDispatcherMock);
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
@@ -128,7 +126,7 @@ public class StockSearchServletTest {
         when(request.getParameter("interval")).thenReturn("DAILY");
         when(request.getSession()).thenReturn(session);
         when(session.getServletContext()).thenReturn(servletContextMock);
-        when(servletContextMock.getRequestDispatcher(ArgumentMatchers.contains("/ReturnedResults.jsp"))).thenReturn(requestDispatcherMock);
+        when(servletContextMock.getRequestDispatcher("/ReturnedResults.jsp")).thenReturn(requestDispatcherMock);
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);

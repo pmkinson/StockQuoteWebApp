@@ -6,13 +6,7 @@ import org.mockito.internal.util.reflection.Fields;
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
-import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -43,16 +37,7 @@ public class SearchDAOTest {
 
     @Before
     public void setUp() throws SQLException {
-        when(mockDataSource.getConnection()).thenReturn(mockConn);
-        when(mockDataSource.getConnection(anyString(), anyString())).thenReturn(mockConn);
 
-        doNothing().when(mockConn).commit();
-        when(mockConn.prepareStatement(anyString(), anyInt())).thenReturn(mockPreparedStmnt);
-        doNothing().when(mockPreparedStmnt).setString(anyInt(), anyString());
-        when(mockPreparedStmnt.execute()).thenReturn(Boolean.TRUE);
-        when(mockPreparedStmnt.getGeneratedKeys()).thenReturn(mockResultSet);
-        when(mockResultSet.next()).thenReturn(Boolean.TRUE, Boolean.FALSE);
-        // when(mockResultSet.getInt(Fields.GENERATED_KEYS)).thenReturn(userId);
     }
 
     @After
@@ -79,7 +64,7 @@ public class SearchDAOTest {
     public void testCreateWithPreparedStmntException() throws SQLException {
 
         //mock
-        when(mockConn.prepareStatement(anyString(), anyInt())).thenThrow(new SQLException());
+        //  when(mockConn.prepareStatement(anyString(), anyInt())).thenThrow(new SQLException());
 
 /*
         try {

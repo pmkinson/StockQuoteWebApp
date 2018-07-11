@@ -1,6 +1,5 @@
 package com.pkin.stocksearch.utilities.database.exceptions;
 
-import com.pkin.stocksearch.utilities.exceptions.WebUtilsException;
 import org.junit.Test;
 
 public class DatabaseConnectionExceptionTest {
