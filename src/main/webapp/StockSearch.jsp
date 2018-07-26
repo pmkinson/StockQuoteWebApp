@@ -30,6 +30,24 @@
     <!-- Favicon --->
     <link rel="icon" href="./resources/images/nav/ticker_brand_24.png">
 
+    <script>
+        $(document).ready(function () {
+            //Datepickers for user selected date range on stock interval search page
+            $("#startDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '120:+0',
+                maxDate: 0,
+            });
+            $("#endDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '120:+0',
+                maxDate: 0,
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -44,6 +62,7 @@
             <div class="film-strip-container row h-auto justify-content-center ">
                 <div class="film-strip-title">Popular Searches:</div>
 
+                <!-- Get top searches from db -->
                 <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='session'/>
                 <c:forEach items="${topFive}" var="stock">
                     <div class="film-strip-item symbol">
