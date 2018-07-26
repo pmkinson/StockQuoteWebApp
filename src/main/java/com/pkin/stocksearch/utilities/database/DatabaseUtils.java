@@ -23,6 +23,7 @@ import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConfigurationE
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
 
+import com.pkin.stocksearch.utilities.database.exceptions.HibernateUtilitiesException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -72,12 +73,12 @@ public class DatabaseUtils {
      */
     public static Connection getConnection() throws DatabaseConnectionException, DatabaseConfigurationException {
 
-        HibernateUtils.verifyHibernateConfig();
+        HibernateUtils.verifyHibernateConfig(HIBERNATE);
         Connection connection = null;
         Configuration configuration = getConfiguration(HIBERNATE);
         try {
 
-            Class.forName(DRIVER);
+            Class.forName(HibernateUtils.getDriver());
 
             String databaseUrl = configuration.getProperty("hibernate.connection.url");
             String username = configuration.getProperty("hibernate.connection.username");
@@ -85,7 +86,7 @@ public class DatabaseUtils {
 
             connection = DriverManager.getConnection(databaseUrl, username, password);
 
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (ClassNotFoundException | SQLException | HibernateUtilitiesException e) {
             throw new DatabaseConnectionException("Could not open a connection to database." + e.getMessage(), e);
         }
         return connection;
@@ -93,17 +94,13 @@ public class DatabaseUtils {
 
     /**
      * Method to shutdown the active session factory.
-     *
-     * @throws DatabaseConnectionException Occurs when the connection to
-     *                                     the database cannot be terminated.
      */
-    public static void shutdown() throws DatabaseConnectionException {
-        // Close caches and connection pools
-        try {
-            getSessionFactory().close();
-        } catch (Throwable e) {
-            throw new DatabaseConnectionException("An error occured while closing the active DB session" +
-                    " because of: " + e.getMessage(), e);
+    public static void shutdown() {
+        // Close cache and connection pool
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        } else {
+            //Do nothing
         }
     }
 
@@ -118,7 +115,7 @@ public class DatabaseUtils {
         // singleton pattern
         try {
             if (sessionFactory == null) {
-                HibernateUtils.verifyHibernateConfig();
+                HibernateUtils.verifyHibernateConfig(HIBERNATE);
                 sessionFactory = buildSessionFactory();
             } else {
                 return sessionFactory;

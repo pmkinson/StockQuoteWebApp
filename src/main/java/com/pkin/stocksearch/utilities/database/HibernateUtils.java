@@ -1,6 +1,8 @@
 package com.pkin.stocksearch.utilities.database;
 
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
+import com.pkin.stocksearch.utilities.database.exceptions.HibernateUtilitiesException;
+import org.hibernate.HibernateException;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -13,6 +15,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.awt.dnd.DragGestureEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -21,7 +24,6 @@ import java.util.ArrayList;
 
 public class HibernateUtils {
 
-    private static final String DRIVER = "org.postgresql.Driver";
     private static final String HIBERNATE = "hibernate.cfg.xml";
     private static final String PARENT_NODE = "session-factory";
     private static final String PUBLIC_ID = "\n-//Hibernate/Hibernate Configuration DTD//EN";
@@ -44,14 +46,15 @@ public class HibernateUtils {
      * free database. This ensures that the most recent credentials are retrieved at app
      * instantiation.
      *
+     * @param configPath Path to the hibernate.cfg.xml file
      * @throws DatabaseConfigurationException Wrapper exception for any error that occurs
      *                                        while updating the hibernate.cfg.xml file
      */
 
-    public static void verifyHibernateConfig() throws DatabaseConfigurationException {
+    public static void verifyHibernateConfig(String configPath) throws DatabaseConfigurationException {
 
         try {
-            Document document = xmlDocument(HIBERNATE);
+            Document document = xmlDocument(configPath);
             NodeList nodeList = getHibernateNodeList(document, PARENT_NODE);
 
             String backEndVariable = nodeList.item(11).getTextContent();
@@ -186,6 +189,30 @@ public class HibernateUtils {
 
         transformer.transform(source, result);
 
+    }
+
+    /**
+     * Method to retrieve the hibernate.driver value from the
+     * hibernate.cfg.xml config file.
+     *
+     * @return String representation of the driver value
+     * @throws HibernateUtilitiesException Thrown for any underlying issue with retrieving the driver value.
+     */
+    public static String getDriver() throws HibernateUtilitiesException {
+        String driver;
+
+        try {
+            Document document = xmlDocument(HIBERNATE);
+            NodeList nodeList = getHibernateNodeList(document, PARENT_NODE);
+
+            driver = nodeList.item(3).getTextContent();
+
+        } catch (URISyntaxException | ParserConfigurationException | SAXException | IOException e) {
+            throw new HibernateUtilitiesException("An error occurred while retrieving the " +
+                    "driver value from the hibernate.cfg.xml file", e);
+        }
+
+        return driver;
     }
 
 }
