@@ -31,23 +31,60 @@
     <link rel="icon" href="./resources/images/nav/ticker_brand_24.png">
 
     <script>
+        /*
+        jQuery Date Picker
+         */
         $(document).ready(function () {
             //Datepickers for user selected date range on stock interval search page
             $("#startDate").datepicker({
                 changeMonth: true,
                 changeYear: true,
                 yearRange: '120:+0',
-                maxDate: 0,
+                maxDate: 0
             });
             $("#endDate").datepicker({
                 changeMonth: true,
                 changeYear: true,
                 yearRange: '120:+0',
-                maxDate: 0,
+                maxDate: 0
             });
         });
     </script>
 
+    <script>
+        /*
+        Validate the starting date precedes the ending date.
+         */
+        $(document).ready(function () {
+
+            $('#submit-form').click(function () {
+
+                var startDate = new Date($('#startDate').val());
+                var endDate = new Date($('#endDate').val());
+
+                if (startDate >= endDate) {
+                    alert("Please select a starting date that is before the ending date.");
+
+                    return false;
+                }
+
+            }); //end click
+        });//end doc ready
+
+    </script>
+
+    <script>
+        /*
+        Visual effect script for showing top searches on page load.
+         */
+        $(document).ready(function () {
+
+            var topFive = $('#pop-searches');
+            topFive.hide();
+            topFive.delay(500).slideDown(1000);
+
+        });//doc ready
+    </script>
 </head>
 
 <body>
@@ -58,7 +95,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm">
+        <div id="pop-searches" class="col-sm">
             <div class="film-strip-container row h-auto justify-content-center ">
                 <div class="film-strip-title">Popular Searches:</div>
 
@@ -85,7 +122,8 @@
                 <div class="form-group">
                     <label for="startDate">Start Date:</label>
                     <input type="text" class="form-control" name="startDate" id="startDate" autocomplete="off" required
-                           onkeydown="return false">
+                           onkeydown="return false"
+                           title="Please select a starting date that is before the ending date.">
                 </div>
                 <div class="form-group">
                     <label for="endDate">End Date:</label>
@@ -100,7 +138,7 @@
                         <option value="MONTHLY">Monthly</option>
                     </select><br>
 
-                    <button type="submit" class="btn btn-warning btn-text-white" formmethod="get">
+                    <button id="submit-form" type="submit" class="btn btn-warning btn-text-white" formmethod="get">
                         <input type="HIDDEN" name="submit" value="true">
                         <span class="">Historical Quote</span>
                     </button>
