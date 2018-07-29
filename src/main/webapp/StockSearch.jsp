@@ -57,7 +57,7 @@
          */
         $(document).ready(function () {
 
-            $('#submit-form').click(function () {
+            $('#submit-form').click(function (click) {
 
                 var startDate = new Date($('#startDate').val());
                 var endDate = new Date($('#endDate').val());
@@ -65,7 +65,7 @@
                 if (startDate >= endDate) {
                     alert("Please select a starting date that is before the ending date.");
 
-                    return false;
+                    click.preventDefault();
                 }
 
             }); //end click
