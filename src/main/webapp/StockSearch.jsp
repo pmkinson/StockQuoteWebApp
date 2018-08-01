@@ -53,24 +53,39 @@
 
     <script>
         /*
-        Validate the starting date precedes the ending date.
+        Validate the starting date precedes the ending date before submission.
          */
         $(document).ready(function () {
 
             $('#submit-form').click(function (click) {
+                var startDate = $('#startDate');
+                var endDate = $('#endDate');
 
-                var startDate = new Date($('#startDate').val());
-                var endDate = new Date($('#endDate').val());
+                var validateStartDate = new Date(startDate.val());
+                var validateEndDate = new Date(endDate.val());
 
-                if (startDate >= endDate) {
-                    alert("Please select a starting date that is before the ending date.");
-
+                if (validateStartDate >= validateEndDate) {
+                    badDateRange($('#startdate-message'), "Please select a starting date that is before the ending date.");
+                    $('#startDate-form').click(function () {
+                        $('#startdate-message').slideUp(100, function () {
+                            $('#startdate-message').css({
+                                "display": "none"
+                            });
+                        });
+                    });
                     click.preventDefault();
                 }
 
             }); //end click
         });//end doc ready
 
+        function badDateRange(element, message) {
+            element.html(message);
+            element.slideDown(500);
+            element.css({
+                "display": "block"
+            });
+        }
     </script>
 
     <script>
@@ -81,7 +96,7 @@
 
             var topFive = $('#pop-searches');
             topFive.hide();
-            topFive.delay(500).slideDown(1000);
+            topFive.delay(500).slideDown(500);
 
         });//doc ready
     </script>
@@ -119,11 +134,12 @@
                     <label for="symbols">Stock Symbol:</label>
                     <input type="text" class="form-control" name="stockSymbol" id="symbols" required>
                 </div>
-                <div class="form-group">
+                <div id="startDate-form" class="form-group">
+
                     <label for="startDate">Start Date:</label>
                     <input type="text" class="form-control" name="startDate" id="startDate" autocomplete="off" required
-                           onkeydown="return false"
-                           title="Please select a starting date that is before the ending date.">
+                           onkeydown="return false">
+                    <div id="startdate-message" class="tip"></div>
                 </div>
                 <div class="form-group">
                     <label for="endDate">End Date:</label>
