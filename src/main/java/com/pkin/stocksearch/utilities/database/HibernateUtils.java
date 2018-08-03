@@ -2,7 +2,6 @@ package com.pkin.stocksearch.utilities.database;
 
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.pkin.stocksearch.utilities.database.exceptions.HibernateUtilitiesException;
-import org.hibernate.HibernateException;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -15,7 +14,6 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.awt.dnd.DragGestureEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -114,6 +112,13 @@ public class HibernateUtils {
         return returnFile;
     }
 
+    /**
+     * Method to return the URI of a file
+     *
+     * @param file Path to file
+     * @return URI
+     * @throws URISyntaxException
+     */
     private static URI getResourceUri(String file) throws URISyntaxException {
         URI uri = DatabaseUtils.class.getClassLoader().getResource(file).toURI();
         return uri;
@@ -131,6 +136,11 @@ public class HibernateUtils {
 
         File inputFile = getFile(HIBERNATE);
         DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+
+        //Disable downloading external dtd
+        documentFactory.setValidating(false);
+        documentFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+
         DocumentBuilder docBuilder = documentFactory.newDocumentBuilder();
         Document document = docBuilder.parse(inputFile);
 

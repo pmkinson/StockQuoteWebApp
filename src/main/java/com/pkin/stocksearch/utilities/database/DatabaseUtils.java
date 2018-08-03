@@ -18,32 +18,19 @@
 package com.pkin.stocksearch.utilities.database;
 
 import com.pkin.stocksearch.service.exceptions.DatabaseServiceException;
-import com.pkin.stocksearch.model.DAOObject;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
 
 import com.pkin.stocksearch.utilities.database.exceptions.HibernateUtilitiesException;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
-import org.w3c.dom.*;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import java.io.*;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -57,12 +44,8 @@ public class DatabaseUtils {
     private static Configuration configuration;
     private static SessionFactory sessionFactory;
 
-    //All these constants are related to the hibernate config file
-    private static final String DRIVER = "org.postgresql.Driver";
+    //For hibernate config file
     private static final String HIBERNATE = "hibernate.cfg.xml";
-    private static final String PARENT_NODE = "session-factory";
-    private static final String PUBLIC_ID = "\n-//Hibernate/Hibernate Configuration DTD//EN";
-    private static final String SYSTEM_ID = "\nhttp://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd";
 
     /**
      * Utility method to return a connection to the database
@@ -92,17 +75,6 @@ public class DatabaseUtils {
         return connection;
     }
 
-    /**
-     * Method to shutdown the active session factory.
-     */
-    public static void shutdown() {
-        // Close cache and connection pool
-        if (sessionFactory != null) {
-            sessionFactory.close();
-        } else {
-            //Do nothing
-        }
-    }
 
     /**
      * A Session Factory
@@ -127,40 +99,6 @@ public class DatabaseUtils {
         return sessionFactory;
     }
 
-    /**
-     * Method commits a DAOObject object to the database or updates
-     * an entry already stored in the database.
-     *
-     * @param DAOObject DAOObject object to commit
-     * @throws DatabaseInitializationException Thrown when there is an issue
-     *                                         communicating with database.
-     * @throws DatabaseConnectionException     Error will be thrown when the
-     *                                         the object in the database cannot
-     *                                         be updated or a new object cannot
-     *                                         be added to the database.
-     */
-
-    synchronized public static void commitDAOObject(DAOObject DAOObject) throws DatabaseConnectionException, DatabaseInitializationException {
-        Session session = getSessionFactory().openSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            //Commit DAOObject object to DB.
-            session.saveOrUpdate(DAOObject);
-            transaction.commit();
-
-        } catch (HibernateException e) {
-            if (transaction != null && transaction.isActive()) {
-                transaction.rollback();  // close transaction
-            }
-            throw new DatabaseConnectionException("Could not add or update " + DAOObject.toString()
-                    + " data. " + e.getMessage(), e);
-        } finally {
-            if (transaction != null && transaction.isActive()) {
-                transaction.commit();
-            }
-        }
-    }
 
     /**
      * A SessionFactory instance generator.
