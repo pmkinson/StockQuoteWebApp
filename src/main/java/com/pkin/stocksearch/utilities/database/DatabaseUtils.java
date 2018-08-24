@@ -30,6 +30,8 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 
+import com.ibatis.common.jdbc.ScriptRunner;
+
 import java.io.*;
 import java.net.URISyntaxException;
 import java.sql.*;
@@ -197,6 +199,41 @@ public class DatabaseUtils {
         return resultArray;
     }
 
+    /**
+     * A utility method to run scripts for DB interactions
+     *
+     * @param script full path to the script to run to create the schema
+     * @throws DatabaseInitializationException Occurs when there is an issue initializing the database.
+     * @throws DatabaseConfigurationException  Thrown when the hibernate configuration file cannot be loaded.
+     */
+    public static void runScript(String script) throws DatabaseInitializationException, DatabaseConfigurationException {
 
+        Connection connection = null;
+        try {
+            connection = getConnection();
+        } catch (DatabaseConnectionException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            ScriptRunner runner = new ScriptRunner(connection, false, false);
+            InputStreamReader reader = new InputStreamReader(new FileInputStream(script));
+
+            runner.runScript(reader);
+            reader.close();
+            connection.commit();
+            connection.close();
+
+        } catch (DatabaseConnectionException | SQLException | IOException e) {
+            throw new DatabaseInitializationException("Could not initialize db because of: "
+                    + e.getMessage(), e);
+        } catch (Throwable e) {
+            throw new DatabaseConfigurationException("Could not load hibernate configuration file because of: "
+                    + e.getMessage(), e);
+        }
+
+    }
 }
 
