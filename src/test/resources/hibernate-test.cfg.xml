@@ -13,8 +13,7 @@
         <property name="hibernate.connection.username"></property>
         <property name="hibernate.connection.password"></property>
 
-        <property name="backend">0</property>
-
+        <property name="backend">12</property>
 
         <property name="connection.autocommit">true</property>
         <property name="connection.pool_size">10</property>
