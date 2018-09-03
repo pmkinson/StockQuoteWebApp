@@ -2,6 +2,7 @@ package com.pkin.stocksearch.utilities.database;
 
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.pkin.stocksearch.utilities.database.exceptions.HibernateUtilitiesException;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -40,11 +41,24 @@ public class HibernateUtilsTest {
     @Rule
     public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
+    @Before
+    public void setUp() {
+        SupportMethods config = new SupportMethods();
+
+        config.copyMainFile();
+    }
+
+    @After
+    public void cleanUp() {
+        SupportMethods config = new SupportMethods();
+
+        config.resetMainHibernateFile();
+    }
 
     @Test(expected = DatabaseConfigurationException.class)
     public void verifyHibernateConfigError() throws DatabaseConfigurationException {
         setEnvironmentVariable(badURL);
-        config.changeConfigFile(11, "1");
+        config.changeConfigFile("backend", "1", "hibernate.cfg.xml", "", false);
 
         HibernateUtils.verifyHibernateConfig("hibernate.cfg.xml");
 
@@ -55,20 +69,20 @@ public class HibernateUtilsTest {
         setEnvironmentVariable(url);
 
         //Make sure var 0 doesn't throw error
-        config.changeConfigFile(11, "0");
-        HibernateUtils.verifyHibernateConfig("hibernate.cfg.xml");
+        config.changeConfigFile("backend", "0", "hibernate-test.cfg.xml", "", false);
+        HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
 
         //Make sure var 1 doesn't throw error
-        config.changeConfigFile(11, "1");
-        HibernateUtils.verifyHibernateConfig("hibernate.cfg.xml");
+        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml", "", false);
+        HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
 
         //Make sure var 2 doesn't throw error
-        config.changeConfigFile(11, "2");
-        HibernateUtils.verifyHibernateConfig("hibernate.cfg.xml");
+        config.changeConfigFile("backend", "2", "hibernate-test.cfg.xml", "", false);
+        HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
 
         //Make sure default doesn't throw error
-        config.changeConfigFile(11, "2");
-        HibernateUtils.verifyHibernateConfig("hibernate.cfg.xml");
+        config.changeConfigFile("backend", "2", "hibernate-test.cfg.xml", "", false);
+        HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
     }
 
 

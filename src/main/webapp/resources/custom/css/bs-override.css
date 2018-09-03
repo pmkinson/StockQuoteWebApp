@@ -18,6 +18,14 @@
         height: 0;
     }
 
+    .bs-hidden {
+        display: none;
+    }
+
+    .col-sm-4 {
+        min-width: 100%;
+    }
+
 }
 
 @media screen and (max-width: 992px) {

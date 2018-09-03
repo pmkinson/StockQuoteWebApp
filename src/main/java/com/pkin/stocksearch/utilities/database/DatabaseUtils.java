@@ -52,15 +52,17 @@ public class DatabaseUtils {
     /**
      * Utility method to return a connection to the database
      *
+     * @param hibernateConfigFile The name of the hibernate config file to load for the connection.
+     *
      * @return <CODE>Connection</CODE> connection
      * @throws DatabaseConnectionException    Thrown when a connection cannot be established to DB
      * @throws DatabaseConfigurationException Thrown when the hibernate configuration file cannot be loaded.
      */
-    public static Connection getConnection() throws DatabaseConnectionException, DatabaseConfigurationException {
+    public static Connection getConnection(String hibernateConfigFile) throws DatabaseConnectionException, DatabaseConfigurationException {
 
-        HibernateUtils.verifyHibernateConfig(HIBERNATE);
+        HibernateUtils.verifyHibernateConfig(hibernateConfigFile);
         Connection connection = null;
-        Configuration configuration = getConfiguration(HIBERNATE);
+        Configuration configuration = getConfiguration(hibernateConfigFile);
         try {
 
             Class.forName(HibernateUtils.getDriver());
@@ -169,7 +171,7 @@ public class DatabaseUtils {
         ResultSet results = null;
         Connection connection = null;
         try {
-            connection = DatabaseUtils.getConnection();
+            connection = DatabaseUtils.getConnection("hibernate.cfg.xml");
             PreparedStatement statement;
             /*Returns top 5 searches
               This should be done in hibernate.
@@ -206,17 +208,12 @@ public class DatabaseUtils {
      * @throws DatabaseInitializationException Occurs when there is an issue initializing the database.
      * @throws DatabaseConfigurationException  Thrown when the hibernate configuration file cannot be loaded.
      */
-    public static void runScript(String script) throws DatabaseInitializationException, DatabaseConfigurationException {
+    public static void runScript(String script, String hibernateConfigFile) throws DatabaseInitializationException, DatabaseConfigurationException {
 
         Connection connection = null;
-        try {
-            connection = getConnection();
-        } catch (DatabaseConnectionException e) {
-            e.printStackTrace();
-        }
 
         try {
-            connection = getConnection();
+            connection = getConnection(hibernateConfigFile);
             connection.setAutoCommit(false);
             ScriptRunner runner = new ScriptRunner(connection, false, false);
             InputStreamReader reader = new InputStreamReader(new FileInputStream(script));

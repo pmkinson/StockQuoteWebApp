@@ -22,7 +22,8 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "stocks", schema = "stockquote", catalog = "dee5uoi05ai36v")
+//catalog = "dee5uoi05ai36v
+@Table(name = "stocks", schema = "stockquote")
 public class SearchDAO implements DAOObject {
     private int id;
     private Timestamp date;

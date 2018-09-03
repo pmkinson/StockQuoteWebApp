@@ -127,7 +127,7 @@
         </div>
     </div>
     <div class="row row-spacer">
-        <div class="col-sm"></div>
+        <div class="col-sm bs-hidden"></div>
         <div class="col-sm-4">
             <form name="myform" action="StockSearchServlet" method="post">
                 <div class="form-group">
@@ -161,7 +161,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-sm"></div>
+        <div class="col-sm bs-hidden"></div>
     </div>
 </div>
 </body>

@@ -1,9 +1,12 @@
 package com.pkin.stocksearch.utilities.database;
 
+import com.ibatis.db.util.ScriptRunner;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
 import org.hibernate.SessionFactory;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -11,8 +14,12 @@ import static org.junit.Assert.*;
 
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
+import java.io.*;
+import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Enumeration;
 
 public class DatabaseUtilsTest {
 
@@ -35,46 +42,67 @@ public class DatabaseUtilsTest {
         }
     }
 
+    @Before
+    public void setUp() throws SQLException, IOException, DatabaseConfigurationException, DatabaseInitializationException {
+        SupportMethods config = new SupportMethods();
+
+        config.runScript("drop_table.sql");
+        config.runScript("set_up_test_tables.sql");
+        config.runScript("add_search_data.sql");
+
+        config.copyMainFile();
+    }
+
+    @After
+    public void after() {
+        SupportMethods derby = new SupportMethods();
+
+        derby.resetMainHibernateFile();
+        derby.shutdownTestDB("TEST_DB");
+    }
 
     @Test(expected = DatabaseConfigurationException.class)
     public void verifyHibernateConfigError() throws DatabaseConfigurationException {
         SupportMethods config = new SupportMethods();
 
-        config.changeConfigFile(11, "1");
+        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml", "", false);
         clearEnvironmentVariable();
         setEnvironmentVariable(badURL);
-        HibernateUtils.verifyHibernateConfig("hibernate.cfg.xml");
+
+        HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
 
     }
 
     @Test
     public void getConnection() throws DatabaseConnectionException, DatabaseConfigurationException, SQLException {
         SupportMethods config = new SupportMethods();
-        config.changeConfigFile(11, "0");
+        config.changeConfigFile("backend", "0", "hibernate.cfg.xml", "", false);
 
-        Connection connectionn = DatabaseUtils.getConnection();
+        Connection connection = DatabaseUtils.getConnection("hibernate.cfg.xml");
 
-        assertNotNull(connectionn);
-        connectionn.close();
+        assertNotNull(connection);
+        connection.close();
+
+        SupportMethods shutDown = new SupportMethods();
+        shutDown.shutdownTestDB("TEST_DB");
     }
 
     @Test(expected = DatabaseConfigurationException.class)
     public void getConnectionError() throws DatabaseConnectionException, DatabaseConfigurationException {
         SupportMethods config = new SupportMethods();
-        config.changeConfigFile(11, "1");
+        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml", "", false);
 
         clearEnvironmentVariable();
         setEnvironmentVariable(badURL);
-        DatabaseUtils.getConnection();
+        DatabaseUtils.getConnection("hibernate-test.cfg.xml");
     }
 
     @Test
     public void getSessionFactory() throws DatabaseInitializationException {
         SupportMethods config = new SupportMethods();
-        config.changeConfigFile(11, "0");
+        config.changeConfigFile("backend", "0", "hibernate-test.cfg.xml", "", false);
 
         clearEnvironmentVariable();
-        //setEnvironmentVariable(url);
 
         SessionFactory sessionOne = DatabaseUtils.getSessionFactory();
         SessionFactory sessionTwo = DatabaseUtils.getSessionFactory();

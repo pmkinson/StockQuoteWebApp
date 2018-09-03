@@ -55,7 +55,7 @@ public class HibernateUtils {
             Document document = xmlDocument(configPath);
             NodeList nodeList = getHibernateNodeList(document, PARENT_NODE);
 
-            String backEndVariable = nodeList.item(11).getTextContent();
+            String backEndVariable = readXmlContext(nodeList, "name", "backend");
 
             switch (backEndVariable) {
                 case "0": {
@@ -84,6 +84,34 @@ public class HibernateUtils {
         }
     }
 
+    /**
+     * Method to read the context of an attribute from a NodeList.
+     * Will return null if not match is found.
+     *
+     * @param nodeList       NodeList to read from
+     * @param attribute      The node-element attribute to search for. Example attribute is "name".
+     * @param attributeMatch The value of the node-element attribute to match. Example "name='John' "
+     * @return String representation of the node-element context.
+     */
+    private static String readXmlContext(NodeList nodeList, String attribute, String attributeMatch) {
+
+        String backEndVariable = "";
+        for (int element = 0; element < nodeList.getLength(); element++) {
+            Node node = nodeList.item(element);
+
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Element nodeElement = (Element) node;
+                //Loop through nodes looking for a match to the method signature argument
+                if (nodeElement.getAttribute(attribute).equals(attributeMatch)) {
+                    //Retrieve variable from xml
+                    backEndVariable = nodeList.item(element).getTextContent();
+                    return backEndVariable;
+                }
+            }
+        }
+
+        return null;
+    }
     /**
      * Build a NodeList from an XML document
      *
@@ -134,7 +162,7 @@ public class HibernateUtils {
      */
     private static Document xmlDocument(String filePath) throws ParserConfigurationException, IOException, SAXException, URISyntaxException {
 
-        File inputFile = getFile(HIBERNATE);
+        File inputFile = getFile(filePath);
         DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 
         //Disable downloading external dtd
