@@ -33,15 +33,16 @@ public class DatabaseService {
     /**
      * Method to add or update object on the database.
      *
-     * @param dao
+     * @param dao DAO object to commit.
+     * @param hibernateConfigFile Name of the hibernate config file.
      */
-    synchronized public void commitObject(DAOObject dao) {
+    synchronized public void commitObject(DAOObject dao, String hibernateConfigFile) {
 
         Session session;
         Transaction transaction = null;
 
             try {
-                session = DatabaseUtils.getSessionFactory().openSession();
+                session = DatabaseUtils.getSessionFactory(hibernateConfigFile).openSession();
                 transaction = session.beginTransaction();
 
                 session.saveOrUpdate(dao);

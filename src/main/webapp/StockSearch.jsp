@@ -115,7 +115,8 @@
                 <div class="film-strip-title">Popular Searches:</div>
 
                 <!-- Get top searches from db -->
-                <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='session'/>
+                <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches("hibernate.cfg.xml", 5, 100)}'
+                       scope='session'/>
                 <c:forEach items="${topFive}" var="stock">
                     <div class="film-strip-item symbol">
                         <a href="${pageContext.request.contextPath}/StockSearchServlet?quickSymbol=${stock}">${stock}</a>

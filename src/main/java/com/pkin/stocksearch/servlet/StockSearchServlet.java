@@ -79,22 +79,29 @@ public class StockSearchServlet extends HttpServlet {
 
         //If condition is true, return a quick quote.
         if(quickSymbol != null) {
-            int flag = 0;
+            int flag = 1;
             Stock stock = null;
             final String INVALID_QUERY = "<tr><td>" + quickSymbol.toUpperCase() + "  is an invalid stock symbol.</td></tr>";
 
             try {
                 stock = YahooFinance.get(quickSymbol);
+                if (!stock.isValid()) {
+                    flag = 0;
+                }
             } catch (FileNotFoundException e) {
-                flag = 1;
+                flag = 0;
             }
             /*
                Switch statement to let the user know they entered an invalid query,
                or build the table by default if FileNotFoundException was not caught.
              */
             switch (flag) {
-                case (1): {
+                case (0): {
                     FORMATTED_HTML_QUERY = INVALID_QUERY;
+                    break;
+                }
+                case (1): {
+                    FORMATTED_HTML_QUERY = WebUtils.buildTable(stock, 1);
                     break;
                 }
                 default: {
@@ -131,7 +138,6 @@ public class StockSearchServlet extends HttpServlet {
         }
 
         /*
-         * Super Important!!!
          * Store formatted query in session data to be accessed by results page.
          * Nothing will be done to HTML formatted results after it is cast to final string.
          * All work is done server-side to protect data integrity.
@@ -164,7 +170,7 @@ public class StockSearchServlet extends HttpServlet {
         searchDAO.setBrowserId(4);
         searchDAO.setUserId(10001);
 
-        databaseService.commitObject(searchDAO);
+        databaseService.commitObject(searchDAO, "hibernate.cfg.xml");
 
     }
 

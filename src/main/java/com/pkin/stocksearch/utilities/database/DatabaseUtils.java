@@ -17,15 +17,18 @@
 
 package com.pkin.stocksearch.utilities.database;
 
+import com.pkin.stocksearch.model.SearchDAO;
 import com.pkin.stocksearch.service.exceptions.DatabaseServiceException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseInitializationException;
 
 import com.pkin.stocksearch.utilities.database.exceptions.HibernateUtilitiesException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -35,7 +38,7 @@ import com.ibatis.common.jdbc.ScriptRunner;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * A class that contains database related utility methods.
@@ -65,7 +68,7 @@ public class DatabaseUtils {
         Configuration configuration = getConfiguration(hibernateConfigFile);
         try {
 
-            Class.forName(HibernateUtils.getDriver());
+            Class.forName(HibernateUtils.getDriver(hibernateConfigFile));
 
             String databaseUrl = configuration.getProperty("hibernate.connection.url");
             String username = configuration.getProperty("hibernate.connection.username");
@@ -86,13 +89,13 @@ public class DatabaseUtils {
      * @return SessionFactory for use with database transactions
      * @throws DatabaseInitializationException Thrown when there is an issue returning a concrete session
      */
-    synchronized public static SessionFactory getSessionFactory() throws DatabaseInitializationException {
+    synchronized public static SessionFactory getSessionFactory(String hibernateConfigFile) throws DatabaseInitializationException {
 
         // singleton pattern
         try {
             if (sessionFactory == null) {
-                HibernateUtils.verifyHibernateConfig(HIBERNATE);
-                sessionFactory = buildSessionFactory();
+                HibernateUtils.verifyHibernateConfig(hibernateConfigFile);
+                sessionFactory = buildSessionFactory(hibernateConfigFile);
             } else {
                 return sessionFactory;
             }
@@ -110,13 +113,13 @@ public class DatabaseUtils {
      * @return <CODE>SessionFactory</CODE> sessionFactory
      */
 
-    private static SessionFactory buildSessionFactory() {
+    private static SessionFactory buildSessionFactory(String hibernateConfigFile) {
 
         try {
 
-            // Create the ServiceRegistry from hibernate.cfg.xml
+            // Create the ServiceRegistry from hibernate config file
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .configure(HIBERNATE).build();
+                    .configure(hibernateConfigFile).build();
 
             // Create a metadata sources using the specified service registry.
             Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
@@ -162,45 +165,101 @@ public class DatabaseUtils {
     /**
      * Method to retrieve the top searches from the database.
      *
+     * @param  hibernateConfig Hibernate config file to load
+     * @param  maxResults Maximum size list of results to return
+     * @param queryPopulation Number of results to return from database for frequency sorting.
+     *
      * @return String with top 5 searches formatted in HTML
      * @throws DatabaseServiceException
      */
-    public static ArrayList<String> queryDBForTopSearches() throws DatabaseServiceException {
-        ArrayList<String> resultArray = new ArrayList<>();
+    public static ArrayList<String> queryDBForTopSearches(String hibernateConfig, int maxResults, int queryPopulation) throws DatabaseServiceException {
 
-        ResultSet results = null;
-        Connection connection = null;
+        Query query;
+        ArrayList<String> sortedResults;
+        Session session = null;
+
         try {
-            connection = DatabaseUtils.getConnection("hibernate.cfg.xml");
-            PreparedStatement statement;
-            /*Returns top 5 searches
-              This should be done in hibernate.
-              Use the ORM for what it was intended to do.
-              SQL doesn't always transfer.
-             */
-            final String query =
-                    "SELECT stock_symbol FROM stockquote.stocks\n" +
-                            "GROUP BY 1\n" +
-                            "ORDER BY count(*) DESC\n" +
-                            "LIMIT 5";
-            statement = connection.prepareStatement(query);
-            results = statement.executeQuery();
+            //Get a session and begin a transaction
+            SessionFactory sessionFactory = getSessionFactory(hibernateConfig);
+            session = sessionFactory.getCurrentSession();
 
-            while (results.next()) {
-                resultArray.add(results.getString("stock_symbol"));
+            session.getTransaction().begin();
+
+            //Retrieve 100 recent queries
+            query = session.createQuery("select stock.stockSymbol from SearchDAO stock");
+            query.setMaxResults(queryPopulation);
+
+            List list = query.list();
+
+            HashMap<String, Integer> map = new HashMap();
+
+            //Loop through the queried results
+            for (int i = 0; i < list.size(); i++) {
+                String stock = (String) list.get(i);
+
+                //Loop over the k,v pairs building a frequency for stock symbols from the queried results.
+                for (int b = 0; b < list.size(); b++) {
+                    if (list.get(b) == stock) {
+                        //See if map contains the stock.  If is doesn't add it with a value of 1.
+                        if (!map.containsKey(stock)) {
+                            map.put(stock, 1);
+                        } else {
+                            //Increment the value, aka the rolling count for the key.
+                            int value = map.get(stock);
+                            map.put(stock, ++value);
+                        }
+                    }
+                }
             }
+            //Sort list based on frequency.
+            sortedResults = sortByKey(map, maxResults);
 
-            connection.close();
+            //All done here.  Close up shop.
+            session.close();
 
-        } catch (DatabaseConfigurationException | DatabaseConnectionException e) {
+        } catch (DatabaseInitializationException e) {
             throw new DatabaseServiceException("An error occurred while connecting to the database", e.getCause());
-        } catch (SQLException e) {
-            throw new DatabaseServiceException("An error occurred related to the SQL", e.getCause());
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
         }
 
-        return resultArray;
+        return sortedResults;
     }
 
+    /**
+     * Method to sort a Map by the key
+     *
+     * @param map Map to sort
+     * @return TreeMap sorted by value
+     */
+    private static ArrayList<String> sortByKey(Map map, int maxResults) {
+
+        ArrayList<String> descList = new ArrayList<>();
+
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+        list.sort(Map.Entry.comparingByValue());
+
+        int listCount = 0;
+        int listSize = 0;
+
+        //See if list of results is smaller than the maxResults.
+        if (list.size() > maxResults) {
+            listCount = list.size() - maxResults;
+            listSize = list.size() - 1;
+        } else {
+            listCount = -1;
+            listSize = list.size() - 1;
+        }
+
+        for (int i = listSize; i > listCount; i--) {
+            descList.add(list.get(i).getKey());
+        }
+
+
+        return descList;
+    }
     /**
      * A utility method to run scripts for DB interactions
      *

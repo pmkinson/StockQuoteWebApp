@@ -65,7 +65,7 @@ public class HibernateUtils {
                 case "1": {
                     updateHerokuCredentials(nodeList);
                     //Save updated config file
-                    saveHibernateConfig(document);
+                    saveHibernateConfig(document, "hibernate.cfg.xml");
                     break;
                 }
                 case "2": {
@@ -208,17 +208,18 @@ public class HibernateUtils {
     /**
      * Save changes to the hibernate config file.
      *
-     * @param document Hiberrnate config file
+     * @param hibernateDocument Hiberrnate config file to save
+     * @param hibernateFile Hibernate file to update
      * @throws TransformerException Generalized exception thrown if there's an error saving the file.
      */
-    private static void saveHibernateConfig(Document document) throws TransformerException, URISyntaxException {
+    private static void saveHibernateConfig(Document hibernateDocument, String hibernateFile) throws TransformerException, URISyntaxException {
 
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
-        DOMSource source = new DOMSource(document);
-        File file = getFile(HIBERNATE);
+        DOMSource source = new DOMSource(hibernateDocument);
+        File file = getFile(hibernateFile);
         StreamResult result = new StreamResult(file);
-        DOMImplementation domImplementation = document.getImplementation();
+        DOMImplementation domImplementation = hibernateDocument.getImplementation();
 
         DocumentType documentType = domImplementation.createDocumentType("doctype", PUBLIC_ID, SYSTEM_ID);
 
@@ -231,23 +232,44 @@ public class HibernateUtils {
 
     /**
      * Method to retrieve the hibernate.driver value from the
-     * hibernate.cfg.xml config file.
+     * hibernate config file.
+     *
+     * @param hibernateFile Hibernate config file to read driver from.
      *
      * @return String representation of the driver value
      * @throws HibernateUtilitiesException Thrown for any underlying issue with retrieving the driver value.
      */
-    public static String getDriver() throws HibernateUtilitiesException {
-        String driver;
+    public static String getDriver(String hibernateFile) throws HibernateUtilitiesException {
+        String driver = null;
 
         try {
-            Document document = xmlDocument(HIBERNATE);
+            Document document = xmlDocument(hibernateFile);
             NodeList nodeList = getHibernateNodeList(document, PARENT_NODE);
 
-            driver = nodeList.item(3).getTextContent();
+            //Loop through config file and retrieve driver
+            for (int element = 0; element < nodeList.getLength(); element++) {
+                Node node = nodeList.item(element);
+
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element nodeElement = (Element) node;
+                    //Loop through nodes looking for a match to the method signature argument
+                    if (nodeElement.getAttribute("name").equals("hibernate.connection.driver_class")) {
+                        //Set driver
+                        driver = nodeList.item(element).getTextContent();
+                    }
+                }
+            }
+
+            //Throw error if there was no match and driver var is still null.
+            if (driver == null) {
+                throw new HibernateUtilitiesException("Unable to load the driver from " + hibernateFile + "." +
+                        " Make sure there is a 'hibernate.connection.driver_class' property.");
+            }
+
 
         } catch (URISyntaxException | ParserConfigurationException | SAXException | IOException e) {
             throw new HibernateUtilitiesException("An error occurred while retrieving the " +
-                    "driver value from the hibernate.cfg.xml file", e);
+                    "driver value from the " + hibernateFile + " file", e);
         }
 
         return driver;
