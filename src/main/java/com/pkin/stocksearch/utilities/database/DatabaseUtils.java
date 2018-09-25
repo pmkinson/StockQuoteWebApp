@@ -17,7 +17,6 @@
 
 package com.pkin.stocksearch.utilities.database;
 
-import com.pkin.stocksearch.model.SearchDAO;
 import com.pkin.stocksearch.service.exceptions.DatabaseServiceException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConfigurationException;
 import com.pkin.stocksearch.utilities.database.exceptions.DatabaseConnectionException;
@@ -32,8 +31,6 @@ import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
-
-import com.ibatis.common.jdbc.ScriptRunner;
 
 import java.io.*;
 import java.net.URISyntaxException;
@@ -56,7 +53,6 @@ public class DatabaseUtils {
      * Utility method to return a connection to the database
      *
      * @param hibernateConfigFile The name of the hibernate config file to load for the connection.
-     *
      * @return <CODE>Connection</CODE> connection
      * @throws DatabaseConnectionException    Thrown when a connection cannot be established to DB
      * @throws DatabaseConfigurationException Thrown when the hibernate configuration file cannot be loaded.
@@ -64,7 +60,7 @@ public class DatabaseUtils {
     public static Connection getConnection(String hibernateConfigFile) throws DatabaseConnectionException, DatabaseConfigurationException {
 
         HibernateUtils.verifyHibernateConfig(hibernateConfigFile);
-        Connection connection = null;
+        Connection connection;
         Configuration configuration = getConfiguration(hibernateConfigFile);
         try {
 
@@ -161,29 +157,24 @@ public class DatabaseUtils {
     }
 
 
-
     /**
      * Method to retrieve the top searches from the database.
      *
-     * @param  hibernateConfig Hibernate config file to load
-     * @param  maxResults Maximum size list of results to return
+     * @param hibernateConfig Hibernate config file to load
+     * @param maxResults      Maximum size list of results to return
      * @param queryPopulation Number of results to return from database for frequency sorting.
-     *
      * @return String with top 5 searches formatted in HTML
      * @throws DatabaseServiceException
      */
     public static ArrayList<String> queryDBForTopSearches(String hibernateConfig, int maxResults, int queryPopulation) throws DatabaseServiceException {
+        ArrayList<String> sortedResults;
 
         Query query;
-        ArrayList<String> sortedResults;
-        Session session = null;
+        Session session;
 
         try {
             //Get a session and begin a transaction
-            SessionFactory sessionFactory = getSessionFactory(hibernateConfig);
-            session = sessionFactory.getCurrentSession();
-
-            session.getTransaction().begin();
+            session = getSessionFactory(hibernateConfig).openSession();
 
             //Retrieve 100 recent queries
             query = session.createQuery("select stock.stockSymbol from SearchDAO stock");
@@ -191,7 +182,7 @@ public class DatabaseUtils {
 
             List list = query.list();
 
-            HashMap<String, Integer> map = new HashMap();
+            HashMap<String, Integer> map = new HashMap<>();
 
             //Loop through the queried results
             for (int i = 0; i < list.size(); i++) {
@@ -214,15 +205,8 @@ public class DatabaseUtils {
             //Sort list based on frequency.
             sortedResults = sortByKey(map, maxResults);
 
-            //All done here.  Close up shop.
-            session.close();
-
         } catch (DatabaseInitializationException e) {
             throw new DatabaseServiceException("An error occurred while connecting to the database", e.getCause());
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
 
         return sortedResults;
@@ -246,7 +230,7 @@ public class DatabaseUtils {
 
         //See if list of results is smaller than the maxResults.
         if (list.size() > maxResults) {
-            listCount = list.size() - maxResults;
+            listCount = list.size() - (maxResults + 1);
             listSize = list.size() - 1;
         } else {
             listCount = -1;
@@ -260,36 +244,6 @@ public class DatabaseUtils {
 
         return descList;
     }
-    /**
-     * A utility method to run scripts for DB interactions
-     *
-     * @param script full path to the script to run to create the schema
-     * @throws DatabaseInitializationException Occurs when there is an issue initializing the database.
-     * @throws DatabaseConfigurationException  Thrown when the hibernate configuration file cannot be loaded.
-     */
-    public static void runScript(String script, String hibernateConfigFile) throws DatabaseInitializationException, DatabaseConfigurationException {
 
-        Connection connection = null;
-
-        try {
-            connection = getConnection(hibernateConfigFile);
-            connection.setAutoCommit(false);
-            ScriptRunner runner = new ScriptRunner(connection, false, false);
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(script));
-
-            runner.runScript(reader);
-            reader.close();
-            connection.commit();
-            connection.close();
-
-        } catch (DatabaseConnectionException | SQLException | IOException e) {
-            throw new DatabaseInitializationException("Could not initialize db because of: "
-                    + e.getMessage(), e);
-        } catch (Throwable e) {
-            throw new DatabaseConfigurationException("Could not load hibernate configuration file because of: "
-                    + e.getMessage(), e);
-        }
-
-    }
 }
 
