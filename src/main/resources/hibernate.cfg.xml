@@ -12,6 +12,7 @@
         <property name="hibernate.connection.url">
             jdbc:postgresql://ec2-174-129-206-173.compute-1.amazonaws.com:5432/dee5uoi05ai36v?sslmode=require
         </property>
+
         <property name="hibernate.connection.username">yyntvlsruodewk</property>
         <property name="hibernate.connection.password">
             824bc9538b51522e5fe41537b41b611998efc8e7da23422dd5b0edf86370a69a
@@ -19,19 +20,17 @@
 
         <property name="backend">0</property>
 
-        <property name="connection.autocommit">false</property>
-        <property name="connection.pool_size">10</property>
+        <!-- show mysql queries output in console -->
+        <property name="hibernate.show_sql">true</property>
 
-        <!-- Enable Hibernate's automatic session context management -->
-        <property name="current_session_context_class">thread</property>
+        <!-- dbcp connection pool configuration -->
+        <property name="hibernate.dbcp.initialSize">5</property>
+        <property name="hibernate.dbcp.maxTotal">20</property>
+        <property name="hibernate.dbcp.maxIdle">10</property>
+        <property name="hibernate.dbcp.minIdle">5</property>
+        <property name="hibernate.dbcp.maxWaitMillis">-1</property>
 
         <mapping class="com.pkin.stocksearch.model.SearchDAO"/>
-
-        <!--    Show SQL for debugging purposes
-
-                <property name="hibernate.show_sql">true</property>
-                <property name="format_sql">true</property>
-                <property name="use_sql_comments">true</property>       -->
 
     </session-factory>
 </hibernate-configuration>

@@ -115,7 +115,8 @@
                 <div class="film-strip-title">Popular Searches:</div>
 
                 <!-- Get top searches from db -->
-                <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches()}' scope='session'/>
+                <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches("hibernate.cfg.xml", 5, 100)}'
+                       scope='session'/>
                 <c:forEach items="${topFive}" var="stock">
                     <div class="film-strip-item symbol">
                         <a href="${pageContext.request.contextPath}/StockSearchServlet?quickSymbol=${stock}">${stock}</a>
@@ -127,7 +128,7 @@
         </div>
     </div>
     <div class="row row-spacer">
-        <div class="col-sm"></div>
+        <div class="col-sm bs-hidden"></div>
         <div class="col-sm-4">
             <form name="myform" action="StockSearchServlet" method="post">
                 <div class="form-group">
@@ -161,7 +162,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-sm"></div>
+        <div class="col-sm bs-hidden"></div>
     </div>
 </div>
 </body>

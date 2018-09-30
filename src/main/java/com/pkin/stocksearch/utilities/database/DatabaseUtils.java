@@ -177,9 +177,18 @@ public class DatabaseUtils {
             session = getSessionFactory(hibernateConfig).openSession();
 
             //Retrieve 100 recent queries
-            query = session.createQuery("select stock.stockSymbol from SearchDAO stock");
+            query = session.createQuery("SELECT stock.stockSymbol FROM SearchDAO stock");
+            // query = session.createNativeQuery("SELECT stock_symbol FROM stocks");
             query.setMaxResults(queryPopulation);
 
+            /*  SQL query.  Rest of the code below wouldn't be needed if
+                HQL query fully matched the SQL in comments
+
+                    "SELECT stock_symbol FROM stockquote.stocks\n" +
+                    "GROUP BY 1\n" +
+                    "ORDER BY count(*) DESC\n" +
+                    "LIMIT 5";
+                    */
             List list = query.list();
 
             HashMap<String, Integer> map = new HashMap<>();

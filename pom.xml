@@ -44,13 +44,13 @@
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
-            <version>10.10.1.1</version>
+            <version>10.14.2.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derbyclient</artifactId>
-            <version>10.10.1.1</version>
+            <version>10.14.2.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -59,6 +59,21 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.25</version>
         </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- ScriptRunner for loading database from sql files -->
+        <!-- https://mvnrepository.com/artifact/com.ibatis/ibatis-common -->
+        <dependency>
+            <groupId>com.ibatis</groupId>
+            <artifactId>ibatis-common</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
 
         <!-- End testing framework -->
 
@@ -120,13 +135,34 @@
           <version>3.12.3</version>
       </dependency>
 
-  </dependencies>
+        <!-- Loading scripts for SQL execution ScriptRunner -->
+        <dependency>
+            <groupId>org.apache.ibatis</groupId>
+            <artifactId>ibatis-sqlmap</artifactId>
+            <version>2.3.4.726</version>
+        </dependency>
+
+        <!-- Connection Pooling Management -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.7</version>
+        </dependency>
+
+
+    </dependencies>
   <build>
     <finalName>StockQuoteWebApp</finalName>
       <plugins>
           <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.7.0</version>
               <configuration>
                   <source>1.8</source>
                   <target>1.8</target>

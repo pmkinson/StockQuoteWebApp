@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 public class HibernateUtils {
 
-    private static final String HIBERNATE = "hibernate.cfg.xml";
     private static final String PARENT_NODE = "session-factory";
     private static final String PUBLIC_ID = "\n-//Hibernate/Hibernate Configuration DTD//EN";
     private static final String SYSTEM_ID = "\nhttp://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd";
