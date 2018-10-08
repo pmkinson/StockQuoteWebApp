@@ -13,7 +13,6 @@ import static org.junit.Assert.*;
 
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
-import java.io.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -39,29 +38,24 @@ public class DatabaseUtilsTest {
     }
 
     @Before
-    public void setUp() throws SQLException, IOException, DatabaseConfigurationException, DatabaseInitializationException {
+    public void setUp() {
         SupportMethods config = new SupportMethods();
-
-        config.runScript("drop_table.sql");
-        config.runScript("set_up_test_tables.sql");
-        config.runScript("add_search_data.sql");
-
-        config.copyMainFile();
+        config.changeConfigFile("hibernate.connection.url", "jdbc:derby:TEST_DB", "hibernate-test.cfg.xml");
     }
 
     @After
     public void after() {
-        SupportMethods derby = new SupportMethods();
-
-        derby.resetMainHibernateFile();
-        derby.shutdownTestDB("TEST_DB");
+        SupportMethods config = new SupportMethods();
+        config.changeConfigFile("hibernate.connection.url", "jdbc:derby:TEST_DB", "hibernate-test.cfg.xml");
+        config.shutdownTestDB("TEST_DB");
     }
 
     @Test(expected = DatabaseConfigurationException.class)
     public void verifyHibernateConfigError() throws DatabaseConfigurationException {
         SupportMethods config = new SupportMethods();
 
-        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml", "", false);
+        config.createDB("TEST_DB");
+        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml");
         clearEnvironmentVariable();
         setEnvironmentVariable(badURL);
 
@@ -72,39 +66,74 @@ public class DatabaseUtilsTest {
     @Test
     public void getConnection() throws DatabaseConnectionException, DatabaseConfigurationException, SQLException {
         SupportMethods config = new SupportMethods();
-        config.changeConfigFile("backend", "0", "hibernate.cfg.xml", "", false);
 
-        Connection connection = DatabaseUtils.getConnection("hibernate.cfg.xml");
+        config.createDB("TEST_DB");
+        config.changeConfigFile("backend", "0", "hibernate-test.cfg.xml");
+
+        Connection connection = DatabaseUtils.getConnection("hibernate-test.cfg.xml", true);
 
         assertNotNull(connection);
         connection.close();
 
-        SupportMethods shutDown = new SupportMethods();
-        shutDown.shutdownTestDB("TEST_DB");
+        config.shutdownTestDB("TEST_DB");
     }
 
     @Test(expected = DatabaseConfigurationException.class)
     public void getConnectionError() throws DatabaseConnectionException, DatabaseConfigurationException {
         SupportMethods config = new SupportMethods();
-        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml", "", false);
+
+        config.createDB("TEST_DB");
+        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml");
 
         clearEnvironmentVariable();
         setEnvironmentVariable(badURL);
-        DatabaseUtils.getConnection("hibernate-test.cfg.xml");
+        DatabaseUtils.getConnection("hibernate-test.cfg.xml", true);
+    }
+
+    @Test(expected = DatabaseInitializationException.class)
+    public void getSessionFactoryError2() throws DatabaseInitializationException {
+        SupportMethods config = new SupportMethods();
+
+        config.createDB("TEST_DB");
+        config.changeConfigFile("hibernate.connection.url", "0", "hibernate-test.cfg.xml");
+        SessionFactory session = DatabaseUtils.getSessionFactory("hibernate-test.cfg.xml", true);
+
+    }
+
+    @Test(expected = DatabaseConnectionException.class)
+    public void getConnectionError2() throws DatabaseConnectionException, DatabaseConfigurationException {
+        SupportMethods config = new SupportMethods();
+
+        config.createDB("TEST_DB");
+        config.changeConfigFile("hibernate.connection.url", "0", "hibernate-test.cfg.xml");
+        Connection connection = DatabaseUtils.getConnection("hibernate-test.cfg.xml", true);
+
+    }
+
+    @Test(expected = DatabaseInitializationException.class)
+    public void getSessionFactoryError() throws DatabaseInitializationException {
+        SupportMethods config = new SupportMethods();
+
+        config.createDB("TEST_DB");
+        config.changeConfigFile("hibernate.connection.url", "0", "hibernate-test.cfg.xml");
+        SessionFactory sessionOne = DatabaseUtils.getSessionFactory("hibernate-test.cfg.xml", true);
     }
 
     @Test
     public void getSessionFactory() throws DatabaseInitializationException {
         SupportMethods config = new SupportMethods();
-        config.changeConfigFile("backend", "0", "hibernate-test.cfg.xml", "", false);
+
+        config.changeConfigFile("backend", "0", "hibernate-test.cfg.xml");
+        config.createDB("TEST_DB");
 
         clearEnvironmentVariable();
 
-        SessionFactory sessionOne = DatabaseUtils.getSessionFactory("hibernate.cfg.xml");
-        SessionFactory sessionTwo = DatabaseUtils.getSessionFactory("hibernate.cfg.xml");
+        SessionFactory sessionOne = DatabaseUtils.getSessionFactory("hibernate-test.cfg.xml", true);
+        SessionFactory sessionTwo = DatabaseUtils.getSessionFactory("hibernate-test.cfg.xml", false);
 
         assertNotNull("Failed to return a new instance of Session", sessionOne);
         assertNotNull("Failed to return a current instance of Session", sessionTwo);
+
 
     }
 

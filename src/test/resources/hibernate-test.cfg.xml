@@ -9,27 +9,25 @@
         <property name="hibernate.dialect">org.hibernate.dialect.DerbyTenSevenDialect</property>
         <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
 
-        <property name="hibernate.connection.url">jdbc:derby:stockquote;create=true</property>
+        <property name="hibernate.connection.url">jdbc:derby:TEST_DB</property>
         <property name="hibernate.connection.username"></property>
         <property name="hibernate.connection.password"></property>
 
         <property name="backend">12</property>
 
-        <property name="connection.autocommit">true</property>
-        <property name="connection.pool_size">10</property>
+        <!-- show mysql queries output in console -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="use_sql_comments">true</property>
 
-        <!-- Enable Hibernate's automatic session context management -->
-        <property name="current_session_context_class">thread</property>
-        <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">update</property>
+        <!-- dbcp connection pool configuration -->
+        <property name="hibernate.dbcp.initialSize">5</property>
+        <property name="hibernate.dbcp.maxTotal">20</property>
+        <property name="hibernate.dbcp.maxIdle">10</property>
+        <property name="hibernate.dbcp.minIdle">5</property>
+        <property name="hibernate.dbcp.maxWaitMillis">-1</property>
 
         <mapping class="com.pkin.stocksearch.model.SearchDAO"/>
-
-        <!--    Show SQL for debugging purposes
-
-                <property name="hibernate.show_sql">true</property>
-                <property name="format_sql">true</property>
-                <property name="use_sql_comments">true</property>       -->
 
     </session-factory>
 </hibernate-configuration>

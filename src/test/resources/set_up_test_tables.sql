@@ -1,6 +1,6 @@
-create table stockquote.stocks
+create table stocks
 (
-  id             serial    not null primary key,
+  id             integer   not null,
   date           timestamp not null,
   stock_id       integer   not null,
   system_id      integer   not null,
@@ -9,3 +9,4 @@ create table stockquote.stocks
   type_of_search integer   not null,
   stock_symbol   varchar(4)
 );
+

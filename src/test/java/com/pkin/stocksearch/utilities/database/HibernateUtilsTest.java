@@ -8,27 +8,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.w3c.dom.*;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class HibernateUtilsTest {
@@ -45,22 +27,22 @@ public class HibernateUtilsTest {
     public void setUp() {
         SupportMethods config = new SupportMethods();
 
-        config.copyMainFile();
+        // config.copyMainFile();
     }
 
     @After
     public void cleanUp() {
         SupportMethods config = new SupportMethods();
 
-        config.resetMainHibernateFile();
+        // config.resetMainHibernateFile();
     }
 
     @Test(expected = DatabaseConfigurationException.class)
     public void verifyHibernateConfigError() throws DatabaseConfigurationException {
         setEnvironmentVariable(badURL);
-        config.changeConfigFile("backend", "1", "hibernate.cfg.xml", "", false);
+        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml");
 
-        HibernateUtils.verifyHibernateConfig("hibernate.cfg.xml");
+        HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
 
     }
 
@@ -69,19 +51,19 @@ public class HibernateUtilsTest {
         setEnvironmentVariable(url);
 
         //Make sure var 0 doesn't throw error
-        config.changeConfigFile("backend", "0", "hibernate-test.cfg.xml", "", false);
+        config.changeConfigFile("backend", "0", "hibernate-test.cfg.xml");
         HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
 
         //Make sure var 1 doesn't throw error
-        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml", "", false);
+        config.changeConfigFile("backend", "1", "hibernate-test.cfg.xml");
         HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
 
         //Make sure var 2 doesn't throw error
-        config.changeConfigFile("backend", "2", "hibernate-test.cfg.xml", "", false);
+        config.changeConfigFile("backend", "2", "hibernate-test.cfg.xml");
         HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
 
         //Make sure default doesn't throw error
-        config.changeConfigFile("backend", "2", "hibernate-test.cfg.xml", "", false);
+        config.changeConfigFile("backend", "2", "hibernate-test.cfg.xml");
         HibernateUtils.verifyHibernateConfig("hibernate-test.cfg.xml");
     }
 
@@ -89,12 +71,11 @@ public class HibernateUtilsTest {
     @Test
     public void getDriver() throws HibernateUtilitiesException {
 
-        String result = HibernateUtils.getDriver("hibernate.cfg.xml");
+        String result = HibernateUtils.getDriver("hibernate-test.cfg.xml");
         String expResult = "org.apache.derby.jdbc.EmbeddedDriver";
 
         assertEquals(result, expResult);
     }
-
 
     //Supporting Methods
 

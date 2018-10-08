@@ -18,6 +18,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.sql.Connection;
@@ -65,8 +66,7 @@ public class SupportMethods {
         }
     }
 
-    public void changeConfigFile(String nodeAttribute, String nodeContext, String fileName,
-                                 String mainFileName, boolean modifyMainFile) {
+    public void changeConfigFile(String nodeAttribute, String nodeContext, String fileName) {
 
         try {
 
@@ -125,17 +125,20 @@ public class SupportMethods {
      * @throws DatabaseInitializationException Occurs when there is an issue initializing the database.
      * @throws DatabaseConfigurationException  Thrown when the hibernate configuration file cannot be loaded.
      */
-    public void runScript(String script) throws DatabaseInitializationException, DatabaseConfigurationException {
+    public void runScript(String script, String dbName) throws DatabaseInitializationException, DatabaseConfigurationException {
 
         Connection connection = null;
 
-        URL path = SupportMethods.class.getClassLoader().getResource(script);
+        InputStream loader = null;
+        URL path;
+        path = SupportMethods.class.getClassLoader().getResource(script);
+
         String path2 = path.toString().substring(6, path.toString().length());
         try {
             String driver = "org.apache.derby.jdbc.EmbeddedDriver";
             Class.forName(driver).newInstance();
 
-            String protocol = "jdbc:derby:TEST_DB;create=true";
+            String protocol = "jdbc:derby:" + dbName + ";";
 
             connection = DriverManager.getConnection(protocol);
             connection.setAutoCommit(false);
@@ -159,7 +162,9 @@ public class SupportMethods {
     }
 
     /**
-     * Kill the local Derby test db instance
+     * Shutdown derby db
+     *
+     * @param dbName
      */
 
     public void shutdownTestDB(String dbName) {
@@ -172,4 +177,19 @@ public class SupportMethods {
         }
     }
 
+    /**
+     * Create derby db instance
+     *
+     * @param dbName
+     */
+    public void createDB(String dbName) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:derby:" + dbName + ";create=true");
+            connection.commit();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
