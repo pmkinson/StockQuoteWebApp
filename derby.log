@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Sun Oct 07 20:05:53 EDT 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0166-50fe-936b-000012cbaea8 
+Tue Oct 09 22:07:51 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0166-5bba-f689-000012c4bca8 
 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/pmkin/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -12,11 +12,11 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Oct 07 20:06:02 EDT 2018:
-Shutting down instance a816c00e-0166-50fe-936b-000012cbaea8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Tue Oct 09 22:08:01 EDT 2018:
+Shutting down instance a816c00e-0166-5bba-f689-000012c4bca8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 ----------------------------------------------------------------
-Sun Oct 07 20:06:02 EDT 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance d89d8024-0166-50fe-936b-000012cbaea8 
+Tue Oct 09 22:08:01 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance d89d8024-0166-5bba-f689-000012c4bca8 
 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/pmkin/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -28,9 +28,9 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Oct 07 20:06:03 EDT 2018:
-Shutting down instance d89d8024-0166-50fe-936b-000012cbaea8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
-Sun Oct 07 20:06:03 EDT 2018 Thread[main,5,main] Cleanup action starting
+Tue Oct 09 22:08:02 EDT 2018:
+Shutting down instance d89d8024-0166-5bba-f689-000012c4bca8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Tue Oct 09 22:08:02 EDT 2018 Thread[main,5,main] Cleanup action starting
 java.sql.SQLException: Database 'TEST_DB' not found.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -161,8 +161,8 @@ ERROR XJ004: Database 'TEST_DB' not found.
 ============= end nested exception, level (1) ===========
 Cleanup action completed
 ----------------------------------------------------------------
-Sun Oct 07 20:06:04 EDT 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 40a68025-0166-50fe-936b-000012cbaea8 
+Tue Oct 09 22:08:02 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 40a68025-0166-5bba-f689-000012c4bca8 
 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/pmkin/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -174,11 +174,11 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Oct 07 20:06:05 EDT 2018:
-Shutting down instance 40a68025-0166-50fe-936b-000012cbaea8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Tue Oct 09 22:08:03 EDT 2018:
+Shutting down instance 40a68025-0166-5bba-f689-000012c4bca8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 ----------------------------------------------------------------
-Sun Oct 07 20:06:05 EDT 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance e8afc026-0166-50fe-936b-000012cbaea8 
+Tue Oct 09 22:08:03 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance e8afc026-0166-5bba-f689-000012c4bca8 
 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/pmkin/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -190,11 +190,11 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Oct 07 20:06:06 EDT 2018:
-Shutting down instance e8afc026-0166-50fe-936b-000012cbaea8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Tue Oct 09 22:08:04 EDT 2018:
+Shutting down instance e8afc026-0166-5bba-f689-000012c4bca8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 ----------------------------------------------------------------
-Sun Oct 07 20:06:06 EDT 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance e0b94027-0166-50fe-936b-000012cbaea8 
+Tue Oct 09 22:08:04 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance e0b94027-0166-5bba-f689-000012c4bca8 
 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/pmkin/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -206,11 +206,11 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Oct 07 20:06:06 EDT 2018:
-Shutting down instance e0b94027-0166-50fe-936b-000012cbaea8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Tue Oct 09 22:08:05 EDT 2018:
+Shutting down instance e0b94027-0166-5bba-f689-000012c4bca8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 ----------------------------------------------------------------
-Sun Oct 07 20:06:07 EDT 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 38c30028-0166-50fe-936b-000012cbaea8 
+Tue Oct 09 22:08:05 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 38c30028-0166-5bba-f689-000012c4bca8 
 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/pmkin/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -222,11 +222,11 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Oct 07 20:06:08 EDT 2018:
-Shutting down instance 38c30028-0166-50fe-936b-000012cbaea8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Tue Oct 09 22:08:06 EDT 2018:
+Shutting down instance 38c30028-0166-5bba-f689-000012c4bca8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 ----------------------------------------------------------------
-Sun Oct 07 20:06:08 EDT 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a902c02e-0166-50fe-936b-000012cbaea8 
+Tue Oct 09 22:08:06 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a902c02e-0166-5bba-f689-000012c4bca8 
 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/pmkin/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -238,5 +238,5 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Oct 07 20:06:09 EDT 2018:
-Shutting down instance a902c02e-0166-50fe-936b-000012cbaea8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Tue Oct 09 22:08:07 EDT 2018:
+Shutting down instance a902c02e-0166-5bba-f689-000012c4bca8 on database directory D:\StockQuoteWebApp\TEST_DB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 

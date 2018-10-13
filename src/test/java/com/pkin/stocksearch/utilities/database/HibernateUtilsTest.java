@@ -10,6 +10,14 @@ import org.junit.contrib.java.lang.system.EnvironmentVariables;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import javax.swing.filechooser.FileSystemView;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -77,6 +85,28 @@ public class HibernateUtilsTest {
         assertEquals(result, expResult);
     }
 
+
+    @Test
+    public void getCSVFile() throws IOException, URISyntaxException {
+        String root = FileSystemView.getFileSystemView().getHomeDirectory().getPath();
+
+        File file = new File(root + "\\test_file_stockquote.txt");
+        file.deleteOnExit();
+
+        String csv = "cat,bat,sat,matt,rat,dat";
+        Files.write(Paths.get(root + "\\test_file_stockquote.txt"), csv.getBytes());
+
+        String expCSV = "cat, bat, sat matt, rat, dat";
+
+        String testFile = root + "\\test_file_stockquote.txt";
+        String actualCSV = FileUtils.getCSVFile(testFile);
+
+        assertEquals("CSV file reader didn't match", actualCSV.contains("cat"), expCSV.contains("cat"));
+        assertEquals("CSV file didn't contain the correct number of entries",
+                actualCSV.length(), expCSV.length());
+    }
+
+
     //Supporting Methods
 
     /********************************************************************************************/
@@ -91,4 +121,5 @@ public class HibernateUtilsTest {
         } else {
         }
     }
+
 }

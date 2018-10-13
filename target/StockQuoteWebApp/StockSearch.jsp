@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" session="true" %>
 
-<%@page import='com.pkin.stocksearch.utilities.database.DatabaseUtils' %>
+<%@page import='com.pkin.stocksearch.service.DatabaseService' %>
+<%@page import='com.pkin.stocksearch.utilities.database.FileUtils' %>
+
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -48,6 +50,7 @@
                 yearRange: '120:+0',
                 maxDate: 0
             });
+
         });
     </script>
 
@@ -73,6 +76,7 @@
                             });
                         });
                     });
+
                     click.preventDefault();
                 }
 
@@ -96,15 +100,16 @@
 
             var topFive = $('#pop-searches');
             topFive.hide();
-            topFive.delay(500).slideDown(500);
+            topFive.delay(400).slideDown(400);
 
         });//doc ready
     </script>
+
 </head>
 
 <body>
 <div class="nav-element bg-light">
-    <c:import var="nav" url="top_nav.html"/>
+    <c:import var="nav" url="top_nav.jsp"/>
     ${nav}
 </div>
 
@@ -115,8 +120,8 @@
                 <div class="film-strip-title">Popular Searches:</div>
 
                 <!-- Get top searches from db -->
-                <c:set var='topFive' value='${DatabaseUtils.queryDBForTopSearches("hibernate.cfg.xml", 5, 100)}'
-                       scope='session'/>
+                <c:set var='topFive' value='${DatabaseService.queryDBForTopSearches("hibernate.cfg.xml", 5, 100)}'
+                       scope='page'/>
                 <c:forEach items="${topFive}" var="stock">
                     <div class="film-strip-item symbol">
                         <a href="${pageContext.request.contextPath}/StockSearchServlet?quickSymbol=${stock}">${stock}</a>
@@ -133,7 +138,7 @@
             <form name="myform" action="StockSearchServlet" method="post">
                 <div class="form-group">
                     <label for="symbols">Stock Symbol:</label>
-                    <input type="text" class="form-control" name="stockSymbol" id="symbols" required>
+                    <input type="text" class="form-control bs-autocomplete" autocomplete="off" name="stockSymbol" id="symbols" required>
                 </div>
                 <div id="startDate-form" class="form-group">
 
@@ -165,6 +170,7 @@
         <div class="col-sm bs-hidden"></div>
     </div>
 </div>
+
 </body>
 <footer class="bg-light">
     <c:import var="footer" url="footer.html"/>

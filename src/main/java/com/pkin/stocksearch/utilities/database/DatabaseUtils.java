@@ -131,7 +131,7 @@ public class DatabaseUtils {
 
         //Singleton pattern
         try {
-            File file = HibernateUtils.getFile(filePath);
+            File file = FileUtils.getFile(filePath);
 
             if (configuration == null || reloadConfigFile == true) {
                 configuration = new Configuration();

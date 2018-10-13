@@ -13,7 +13,7 @@
         <property name="hibernate.connection.username"></property>
         <property name="hibernate.connection.password"></property>
 
-        <property name="backend">12</property>
+        <property name="backend">0</property>
 
         <!-- show mysql queries output in console -->
         <property name="hibernate.show_sql">true</property>

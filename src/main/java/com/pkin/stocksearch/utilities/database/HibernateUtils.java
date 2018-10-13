@@ -5,8 +5,6 @@ import com.pkin.stocksearch.utilities.database.exceptions.HibernateUtilitiesExce
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
@@ -51,10 +49,10 @@ public class HibernateUtils {
     public static void verifyHibernateConfig(String configPath) throws DatabaseConfigurationException {
 
         try {
-            Document document = xmlDocument(configPath);
-            NodeList nodeList = getHibernateNodeList(document, PARENT_NODE);
+            Document document = FileUtils.xmlDocument(configPath);
+            NodeList nodeList = FileUtils.getNodeList(document, PARENT_NODE);
 
-            String backEndVariable = readXmlContext(nodeList, "name", "backend");
+            String backEndVariable = FileUtils.readXmlContext(nodeList, "name", "backend");
 
             switch (backEndVariable) {
                 case "0": {
@@ -81,97 +79,6 @@ public class HibernateUtils {
                 ParserConfigurationException | SAXException | TransformerException e) {
             throw new DatabaseConfigurationException("Failed to update 'hibernate.cfg.xml' database credentials before opening a connection.", e.getCause());
         }
-    }
-
-    /**
-     * Method to read the context of an attribute from a NodeList.
-     * Will return null if not match is found.
-     *
-     * @param nodeList       NodeList to read from
-     * @param attribute      The node-element attribute to search for. Example attribute is "name".
-     * @param attributeMatch The value of the node-element attribute to match. Example "name='John' "
-     * @return String representation of the node-element context.
-     */
-    private static String readXmlContext(NodeList nodeList, String attribute, String attributeMatch) {
-
-        String backEndVariable = "";
-        for (int element = 0; element < nodeList.getLength(); element++) {
-            Node node = nodeList.item(element);
-
-            if (node.getNodeType() == Node.ELEMENT_NODE) {
-                Element nodeElement = (Element) node;
-                //Loop through nodes looking for a match to the method signature argument
-                if (nodeElement.getAttribute(attribute).equals(attributeMatch)) {
-                    //Retrieve variable from xml
-                    backEndVariable = nodeList.item(element).getTextContent();
-                    return backEndVariable;
-                }
-            }
-        }
-
-        return null;
-    }
-    /**
-     * Build a NodeList from an XML document
-     *
-     * @param document The document to read.
-     * @param element  The parent element to build a nodelist from.
-     * @return A NodeList
-     */
-    private static NodeList getHibernateNodeList(Document document, String element) {
-
-        Node sessionFactoryTag = document.getElementsByTagName(element).item(0);
-        NodeList list = sessionFactoryTag.getChildNodes();
-
-        return list;
-    }
-
-    /**
-     * Method to create a file object. Reducing repetative code.
-     *
-     * @param file String for the filepath
-     * @return A File object.
-     */
-    public static File getFile(String file) throws URISyntaxException {
-        URI uri = getResourceUri(file);
-
-        File returnFile = new File(uri);
-        return returnFile;
-    }
-
-    /**
-     * Method to return the URI of a file
-     *
-     * @param file Path to file
-     * @return URI
-     * @throws URISyntaxException
-     */
-    private static URI getResourceUri(String file) throws URISyntaxException {
-        URI uri = DatabaseUtils.class.getClassLoader().getResource(file).toURI();
-        return uri;
-    }
-
-    /**
-     * Method to retrieve and parse the Hibernate Config file into XML format for editing.
-     *
-     * @return A Document object
-     * @throws ParserConfigurationException Thrown when file contains invalid XML and cannot be parsed
-     * @throws IOException                  Thrown when there's an error locating hibernate.cfg.xml
-     * @throws SAXException                 Thrown for general exception for any SAX errors that may occur.
-     */
-    private static Document xmlDocument(String filePath) throws ParserConfigurationException, IOException, SAXException, URISyntaxException {
-
-        File inputFile = getFile(filePath);
-        DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-
-        //Disable downloading external dtd
-        documentFactory.setValidating(false);
-        documentFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-
-        DocumentBuilder docBuilder = documentFactory.newDocumentBuilder();
-        Document document = docBuilder.parse(inputFile);
-
-        return document;
     }
 
     /**
@@ -216,7 +123,7 @@ public class HibernateUtils {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(hibernateDocument);
-        File file = getFile(hibernateFile);
+        File file = FileUtils.getFile(hibernateFile);
         StreamResult result = new StreamResult(file);
         DOMImplementation domImplementation = hibernateDocument.getImplementation();
 
@@ -242,8 +149,8 @@ public class HibernateUtils {
         String driver = null;
 
         try {
-            Document document = xmlDocument(hibernateFile);
-            NodeList nodeList = getHibernateNodeList(document, PARENT_NODE);
+            Document document = FileUtils.xmlDocument(hibernateFile);
+            NodeList nodeList = FileUtils.getNodeList(document, PARENT_NODE);
 
             //Loop through config file and retrieve driver
             for (int element = 0; element < nodeList.getLength(); element++) {

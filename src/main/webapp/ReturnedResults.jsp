@@ -42,7 +42,7 @@ Set the title of the page to whichever one is not null. -->
 
 <body>
 <div class="nav-element bg-light">
-    <c:import var="nav" url="top_nav.html"/>
+    <c:import var="nav" url="top_nav.jsp"/>
     ${nav}
 </div>
 
