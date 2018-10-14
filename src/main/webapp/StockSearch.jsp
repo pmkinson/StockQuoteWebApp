@@ -139,7 +139,7 @@
                 <div class="form-group">
                     <label for="symbols">Stock Symbol:</label>
                     <input type="text" class="form-control bs-autocomplete" autocomplete="off" name="stockSymbol"
-                           id="symbols" required>
+                           id="symbols" spellcheck="false" required>
                 </div>
                 <div id="startDate-form" class="form-group">
 

@@ -98,7 +98,7 @@ public class WebUtils extends HttpServlet {
      * 5 - Available for slot development.
      * </p>
      *
-     * @param data   Data object to build into HTML table.
+     * @param data    Data object to build into HTML table.
      * @param tableID int value corresponding to what table you want built.
      * @return final String representing the dynamic HTML.
      */
@@ -271,25 +271,29 @@ public class WebUtils extends HttpServlet {
         } else {
             for (HistoricalQuote hq : historicalQuote) {
 
-                //Convert Calendar instance to a formatted date string representation.
-                String formatedDate = usDateFormat.format(Date.from(hq.getDate().toInstant()));
+                try {
+                    //Convert Calendar instance to a formatted date string representation.
+                    String formattedDate = usDateFormat.format(Date.from(hq.getDate().toInstant()));
 
-                BigDecimal open = hq.getOpen().setScale(2, RoundingMode.CEILING);
-                BigDecimal high = hq.getHigh().setScale(2, RoundingMode.CEILING);
-                BigDecimal low = hq.getLow().setScale(2, RoundingMode.CEILING);
-                BigDecimal close = hq.getClose().setScale(2, RoundingMode.CEILING);
-                BigDecimal volume = new BigDecimal(hq.getVolume());
+                    BigDecimal open = handleNull(hq, 4);
+                    BigDecimal high = handleNull(hq, 2);
+                    BigDecimal low = handleNull(hq, 3);
+                    BigDecimal close = handleNull(hq, 1);
+                    BigDecimal volume = handleNull(hq, 6);
 
-                //Build table
-                builder.append("<tr class=\"results-table\" >");
-                builder.append("<td>" + formatedDate + "</td>");
+                    //Build table
+                    builder.append("<tr class=\"results-table\" >");
+                    builder.append("<td>" + formattedDate + "</td>");
 
-                builder.append("<td>$ " + String.format("%,.2f", open) + "</td>");
-                builder.append("<td>$ " + String.format("%,.2f", high) + "</td>");
-                builder.append("<td>$ " + String.format("%,.2f", low) + "</td>");
-                builder.append("<td>$ " + String.format("%,.2f", close) + "</td>");
-                builder.append("<td>" + String.format("%,.0f", volume) + "</td></tr></th>");
-
+                    builder.append("<td>$ " + String.format("%,.2f", open) + "</td>");
+                    builder.append("<td>$ " + String.format("%,.2f", high) + "</td>");
+                    builder.append("<td>$ " + String.format("%,.2f", low) + "</td>");
+                    builder.append("<td>$ " + String.format("%,.2f", close) + "</td>");
+                    builder.append("<td>" + String.format("%,.0f", volume) + "</td></tr></th>");
+                } catch (Throwable e) {
+                    String nullError = "<tr><td>There was an error retrieving historical data.</td></tr>" + ERROR_TABLE;
+                    return nullError;
+                }
             }
             //Append closing tags for table
             builder.append(CLOSING_TAGS + BREAK);
@@ -298,6 +302,95 @@ public class WebUtils extends HttpServlet {
         }
 
         return table;
+    }
+
+    /**
+     * Nullpointers get thrown when retrieving data from very old dates. This fills in a default value of
+     * zero when a null value is found.
+     * <p>
+     * 1 - Get the closing value.
+     * 2 - Get the day high.
+     * 3 - Get the day low.
+     * 4 - Get the day open.
+     * 5 - Get the adjusted close.
+     * 6 - Get the day's volume.
+     *
+     * @param quote  HistoricalQuote to check
+     * @param number Data value to check
+     * @return
+     */
+    private static BigDecimal handleNull(HistoricalQuote quote, int number) {
+        BigDecimal data;
+        try {
+            switch (number) {
+                case (1): {
+                    data = quote.getClose().setScale(2, RoundingMode.CEILING);
+                    break;
+                }
+                case (2): {
+                    data = quote.getHigh().setScale(2, RoundingMode.CEILING);
+                    break;
+                }
+                case (3): {
+                    data = quote.getLow().setScale(2, RoundingMode.CEILING);
+                    break;
+                }
+                case (4): {
+                    data = quote.getOpen().setScale(2, RoundingMode.CEILING);
+                    break;
+                }
+                case (5): {
+                    data = quote.getAdjClose().setScale(2, RoundingMode.CEILING);
+                    break;
+                }
+                case (6): {
+                    data = new BigDecimal(quote.getVolume());
+                    break;
+                }
+                default: {
+                    data = new BigDecimal(0);
+                    break;
+                }
+
+            }
+        } catch (NullPointerException e) {
+            data = new BigDecimal(0);
+        }
+        return data;
+    }
+
+    /**
+     * Method to turn stock data points into a JSON table
+     * for historical chart.
+     *
+     * @param stock Yahoo stock object
+     * @return JSON format string
+     * @throws IOException
+     */
+    public static String jsonChartData(Stock stock) throws IOException {
+        StringBuilder jsonString = new StringBuilder();
+        List<HistoricalQuote> stockHistory = stock.getHistory();
+
+        int totalStocks = stockHistory.size();
+        int counter = 0;
+
+        //Setup Json
+        jsonString.append("[");
+        for (HistoricalQuote record : stockHistory) {
+            Long date = record.getDate().getTimeInMillis();
+            BigDecimal close = record.getClose();
+
+            if (counter <= (totalStocks - 2)) {
+                jsonString.append("[" + date + ", " + close + "], ");
+            } else if (counter <= totalStocks) {
+                jsonString.append("[" + date + ", " + close + "]");
+            }
+            counter++;
+        }
+        //Close Json
+        jsonString.append("]");
+
+        return jsonString.toString();
     }
 
     /**

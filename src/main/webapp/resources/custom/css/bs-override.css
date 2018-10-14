@@ -43,7 +43,6 @@
 
 }
 
-
 .row-spacer {
     margin-top: 8%;
 }
@@ -186,4 +185,13 @@ footer {
 }
 
 .bs-autocomplete {
+}
+
+#bs-container {
+    min-width: 310px;
+    height: 400px;
+    margin: 0 auto;
+    padding-top: 10px;
+
+    display: none;
 }

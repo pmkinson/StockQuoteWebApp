@@ -90,15 +90,15 @@ public class HibernateUtilsTest {
     public void getCSVFile() throws IOException, URISyntaxException {
         String root = FileSystemView.getFileSystemView().getHomeDirectory().getPath();
 
-        File file = new File(root + "\\test_file_stockquote.txt");
+        File file = new File(root + "\\test_file_stockquote.csv");
         file.deleteOnExit();
 
         String csv = "cat,bat,sat,matt,rat,dat";
-        Files.write(Paths.get(root + "\\test_file_stockquote.txt"), csv.getBytes());
+        Files.write(Paths.get(root + "\\test_file_stockquote.csv"), csv.getBytes());
 
         String expCSV = "cat, bat, sat matt, rat, dat";
 
-        String testFile = root + "\\test_file_stockquote.txt";
+        String testFile = root + "\\test_file_stockquote.csv";
         String actualCSV = FileUtils.getCSVFile(testFile);
 
         assertEquals("CSV file reader didn't match", actualCSV.contains("cat"), expCSV.contains("cat"));

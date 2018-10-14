@@ -8,6 +8,7 @@
 Set the title of the page to whichever one is not null. -->
 <c:set var="quick" value="${paramValues['quickSymbol']}" scope="page"/>
 <c:set var="historical" value="${paramValues['stockSymbol']}" scope="page"/>
+<c:set var="jsonHistory" value="${param['jsonHistory']}" scope="page"/>
 
 <c:choose>
     <c:when test="${quick != null}">
@@ -38,6 +39,8 @@ Set the title of the page to whichever one is not null. -->
     <!-- Favicon --->
     <link rel="icon" href="./resources/images/nav/ticker_brand_24.png">
 
+    <script language="JavaScript" type="text/javascript" src="./resources/highcharts/highcharts.js"></script>
+
 </head>
 
 <body>
@@ -47,11 +50,10 @@ Set the title of the page to whichever one is not null. -->
 </div>
 
 <div class="container-fluid">
-    <div class="row row-spacer hide">
-        <div class="col-3">
-            <!--  Banner stuff here -->
-        </div>
-    </div>
+
+    <div id="bs-container"></div>
+    <div class="row row-spacer"></div>
+
     <div class="row">
         <div class="col-sm-1 hide"></div>
         <div class="col-sm-10">
@@ -62,6 +64,86 @@ Set the title of the page to whichever one is not null. -->
         <div class="col-sm-1 hide"></div>
     </div>
 </div>
+
+<script>
+    /*
+    Show chart for historical quote
+     */
+    $(document).ready(function () {
+
+        var data = null;
+        data = ${jsonHistory};
+        if (data != null) {
+            var chart = $('#bs-container');
+            chart.slideDown(500);
+        }
+    });//doc ready
+</script>
+
+<script>
+    $(document).ready(function () {
+            var data = ${jsonHistory};
+            Highcharts.chart('bs-container', {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: '${titleSymbol}'
+                },
+                subtitle: {
+                    text: document.ontouchstart === undefined ?
+                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Price'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+
+                series: [{
+                    type: 'area',
+                    name: 'Stock Symbol',
+                    data: data
+                }]
+            });
+        }
+    );
+
+</script>
+
+<div class="row row-spacer"></div>
 
 </body>
 <footer class="bg-light">

@@ -1,20 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" session="true" %>
+         pageEncoding="UTF-8" session="false" %>
 
 <%@page import='com.pkin.stocksearch.utilities.database.FileUtils' %>
 
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<jsp:useBean id="formData" class="com.pkin.stocksearch.servlet.StockSearchServlet" scope="request"/>
-<jsp:setProperty name="formData" property="*"/>
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <c:set var='stocksList' value='${FileUtils.getCSVFile("stocks.csv")}' scope='page'/>
-
 
 <script>
     /*
@@ -24,7 +17,7 @@
         $('.bs-autocomplete').autocomplete({
             source: [${stocksList}],
             minLength: [2]
-        }).change(function () {
+        }).bind('focusin focusout change', function () {
             var pattern = '^[a-zA-Z]+';
             var fullString = $(this).val();
             var trimmed = fullString.match(pattern);
@@ -57,7 +50,7 @@
         </ul>
         <form name="quickquote" class="nav-item form-inline my-2 my-lg-0" action="StockSearchServlet" method="post">
             <input type="text" name="quickSymbol" class="form-control mr-sm-2 bs-autocomplete" aria-label="Quick Quote"
-                   autocomplete="off" placeholder="Quick Quote" required>
+                   autocomplete="off" spellcheck="false" placeholder="Quick Quote" required>
             <button class="nav-pad btn btn-warning btn-rounded btn-text-white" type="submit" formmethod="get">Search
             </button>
         </form>

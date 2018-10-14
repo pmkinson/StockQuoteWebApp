@@ -138,7 +138,8 @@
             <form name="myform" action="StockSearchServlet" method="post">
                 <div class="form-group">
                     <label for="symbols">Stock Symbol:</label>
-                    <input type="text" class="form-control bs-autocomplete" autocomplete="off" name="stockSymbol" id="symbols" required>
+                    <input type="text" class="form-control bs-autocomplete" autocomplete="off" name="stockSymbol"
+                           id="symbols" spellcheck="false" required>
                 </div>
                 <div id="startDate-form" class="form-group">
 

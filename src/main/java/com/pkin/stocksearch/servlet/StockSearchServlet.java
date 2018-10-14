@@ -77,10 +77,14 @@ public class StockSearchServlet extends HttpServlet {
         StockService service = ServiceFactory.getStockServiceInstance();
         DatabaseService databaseService = ServiceFactory.getDatabaseServiceInstance();
 
+        //Stock object
+        Stock stock = null;
+        //List to hold queried results before parsing to HTML format
+        Stock intervalResults = null;
+
         //If condition is true, return a quick quote.
         if(quickSymbol != null) {
             int flag = 1;
-            Stock stock = null;
             final String INVALID_QUERY = "<tr><td>" + quickSymbol.toUpperCase() + "  is an invalid stock symbol.</td></tr>";
 
             try {
@@ -125,12 +129,12 @@ public class StockSearchServlet extends HttpServlet {
             //Parse the chosen interval from raw form data.
             Interval finalInterval = Interval.valueOf(interval);
 
-            Stock intervalResults; //List to hold queried results before parsing to HTML format
             try {
                 //Get the goods from Yahoo
                 intervalResults = service.getQuote(symbol, calendarStart, calendarEnd, finalInterval);
                 //Finalized HTML formatted String to hold dynamic HTML.
                 FORMATTED_HTML_QUERY = WebUtils.buildTable(intervalResults, 2);
+
             } catch (StockServiceException e) {
                 FORMATTED_HTML_QUERY = ERROR_HTML;
             }
@@ -144,6 +148,11 @@ public class StockSearchServlet extends HttpServlet {
          *
          */
         session.setAttribute("formattedQuote", FORMATTED_HTML_QUERY);
+        if (intervalResults != null) {
+            session.setAttribute("jsonHistory", WebUtils.jsonChartData(intervalResults));
+        } else if (intervalResults == null) {
+            session.setAttribute("jsonHistory", "null");
+        }
 
         ServletContext servletContext = session.getServletContext();
         RequestDispatcher dispatcher =

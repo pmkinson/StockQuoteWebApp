@@ -16,6 +16,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 public class FileUtils {
 
@@ -92,14 +93,17 @@ public class FileUtils {
         CSVReader csvReader = new CSVReader(new FileReader(file));
         StringBuilder cvsString = new StringBuilder();
 
-        int counter = 0;
-        while (csvReader.readNext() != null) {
+        List<String[]> csvList = csvReader.readAll();
 
-            String[] field = csvReader.readNext();
+        int listSize = csvList.size();
+        int counter = 0;
+        while (counter < listSize) {
+
+            String[] field = csvList.get(counter);
             if (counter == 0) {
-                cvsString.append("\"" + field[0] + "     ( " + field[1] + " )\"");
+                cvsString.append("\"" + field[0] + " ( " + field[1] + " )\"");
             } else {
-                cvsString.append(", \"" + field[0] + "     ( " + field[1] + " )\"");
+                cvsString.append(", \"" + field[0] + " ( " + field[1] + " )\"");
             }
             counter++;
         }
@@ -116,7 +120,7 @@ public class FileUtils {
      */
     private static URI getResourceUri(String file) throws URISyntaxException {
 
-        URI uri = DatabaseUtils.class.getClassLoader().getResource(file).toURI();
+        URI uri = FileUtils.class.getClassLoader().getResource(file).toURI();
         return uri;
     }
 
