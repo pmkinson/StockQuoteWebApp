@@ -1,2 +1,2 @@
-DROP TABLE stocks;
+DROP TABLE searches;
 

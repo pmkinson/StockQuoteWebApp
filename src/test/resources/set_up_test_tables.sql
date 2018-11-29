@@ -1,12 +1,12 @@
-create table stocks
-(
-  id             integer   not null,
-  date           timestamp not null,
-  stock_id       integer   not null,
-  system_id      integer   not null,
-  browser_id     integer   not null,
-  user_id        integer   not null,
-  type_of_search integer   not null,
-  stock_symbol   varchar(4)
+CREATE TABLE searches (
+  id             INT GENERATED ALWAYS AS IDENTITY,
+  type_of_search int,
+  user_id        int,
+  stock_symbol   CHAR(6) NOT NULL,
+  family         char(35),
+  family_version char(35),
+  os             CHAR(35),
+  os_version     char(35),
+  device         char(35),
+  time_stamp     TIMESTAMP
 );
-

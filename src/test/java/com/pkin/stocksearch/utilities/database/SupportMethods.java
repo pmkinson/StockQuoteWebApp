@@ -18,7 +18,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.sql.Connection;
@@ -29,8 +28,6 @@ public class SupportMethods {
 
     private final String PUBLIC_ID = "\n-//Hibernate/Hibernate Configuration DTD//EN";
     private final String SYSTEM_ID = "\nhttp://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd";
-
-    private Configuration configuration;
 
     public SupportMethods() {
     }

@@ -31,20 +31,6 @@ public class HibernateUtilsTest {
     @Rule
     public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
-    @Before
-    public void setUp() {
-        SupportMethods config = new SupportMethods();
-
-        // config.copyMainFile();
-    }
-
-    @After
-    public void cleanUp() {
-        SupportMethods config = new SupportMethods();
-
-        // config.resetMainHibernateFile();
-    }
-
     @Test(expected = DatabaseConfigurationException.class)
     public void verifyHibernateConfigError() throws DatabaseConfigurationException {
         setEnvironmentVariable(badURL);
@@ -88,17 +74,16 @@ public class HibernateUtilsTest {
 
     @Test
     public void getCSVFile() throws IOException, URISyntaxException {
-        String root = FileSystemView.getFileSystemView().getHomeDirectory().getPath();
 
-        File file = new File(root + "\\test_file_stockquote.csv");
+        File file = new File("\\test_file_stockquote.csv");
         file.deleteOnExit();
 
         String csv = "cat,bat,sat,matt,rat,dat";
-        Files.write(Paths.get(root + "\\test_file_stockquote.csv"), csv.getBytes());
+        Files.write(Paths.get("\\test_file_stockquote.csv"), csv.getBytes());
 
-        String expCSV = "cat, bat, sat matt, rat, dat";
+        String expCSV = "\"cat ( bat )\"";
 
-        String testFile = root + "\\test_file_stockquote.csv";
+        String testFile = "\\test_file_stockquote.csv";
         String actualCSV = FileUtils.getCSVFile(testFile);
 
         assertEquals("CSV file reader didn't match", actualCSV.contains("cat"), expCSV.contains("cat"));

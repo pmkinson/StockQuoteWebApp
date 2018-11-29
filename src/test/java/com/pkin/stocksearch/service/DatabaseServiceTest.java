@@ -8,7 +8,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -30,7 +29,7 @@ public class DatabaseServiceTest {
     }
 
     @Test
-    public void queryDBForTopSearches() throws DatabaseServiceException, DatabaseInitializationException, DatabaseConfigurationException {
+    public void queryDBForTopSearches() throws DatabaseInitializationException, DatabaseConfigurationException {
         SupportMethods config = new SupportMethods();
 
         config.createDB("TEST_DB");
@@ -40,7 +39,7 @@ public class DatabaseServiceTest {
 
         ArrayList<String> list;
 
-        list = DatabaseService.queryDBForTopSearches("hibernate-test.cfg.xml", 5, 100);
+        list = DatabaseService.queryDBForTopSearches("hibernate-test.cfg.xml", 5, 100, false);
 
         int expResult = 5;
         int actualResult = list.size();

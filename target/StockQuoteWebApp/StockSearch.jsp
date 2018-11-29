@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" session="true" %>
 
-<%@page import='com.pkin.stocksearch.service.DatabaseService' %>
-<%@page import='com.pkin.stocksearch.utilities.database.FileUtils' %>
-
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%@page import='com.pkin.stocksearch.service.DatabaseService' %>
+<%@page import='com.pkin.stocksearch.utilities.database.FileUtils' %>
+
 <jsp:useBean id="formData" class="com.pkin.stocksearch.servlet.StockSearchServlet" scope="request"/>
 <jsp:setProperty name="formData" property="*"/>
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -29,7 +27,7 @@
     <link rel="stylesheet" href="./resources/jquery/css/jquery-ui.css">
     <!-- Load CSS overrides -->
     <link rel="stylesheet" href="./resources/custom/css/bs-override.css">
-    <!-- Favicon --->
+    <!-- Favicon -->
     <link rel="icon" href="./resources/images/nav/ticker_brand_24.png">
 
     <script>
@@ -105,11 +103,33 @@
         });//doc ready
     </script>
 
+    <script>
+        /*
+        AutoComplete for stock symbols
+         */
+
+        <c:set var='stocksList' value='${FileUtils.getCSVFile("stocks.csv")}' scope='page'/>
+
+        $(document).ready(function () {
+            $('.bs-autocomplete').autocomplete({
+                source: [${stocksList}],
+                minLength: [2]
+            }).bind('focusin focusout change', function () {
+                var pattern = '^[a-zA-Z]+';
+                var fullString = $(this).val();
+                var trimmed = fullString.match(pattern);
+
+                $(this).val(trimmed);
+            });
+        });
+
+    </script>
+
 </head>
 
 <body>
 <div class="nav-element bg-light">
-    <c:import var="nav" url="top_nav.jsp"/>
+    <c:import var="nav" url="top_nav.html"/>
     ${nav}
 </div>
 
@@ -119,9 +139,9 @@
             <div class="film-strip-container row h-auto justify-content-center ">
                 <div class="film-strip-title">Popular Searches:</div>
 
+                <c:set var='topFive' value='${DatabaseService.queryDBForTopSearches("hibernate.cfg.xml", 5, 100, false)}' scope='page'/>
+
                 <!-- Get top searches from db -->
-                <c:set var='topFive' value='${DatabaseService.queryDBForTopSearches("hibernate.cfg.xml", 5, 100)}'
-                       scope='page'/>
                 <c:forEach items="${topFive}" var="stock">
                     <div class="film-strip-item symbol">
                         <a href="${pageContext.request.contextPath}/StockSearchServlet?quickSymbol=${stock}">${stock}</a>
@@ -129,7 +149,6 @@
                 </c:forEach>
             </div><!-- End film-strip-container-->
             <div class="line" id="line-underscore"></div>
-
         </div>
     </div>
     <div class="row row-spacer">
@@ -178,5 +197,6 @@
     ${footer}
 </footer>
 </html>
+
 
 

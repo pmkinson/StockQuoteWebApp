@@ -45,7 +45,8 @@ public class DatabaseUtils {
      * Utility method to return a connection to the database
      *
      * @param hibernateConfigFile The name of the hibernate config file to load for the connection.
-     * @param reloadConfigFile
+     * @param reloadConfigFile Reload the hibernate file
+     *
      * @return <CODE>Connection</CODE> connection
      * @throws DatabaseConnectionException    Thrown when a connection cannot be established to DB
      * @throws DatabaseConfigurationException Thrown when the hibernate configuration file cannot be loaded.
@@ -57,15 +58,16 @@ public class DatabaseUtils {
         configuration = getConfiguration(hibernateConfigFile, reloadConfigFile);
         try {
 
-            //Class.forName(HibernateUtils.getDriver(hibernateConfigFile));
-
             String databaseUrl = configuration.getProperty("hibernate.connection.url");
             String username = configuration.getProperty("hibernate.connection.username");
             String password = configuration.getProperty("hibernate.connection.password");
+            String driver = configuration.getProperty("hibernate.connection.driver_class");
 
+            //Force load of correct driver for connection
+            Class.forName(driver);
             connection = DriverManager.getConnection(databaseUrl, username, password);
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new DatabaseConnectionException("Could not open a connection to database." + e.getMessage(), e);
         }
         return connection;
@@ -74,6 +76,9 @@ public class DatabaseUtils {
 
     /**
      * A Session Factory
+     *
+     * @param hibernateConfigFile The name of the hibernate config file to load for the connection.
+     * @param newSession Reload the hibernate file
      *
      * @return SessionFactory for use with database transactions
      * @throws DatabaseInitializationException Thrown when there is an issue returning a concrete session
@@ -99,6 +104,8 @@ public class DatabaseUtils {
     /**
      * A SessionFactory instance generator.
      *
+     * @param hibernateConfigFile The name of the hibernate config file to load for the connection.
+     *
      * @return <CODE>SessionFactory</CODE> sessionFactory
      */
 
@@ -123,6 +130,9 @@ public class DatabaseUtils {
 
     /**
      * Create a new or return an existing database configuration object.
+     *
+     * @param filePath The name of the hibernate config file to load for the connection.
+     * @param reloadConfigFile Reload the hibernate file
      *
      * @return A hibernate configuration
      * @throws DatabaseConfigurationException

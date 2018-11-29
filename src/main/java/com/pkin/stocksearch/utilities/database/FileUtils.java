@@ -79,7 +79,7 @@ public class FileUtils {
     }
 
     /**
-     * Method to read a CSV formatted file into an array.
+     * Method to read a CSV formatted file and return a string.
      *
      * @param fileName The CSV File to read in.
      * @return An ArrayList<String> with the contents of the CSV File.
@@ -89,17 +89,20 @@ public class FileUtils {
     public static String getCSVFile(String fileName) throws IOException, URISyntaxException {
 
         File file = getFile(fileName);
-
+        //Setup a reader for the CSV file
         CSVReader csvReader = new CSVReader(new FileReader(file));
         StringBuilder cvsString = new StringBuilder();
 
+        //Read the whole file in memory
         List<String[]> csvList = csvReader.readAll();
 
         int listSize = csvList.size();
         int counter = 0;
         while (counter < listSize) {
 
+            //Concactenate symbol with long name and format back into CSV
             String[] field = csvList.get(counter);
+            //Make sure first line doesn't start with a ','
             if (counter == 0) {
                 cvsString.append("\"" + field[0] + " ( " + field[1] + " )\"");
             } else {

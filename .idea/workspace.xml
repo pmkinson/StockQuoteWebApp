@@ -7,21 +7,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d223f99-8a38-4261-8051-710549201443" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/highcharts/highcharts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/SessionDataEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/test_file_stockquote.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copyright/Apache.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/storage_v2/_src_/database/dee5uoi05ai36v.6C1_Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/storage_v2/_src_/database/dee5uoi05ai36v.6C1_Bg/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/storage_v2/_src_/database/dee5uoi05ai36v.6C1_Bg/schema/stockquote.JkWxKA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/pmkin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/StockQuoteWebApp.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/derby.log" beforeDir="false" afterPath="$PROJECT_DIR$/derby.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model/SearchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model/SearchDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/DatabaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/WebUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/DatabaseUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nyse.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/stocks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/stocks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/StockSearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/StockSearch.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/custom/css/bs-override.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/custom/css/bs-override.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/top_nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top_nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/top_nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top_nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/model/SearchDAOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/DatabaseServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/DatabaseServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/WebUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/WebUtilsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/HibernateUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/HibernateUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/SupportMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/SupportMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/add_search_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/add_search_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/drop_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/drop_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/set_up_test_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/set_up_test_tables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/ReturnedResults.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/ReturnedResults.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/StockSearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/StockSearch.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockQuoteWebApp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,13 +76,16 @@
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest_getConnectionError2.ic" NAME="DatabaseUtilsTest.getConnectionError2 Coverage Results" MODIFIED="1538447260510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.pkin.stocksearch.utilities.database.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseServiceTest_queryDBForTopSearches.ic" NAME="DatabaseServiceTest.queryDBForTopSearches Coverage Results" MODIFIED="1542595723634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.pkin.stocksearch.service.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseConnectionExceptionTest.ic" NAME="DatabaseConnectionExceptionTest Coverage Results" MODIFIED="1528026828080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uml.edu.stocksearch.utilities.database.exceptions.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$StockSearchServletTest_StockSearchServletTest.ic" NAME="StockSearchServletTest.StockSearchServletTest Coverage Results" MODIFIED="1531149389903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.pkin.stocksearch.servlet.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__1_.ic" NAME="All in StockQuoteWebApp (1) Coverage Results" MODIFIED="1538957150612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__1_.ic" NAME="All in StockQuoteWebApp (1) Coverage Results" MODIFIED="1543186666684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest_getConnectionError.ic" NAME="DatabaseUtilsTest.getConnectionError Coverage Results" MODIFIED="1531150523331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.pkin.stocksearch.utilities.database.*</FILTER>
     </SUITE>
@@ -76,15 +107,15 @@
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest_getConnection.ic" NAME="DatabaseUtilsTest.getConnection Coverage Results" MODIFIED="1531265973605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.pkin.stocksearch.utilities.database.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp.ic" NAME="All in StockQuoteWebApp Coverage Results" MODIFIED="1538957011013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__4_.ic" NAME="All in StockQuoteWebApp (4) Coverage Results" MODIFIED="1530229546790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp.ic" NAME="All in StockQuoteWebApp Coverage Results" MODIFIED="1543199593407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__4_.ic" NAME="All in StockQuoteWebApp (4) Coverage Results" MODIFIED="1539551956710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseServiceExceptionTest.ic" NAME="DatabaseServiceExceptionTest Coverage Results" MODIFIED="1526600118042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uml.edu.stocksearch.service.exceptions.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$HibernateUtilsTest.ic" NAME="HibernateUtilsTest Coverage Results" MODIFIED="1535850006588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.pkin.stocksearch.utilities.database.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$StockSearchServletTest.ic" NAME="StockSearchServletTest Coverage Results" MODIFIED="1535856776569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$StockSearchServletTest.ic" NAME="StockSearchServletTest Coverage Results" MODIFIED="1543190516634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.pkin.stocksearch.servlet.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$HibernateUtilsTest_verifyHibernateConfigError.ic" NAME="HibernateUtilsTest.verifyHibernateConfigError Coverage Results" MODIFIED="1533166312824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -106,7 +137,7 @@
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$DatabaseUtilsTest.ic" NAME="DatabaseUtilsTest Coverage Results" MODIFIED="1538447111278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.pkin.stocksearch.utilities.database.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__2_.ic" NAME="All in StockQuoteWebApp (2) Coverage Results" MODIFIED="1539137268705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/StockQuoteWebApp$All_in_StockQuoteWebApp__2_.ic" NAME="All in StockQuoteWebApp (2) Coverage Results" MODIFIED="1542595377899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/StockQuoteWebApp$StockSearchServletTest_StockSearchServletQuickQuote.ic" NAME="StockSearchServletTest.StockSearchServletQuickQuote Coverage Results" MODIFIED="1526599788934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uml.edu.stocksearch.servlet.*</FILTER>
     </SUITE>
@@ -134,79 +165,84 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="dee5uoi05ai36v@ec2-174-129-206-173.compute-1.amazonaws.com" type="feb32156:DbDataSourceImpl" />
+        <item name="d9kni5dbb0lvdg@ec2-50-19-249-121.compute-1.amazonaws.com" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="d9kni5dbb0lvdg@ec2-50-19-249-121.compute-1.amazonaws.com" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="d9kni5dbb0lvdg@ec2-50-19-249-121.compute-1.amazonaws.com" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d9kni5dbb0lvdg: database" type="6d9b600a:PostgresImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="d9kni5dbb0lvdg@ec2-50-19-249-121.compute-1.amazonaws.com" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d9kni5dbb0lvdg: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="d9kni5dbb0lvdg@ec2-50-19-249-121.compute-1.amazonaws.com" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d9kni5dbb0lvdg: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="d9kni5dbb0lvdg@ec2-50-19-249-121.compute-1.amazonaws.com" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d9kni5dbb0lvdg: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="sequences" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hibernate.cfg.xml/Hibernate" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="StockQuoteWebApp" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FileUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/FileUtils.java">
+      <file leaf-file-name="StockSearchServletTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="122" column="14" selection-start-line="122" selection-start-column="14" selection-end-line="122" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="192">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebUtils.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/WebUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="271" selection-start-line="271" selection-end-line="271" />
-              <folding>
-                <element signature="e#15943#15944#0" expanded="true" />
-                <element signature="e#15978#15979#0" expanded="true" />
-              </folding>
+      <file leaf-file-name="searches" pinned="false" current-in-tab="false">
+        <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+              <column-attributes>
+                <column name="ctid" enabled="false" />
+              </column-attributes>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReturnedResults.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="69" column="35" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockSearchServlet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StockSearchServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="135" selection-start-line="135" selection-end-line="135" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="top_nav.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/top_nav.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockSearch.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/StockSearch.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="97" column="11" selection-start-line="97" selection-start-column="11" selection-end-line="97" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HibernateUtilsTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/HibernateUtilsTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="100" selection-start-line="100" selection-end-line="100" />
+            <state relative-caret-position="-1168">
+              <caret line="97" selection-start-line="97" selection-end-line="97" />
+              <folding>
+                <element signature="e#4142#4143#0" expanded="true" />
+                <element signature="e#4180#4181#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -218,33 +254,16 @@
       <list>
         <option value="JavaScript File" />
         <option value="HTML File" />
-        <option value="Enum" />
         <option value="Interface" />
         <option value="CSS File" />
         <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>path</find>
-      <find>save</find>
-      <find>apach</find>
-      <find>target</find>
-      <find>build</find>
-      <find>HIBERNATE</find>
-      <find>compare</find>
-      <find>finally</find>
-      <find>test</find>
-      <find>derby</find>
-      <find>shutdown</find>
-      <find>derb</find>
-      <find>schema</find>
-      <find>breed</find>
-      <find>stat</find>
-      <find>driver</find>
-      <find>session</find>
       <find>singl</find>
       <find>lsbs</find>
       <find>aapl</find>
@@ -258,6 +277,23 @@
       <find>titleSymbol</find>
       <find>YahooFinance</find>
       <find>top_nav</find>
+      <find>setatt</find>
+      <find>fav</find>
+      <find>catch</find>
+      <find>intervalResults</find>
+      <find>service</find>
+      <find>setIntervalResults</find>
+      <find>INVALID_QUERY</find>
+      <find>buildJsonChartData</find>
+      <find>bs</find>
+      <find>jsonhistory</find>
+      <find>client</find>
+      <find>commitSearchData</find>
+      <find>sessionParameters</find>
+      <find>interval</find>
+      <find>jsonHistory</find>
+      <find>session</find>
+      <find>request</find>
     </findStrings>
     <replaceStrings>
       <replace>pkin</replace>
@@ -275,13 +311,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model/StocksDAO.java" />
-        <option value="$PROJECT_DIR$/out/production/StockQuoteWebApp/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/out/production/StockQuoteWebApp/hibernate-backup.cfg.xml" />
-        <option value="$PROJECT_DIR$/out/test/StockQuoteWebApp/add_search_data.sql" />
-        <option value="$PROJECT_DIR$/out/production/StockQuoteWebApp/web.xml" />
-        <option value="$PROJECT_DIR$/src/test/resources/add_search_data_50.sql" />
-        <option value="$PROJECT_DIR$/src/test/resources/add_search_data_60.sql" />
         <option value="$PROJECT_DIR$/src/test/resources/create_test_database.sql" />
         <option value="$PROJECT_DIR$/out/test/StockQuoteWebApp/add_search_data_10.sql" />
         <option value="$PROJECT_DIR$/out/test/StockQuoteWebApp/set_up_test_tables.sql" />
@@ -289,43 +318,50 @@
         <option value="$PROJECT_DIR$/out/test/StockQuoteWebApp/drop_table.sql" />
         <option value="$PROJECT_DIR$/out/test/StockQuoteWebApp/hibernate-test.cfg.xml" />
         <option value="$PROJECT_DIR$/src/test/resources/add_search_data_10.sql" />
-        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model/SearchDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/bleep.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/MainClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/ClassA.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/Card2.java" />
         <option value="$PROJECT_DIR$/src/test/resources/set_up_tables.sql" />
-        <option value="$PROJECT_DIR$/src/test/resources/drop_table.sql" />
         <option value="$PROJECT_DIR$/src/test/resources/create_test_db.sql" />
-        <option value="$PROJECT_DIR$/src/test/resources/set_up_test_tables.sql" />
         <option value="f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/database/dee5uoi05ai36v/schema/stockquote/table/stocks.sql" />
         <option value="$PROJECT_DIR$/target/test-classes/hibernate-test.cfg.xml" />
         <option value="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/test/resources/add_search_data100.sql" />
-        <option value="$PROJECT_DIR$/src/test/resources/add_search_data.sql" />
-        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/DatabaseServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/SupportMethods.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/DatabaseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/DatabaseUtils.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/DatabaseUtilsTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/HibernateUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/test/resources/hibernate-test.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/nyse.csv" />
         <option value="$PROJECT_DIR$/src/main/resources/stocks.csv" />
         <option value="$PROJECT_DIR$/src/main/webapp/top_nav.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/StockSearch.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/highcharts/highcharts.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/custom/css/bs-override.css" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/console_1.sql" />
-        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/HibernateUtilsTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/FileUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/WebUtils.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/top_nav.jsp" />
+        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/SupportMethods.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/FileUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/test_file_stockquote.csv" />
+        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/DatabaseServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/DatabaseUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/HibernateUtilsTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/WebUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/WebUtilsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/DatabaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/SessionDataEnum.java" />
+        <option value="c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/table_name.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model/SearchDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/StockSearch.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp" />
+        <option value="$PROJECT_DIR$/src/test/resources/drop_table.sql" />
+        <option value="$PROJECT_DIR$/src/test/resources/set_up_test_tables.sql" />
+        <option value="$PROJECT_DIR$/src/test/resources/add_search_data.sql" />
+        <option value="$PROJECT_DIR$/src/test/resources/add_search_data110.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java" />
       </list>
     </option>
   </component>
@@ -352,11 +388,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="66" />
-    <option name="y" value="44" />
-    <option name="width" value="1851" />
-    <option name="height" value="948" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="203" />
+    <option name="y" value="79" />
+    <option name="width" value="1664" />
+    <option name="height" value="954" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -364,6 +400,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -463,42 +500,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="highcharts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -538,6 +539,15 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockQuoteWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StockQuoteWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stocksearch" type="462c0819:PsiDirectoryNode" />
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -562,48 +572,61 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="390" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="389" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="390" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="389" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="390" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="389" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="390" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="389" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="c0548c2d-79e0-4684-adef-775b200bb74a" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Derby (Embedded)&#10;PostgreSQL" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL&#10;heroku&#10;Derby (Embedded)" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect" value="Derby" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.pkin.stocksearch.model" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.pkin.stocksearch.utilities" />
       <recent name="com.pkin.stocksearch.utilities.database" />
       <recent name="com.pkin.stocksearch.service" />
       <recent name="com.pkin.stocksearch.utilities.database.exceptions" />
       <recent name="com.uml.edu.stocksearch.model" />
-      <recent name="com.uml.edu.stocksearch.utilities.database" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="com.pkin.stocksearch.utilities.database.FileUtils" />
       <recent name="com.pkin.stocksearch.service.DatabaseService" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\StockQuoteWebApp\src\main\resources" />
-      <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\bootstrap4" />
-      <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\jquery\js" />
-      <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\custom\css" />
-      <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\custom\js" />
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.pkin.stocksearch.utilities.database.exceptions" />
@@ -616,6 +639,13 @@
       <recent name="D:\StockQuoteWebApp\src\test" />
       <recent name="D:\StockQuoteWebApp\src\main\java\com\uml\edu\stocksearch\utilities" />
       <recent name="D:\StockQuoteWebApp\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\StockQuoteWebApp\src\main\resources" />
+      <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\bootstrap4" />
+      <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\jquery\js" />
+      <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\custom\css" />
+      <recent name="D:\StockQuoteWebApp\src\main\webapp\resources\custom\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -630,11 +660,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Local Tomcat">
+  <component name="RunManager" selected="Maven.Heroku Deployment">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="All in StockQuoteWebApp (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in StockQuoteWebApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StockQuoteWebApp" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -651,52 +681,18 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="All in StockQuoteWebApp (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StockQuoteWebApp" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="All in StockQuoteWebApp (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StockQuoteWebApp" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="DatabaseUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StockSearchServletTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StockQuoteWebApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pkin.stocksearch.utilities.database.*" />
+          <option name="PATTERN" value="com.pkin.stocksearch.servlet.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.pkin.stocksearch.utilities.database" />
-      <option name="MAIN_CLASS_NAME" value="com.pkin.stocksearch.utilities.database.DatabaseUtilsTest" />
+      <option name="PACKAGE_NAME" value="com.pkin.stocksearch.servlet" />
+      <option name="MAIN_CLASS_NAME" value="com.pkin.stocksearch.servlet.StockSearchServletTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -708,19 +704,65 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="HibernateUtilsTest.getCSVFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StockSearchServletTest.StockSearchServletQuickQuote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StockQuoteWebApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pkin.stocksearch.utilities.database.*" />
+          <option name="PATTERN" value="com.pkin.stocksearch.servlet.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.pkin.stocksearch.utilities.database" />
-      <option name="MAIN_CLASS_NAME" value="com.pkin.stocksearch.utilities.database.HibernateUtilsTest" />
-      <option name="METHOD_NAME" value="getCSVFile" />
+      <option name="PACKAGE_NAME" value="com.pkin.stocksearch.servlet" />
+      <option name="MAIN_CLASS_NAME" value="com.pkin.stocksearch.servlet.StockSearchServletTest" />
+      <option name="METHOD_NAME" value="StockSearchServletQuickQuote" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="StockSearchServletTest.StockSearchServletQuickQuoteError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pkin.stocksearch.servlet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.pkin.stocksearch.servlet" />
+      <option name="MAIN_CLASS_NAME" value="com.pkin.stocksearch.servlet.StockSearchServletTest" />
+      <option name="METHOD_NAME" value="StockSearchServletQuickQuoteError" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="StockSearchServletTest.StockSearchServletQuoteError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockQuoteWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pkin.stocksearch.servlet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.pkin.stocksearch.servlet" />
+      <option name="MAIN_CLASS_NAME" value="com.pkin.stocksearch.servlet.StockSearchServletTest" />
+      <option name="METHOD_NAME" value="StockSearchServletQuoteError" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -793,7 +835,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="Local Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:\Program Files\Java\jdk1.8.0_162\jre">
+    <configuration name="Local Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.23" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:\Program Files\Java\jdk1.8.0_162\jre">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
@@ -869,22 +911,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StockQuote" type="openshift-deploy" factoryName="OpenShift Deployment" server-name="OpenShift">
+      <deployment type="artifact" name="StockQuoteWebApp:war">
+        <settings />
+      </deployment>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="StockQuoteWebApp:war" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Maven.Heroku Deployment" />
+      <item itemvalue="OpenShift Deployment.StockQuote" />
       <item itemvalue="Tomcat Server.Local Tomcat" />
-      <item itemvalue="JUnit.DatabaseUtilsTest" />
-      <item itemvalue="JUnit.All in StockQuoteWebApp (1)" />
-      <item itemvalue="JUnit.HibernateUtilsTest.getCSVFile" />
-      <item itemvalue="JUnit.All in StockQuoteWebApp (2)" />
-      <item itemvalue="JUnit.All in StockQuoteWebApp (3)" />
+      <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuickQuote" />
+      <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuickQuoteError" />
+      <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuoteError" />
+      <item itemvalue="JUnit.StockSearchServletTest" />
+      <item itemvalue="JUnit.All in StockQuoteWebApp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HibernateUtilsTest.getCSVFile" />
-        <item itemvalue="JUnit.All in StockQuoteWebApp (3)" />
-        <item itemvalue="JUnit.All in StockQuoteWebApp (2)" />
-        <item itemvalue="JUnit.All in StockQuoteWebApp (1)" />
-        <item itemvalue="JUnit.DatabaseUtilsTest" />
+        <item itemvalue="JUnit.All in StockQuoteWebApp" />
+        <item itemvalue="JUnit.StockSearchServletTest" />
+        <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuoteError" />
+        <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuickQuoteError" />
+        <item itemvalue="JUnit.StockSearchServletTest.StockSearchServletQuickQuote" />
       </list>
     </recent_temporary>
   </component>
@@ -960,14 +1013,21 @@
       <workItem from="1538918163997" duration="11367000" />
       <workItem from="1539222416044" duration="16429000" />
       <workItem from="1539458308348" duration="29440000" />
-      <workItem from="1539517896261" duration="5944000" />
-    </task>
-    <task id="LOCAL-00004" summary="Better">
-      <created>1525383572751</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1525383572751</updated>
+      <workItem from="1539517896261" duration="22047000" />
+      <workItem from="1539647102616" duration="7415000" />
+      <workItem from="1540059197492" duration="1298000" />
+      <workItem from="1540155539469" duration="2825000" />
+      <workItem from="1540667539649" duration="963000" />
+      <workItem from="1540738618694" duration="8641000" />
+      <workItem from="1540747785099" duration="21485000" />
+      <workItem from="1541276555952" duration="135000" />
+      <workItem from="1541292036991" duration="49000" />
+      <workItem from="1541293328412" duration="117000" />
+      <workItem from="1542076806415" duration="5569000" />
+      <workItem from="1542424550248" duration="9187000" />
+      <workItem from="1543009477057" duration="26853000" />
+      <workItem from="1543110622464" duration="1160000" />
+      <workItem from="1543111869854" duration="20337000" />
     </task>
     <task id="LOCAL-00005" summary="Better">
       <created>1525394174366</created>
@@ -1305,43 +1365,50 @@
       <option name="project" value="LOCAL" />
       <updated>1539466152316</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="fixed issue with old query quotes returning null values and throwing error.  Fixed issue with input box parsing not working in IE10">
+      <created>1539546958213</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1539546958214</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_StockQuoteWebApp_(3) - 2018.10.13 at 23h 11m 04s.xml">
-      <configuration name="All in StockQuoteWebApp (3)" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTest - 2018.11.25 at 18h 52m 34s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.13 at 23h 13m 37s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTest - 2018.11.25 at 18h 56m 42s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.13 at 23h 14m 09s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTestError - 2018.11.25 at 18h 57m 36s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTestError" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.13 at 23h 15m 08s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTestError - 2018.11.25 at 18h 58m 42s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTestError" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.13 at 23h 16m 23s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletQuickQuote - 2018.11.25 at 18h 59m 37s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletQuickQuote" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.14 at 07h 22m 27s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletQuickQuoteError - 2018.11.25 at 19h 00m 06s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletQuickQuoteError" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.14 at 07h 23m 18s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletQuoteError - 2018.11.25 at 19h 01m 38s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletQuoteError" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.14 at 07h 26m 22s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest - 2018.11.25 at 19h 02m 01s.xml">
+      <configuration name="StockSearchServletTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.14 at 07h 28m 06s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="StockSearchServletTest_StockSearchServletTest - 2018.11.25 at 19h 19m 56s.xml">
+      <configuration name="StockSearchServletTest.StockSearchServletTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateUtilsTest_getCSVFile - 2018.10.14 at 07h 30m 45s.xml">
-      <configuration name="HibernateUtilsTest.getCSVFile" configurationId="JUnit" />
+    <history-entry file="All_in_StockQuoteWebApp - 2018.11.25 at 21h 33m 38s.xml">
+      <configuration name="All in StockQuoteWebApp" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="775037000" />
+    <option name="totallyTimeSpent" value="897174000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1353,45 +1420,44 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="44" width="1851" height="948" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="32" width="1753" height="954" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5018007" side_tool="true" weight="0.37074402" />
-      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32786885" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.500295" side_tool="true" weight="0.41947564" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32709113" />
       <window_info anchor="right" id="Maven Projects" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" anchor="right" id="Database" order="3" sideWeight="0.4627995" visible="true" weight="0.20156337" />
-      <window_info id="Structure" order="6" sideWeight="0.50511247" side_tool="true" weight="0.27526522" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.45849803" visible="true" weight="0.18702064" />
       <window_info anchor="right" id="JSF" order="2" weight="0.32942432" />
+      <window_info id="Structure" order="6" sideWeight="0.50511247" side_tool="true" weight="0.27526522" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.49960285" visible="true" weight="0.38335434" />
-      <window_info anchor="bottom" id="TODO" order="13" weight="0.32912987" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.3215637" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.49793512" weight="0.35205993" />
+      <window_info anchor="bottom" id="TODO" order="13" weight="0.32833958" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32084894" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="1" />
-      <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32786885" />
+      <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32709113" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Version Control" order="5" weight="0.31778058" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49819928" weight="0.36948296" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32786885" />
-      <window_info id="Persistence" order="8" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49488753" visible="true" weight="0.28196537" />
-      <window_info id="Web" order="4" sideWeight="0.5054466" side_tool="true" weight="0.26410565" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.31710362" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49749374" visible="true" weight="0.36828965" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.541502" side_tool="true" visible="true" weight="0.18702064" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32709113" />
+      <window_info id="Persistence" order="8" sideWeight="0.5055147" side_tool="true" weight="0.26430678" />
+      <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.49970502" weight="0.41947564" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4944853" visible="true" weight="0.26430678" />
+      <window_info id="Web" order="4" sideWeight="0.5069357" side_tool="true" weight="0.28196537" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.32676056" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="right" id="Commander" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Database Console" order="14" weight="0.41992435" />
-      <window_info anchor="bottom" id="SQL Generator" order="9" weight="0.32912987" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.5372005" side_tool="true" visible="true" weight="0.20156337" />
-      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info id="Favorites" order="3" sideWeight="0.5069357" side_tool="true" weight="0.28196537" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="SQL Generator" order="9" weight="0.32833958" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.32786885" />
     </layout>
     <layout-to-restore>
       <window_info id="Persistence" order="8" side_tool="true" />
@@ -1435,6 +1501,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -1466,7 +1535,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Database connection is up and running. After the servlet has returned the results webpage to the user, their search query is logged in the database now." />
     <MESSAGE value="Pages load template navbar and footer using Jquery" />
     <MESSAGE value="Re-did jsp pages with bootstrap 4" />
     <MESSAGE value="Forgot screen in @media css definition, woops." />
@@ -1491,7 +1559,8 @@
     <MESSAGE value="Readded slightly older test set" />
     <MESSAGE value="All test working.  Added some reload functionality for methods it database util loading hibernate config file." />
     <MESSAGE value="Added JQuery autocomplete. Added FilUtils.getCSV() returns a csv string from a csv file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added JQuery autocomplete. Added FilUtils.getCSV() returns a csv string from a csv file." />
+    <MESSAGE value="fixed issue with old query quotes returning null values and throwing error.  Fixed issue with input box parsing not working in IE10" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed issue with old query quotes returning null values and throwing error.  Fixed issue with input box parsing not working in IE10" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1502,12 +1571,6 @@
           <line>14</line>
           <properties />
           <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/DatabaseServiceTest.java</url>
-          <line>35</line>
-          <properties />
-          <option name="timeStamp" value="361" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/DatabaseUtilsTest.java</url>
@@ -1522,344 +1585,431 @@
           <option name="timeStamp" value="374" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/DatabaseService.java</url>
-          <line>52</line>
-          <properties />
-          <option name="timeStamp" value="382" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/HibernateUtilsTest.java</url>
-          <line>100</line>
+          <line>85</line>
           <properties />
           <option name="timeStamp" value="436" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/WebUtils.java</url>
-          <line>271</line>
+          <url>file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java</url>
+          <line>76</line>
           <properties />
-          <option name="timeStamp" value="441" />
+          <option name="timeStamp" value="477" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="482" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="483" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java</url>
+          <line>96</line>
+          <properties />
+          <option name="timeStamp" value="488" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="489" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="442" />
+      <option name="time" value="493" />
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>'0' 49</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/WebUtilsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="158" selection-start-line="158" selection-end-line="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.12.Final/hibernate-core-5.2.12.Final.jar!/org/hibernate/query/internal/AbstractProducedQuery.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="1038" selection-start-line="1038" selection-end-line="1038" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/add_search_data_60.sql" />
-    <entry file="file://$PROJECT_DIR$/src/test/resources/add_search_data_10.sql" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/ServiceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/StockService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/jre/lib/ext/jfxrt.jar!/com/sun/scenario/effect/impl/sw/java/JSWBlend_EXCLUSIONPeer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/MainClass.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/Card2.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model/SearchDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/com/pkin/stocksearch/utilities/database/HibernateUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1830" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/drop_table.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/set_up_tables.sql" />
-    <entry file="file://$PROJECT_DIR$/src/test/resources/create_test_db.sql" />
-    <entry file="file://$PROJECT_DIR$/src/test/resources/set_up_test_tables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/add_search_data110.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="107" column="60" selection-start-line="107" selection-start-column="60" selection-end-line="107" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/add_search_data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/DatabaseServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-146">
-          <caret line="20" column="119" selection-start-line="20" selection-start-column="119" selection-end-line="20" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/SupportMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/DatabaseUtilsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+        <state relative-caret-position="162">
+          <caret line="73" column="34" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11-beta-1/junit-4.11-beta-1.jar!/org/junit/runners/model/FrameworkMethod.class">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/test-classes/hibernate-test.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="27" column="63" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2.jar!/org/apache/taglibs/standard/tag/rt/core/SetTag.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="256">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2.jar!/org/apache/taglibs/standard/tag/common/core/Util.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/DatabaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="56" column="76" selection-start-line="56" selection-start-column="76" selection-end-line="56" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/DatabaseUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="143" column="40" selection-start-line="143" selection-start-column="40" selection-end-line="143" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/HibernateUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.12.Final/hibernate-core-5.2.12.Final.jar!/org/hibernate/engine/transaction/internal/TransactionImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/hibernate-test.cfg.xml">
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+        <state relative-caret-position="16">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model/StockBean.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2.jar!/org/apache/taglibs/standard/tag/common/core/SetSupport.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
-          <caret line="158" selection-start-line="158" selection-end-line="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/opencsv/opencsv/4.3.1/opencsv-4.3.1.jar!/com/opencsv/CSVReader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/nyse.csv" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/stocks.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="403" column="4" selection-start-line="403" selection-start-column="4" selection-end-line="403" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/highcharts/highcharts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7072">
-          <caret line="416" column="38" selection-start-line="416" selection-start-column="38" selection-end-line="416" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/custom/css/bs-override.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/database/dee5uoi05ai36v/schema/stockquote/table/stocks">
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f53dfe1d-30c7-4df1-b52e-4daa3e3f299c/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11-beta-1/junit-4.11-beta-1.jar!/org/junit/internal/runners/statements/RunAfters.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/HibernateUtilsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/table_name">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="ctid" enabled="false" />
+          </column-attributes>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11-beta-1/junit-4.11-beta-1.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/FileUtils.java">
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/table_name.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="122" column="14" selection-start-line="122" selection-start-column="14" selection-end-line="122" selection-end-column="14" />
+        <state relative-caret-position="16">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.12.Final/hibernate-core-5.2.12.Final.jar!/org/hibernate/internal/SessionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5616">
+          <caret line="542" selection-start-line="542" selection-end-line="542" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/model/SearchDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp">
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/StockService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="35" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
+        <state relative-caret-position="-33">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/top_nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="22" column="80" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/add_search_data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/set_up_test_tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/hibernate-test.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-167" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/drop_table.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/add_search_data110.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="80" column="99" selection-start-line="80" selection-start-column="99" selection-end-line="80" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11-beta-1/junit-4.11-beta-1.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/ServiceFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/StockServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/DatabaseUtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1546">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/service/DatabaseServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/WebUtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="192" column="79" selection-start-line="191" selection-start-column="28" selection-end-line="192" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/utilities/database/HibernateUtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11-beta-1/junit-4.11-beta-1.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/StockSearch.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="97" column="11" selection-start-line="97" selection-start-column="11" selection-end-line="97" selection-end-column="11" />
+        <state relative-caret-position="146">
+          <caret line="37" column="72" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/top_nav.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/SessionDataEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="144">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/HibernateUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/DatabaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/ReturnedResults.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="84" column="28" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/WebUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="271" selection-start-line="271" selection-end-line="271" />
+        <state relative-caret-position="172">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/service/ServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
-            <element signature="e#15943#15944#0" expanded="true" />
-            <element signature="e#15978#15979#0" expanded="true" />
+            <element signature="e#888#889#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/utilities/database/DatabaseUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pkin/stocksearch/servlet/StockSearchServletTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c0548c2d-79e0-4684-adef-775b200bb74a/database/d9kni5dbb0lvdg/schema/public/table/searches">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="ctid" enabled="false" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pkin/stocksearch/servlet/StockSearchServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1168">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+          <folding>
+            <element signature="e#4142#4143#0" expanded="true" />
+            <element signature="e#4180#4181#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1895,7 +2045,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web</last-edited>
+          <last-edited>Hibernate (StockQuoteWebApp)|Hibernate</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1931,7 +2081,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>StockQuoteWebApp</last-edited>
+          <last-edited>Hibernate|StockQuoteWebApp</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

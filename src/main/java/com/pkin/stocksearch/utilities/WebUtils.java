@@ -20,6 +20,10 @@ package com.pkin.stocksearch.utilities;
 import com.pkin.stocksearch.utilities.exceptions.WebUtilsException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import ua_parser.Client;
+import ua_parser.Parser;
+import ua_parser.UserAgent;
+import ua_parser.UserAgentParser;
 import yahoofinance.Stock;
 import yahoofinance.histquotes.HistoricalQuote;
 
@@ -212,7 +216,7 @@ public class WebUtils extends HttpServlet {
         //Final string to return content with
         final String table;
         //Local string to handle dynamic content.
-        String toPrintLocal = null;
+        String toPrintLocal = "";
         //Local list of HistoricalQuotes
         List<HistoricalQuote> historicalQuote = new ArrayList<>();
         //Flag for error
@@ -391,6 +395,34 @@ public class WebUtils extends HttpServlet {
         jsonString.append("]");
 
         return jsonString.toString();
+    }
+
+    /**
+     * Method to parse the UserAgent information from session data.
+     *
+     * @param uaString The user agent string to parse
+     * @return ua-parse concrete Client object
+     * @throws WebUtilsException Thrown if the arg string is null or if an IOException is thrown.
+     */
+    public static Client getClientData(String uaString) throws WebUtilsException {
+
+        Parser uaParser = null;
+        Client client = null;
+
+        try {
+            uaParser = new Parser();
+
+            if (uaString != null) {
+                client = uaParser.parse(uaString);
+            } else {
+                throw new WebUtilsException("The string passed to getUserAgent() was null.");
+            }
+
+        } catch (IOException e) {
+            throw new WebUtilsException("Failed to parse UserAgent string.", e.getCause());
+        }
+
+        return client;
     }
 
     /**

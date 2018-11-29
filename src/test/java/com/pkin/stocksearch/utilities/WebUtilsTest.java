@@ -4,6 +4,7 @@ import com.pkin.stocksearch.servlet.StockSearchServlet;
 import com.pkin.stocksearch.utilities.exceptions.WebUtilsException;
 import org.junit.Before;
 import org.junit.Test;
+import ua_parser.Client;
 import yahoofinance.Stock;
 import yahoofinance.histquotes.HistoricalQuote;
 import yahoofinance.quotes.stock.StockDividend;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -182,5 +184,32 @@ public class WebUtilsTest {
         assertEquals("Overriden hashCode() matches true", utils.hashCode(), utils.hashCode());
         assertNotEquals("Overriden hashCode() matches false", 1, 2);
 
+    }
+
+    @Test
+    public void getClientData() throws WebUtilsException {
+
+        String testString = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 " +
+                "(KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3";
+
+        Client result = WebUtils.getClientData(testString);
+
+        String expFamily = "Mobile Safari";
+        String expFamilyVersion = "5_1";
+        String expOS = "iOS";
+        String expOSVersion = "5_1";
+        String expDevice = "iPhone";
+
+        String actualFamily = result.userAgent.family;
+        String actualFamilyVersion = result.userAgent.major + "_" + result.userAgent.minor;
+        String actualOS = result.os.family;
+        String actualOSVersion = result.os.major + "_" + result.os.minor;
+        String actualDevice = result.device.family;
+
+        assertEquals("Failed to parse correct browser and version", expFamily + expFamilyVersion,
+                actualFamily + actualFamilyVersion);
+        assertEquals("Failed to parse correct OS and version", expOS + expOSVersion,
+                actualOS + actualOSVersion);
+        assertEquals("Failed to parse correct device type", expDevice, actualDevice);
     }
 }

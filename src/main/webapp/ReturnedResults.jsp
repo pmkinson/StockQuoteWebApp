@@ -4,6 +4,9 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
+<%@page import='com.pkin.stocksearch.utilities.database.FileUtils' %>
+
+
 <!-- Retrieve quick quote and historical quote query symbol.
 Set the title of the page to whichever one is not null. -->
 <c:set var="quick" value="${paramValues['quickSymbol']}" scope="page"/>
@@ -31,7 +34,6 @@ Set the title of the page to whichever one is not null. -->
     <script language="JavaScript" type="text/javascript" src="./resources/bootstrap4/js/bootstrap.min.js"></script>
     <!-- BootStrap CSS-->
     <link rel="stylesheet" href="./resources/bootstrap4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./resources/bootstrap4/css/bootstrap-theme.min.css">
     <!--  JQuery UI CSS -->
     <link rel="stylesheet" href="./resources/jquery/css/jquery-ui.css">
     <!-- Load CSS overrides -->
@@ -45,8 +47,30 @@ Set the title of the page to whichever one is not null. -->
 
 <body>
 <div class="nav-element bg-light">
-    <c:import var="nav" url="top_nav.jsp"/>
+    <c:import var="nav" url="top_nav.html"/>
     ${nav}
+
+    <script>
+        /*
+        AutoComplete for stock symbols
+         */
+
+        <c:set var='stocksList' value='${FileUtils.getCSVFile("stocks.csv")}' scope='page'/>
+
+        $(document).ready(function () {
+            $('.bs-autocomplete').autocomplete({
+                source: [${stocksList}],
+                minLength: [2]
+            }).bind('focusin focusout change', function () {
+                var pattern = '^[a-zA-Z]+';
+                var fullString = $(this).val();
+                var trimmed = fullString.match(pattern);
+
+                $(this).val(trimmed);
+            });
+        });
+
+    </script>
 </div>
 
 <div class="container-fluid">
